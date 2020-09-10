@@ -7,5 +7,6 @@ namespace PrettyWebsite
 {
     public class Global
     {
+
     }
 }
