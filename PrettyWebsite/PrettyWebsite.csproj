@@ -280,6 +280,9 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
+    <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="EpiServerDefaultIcon\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
