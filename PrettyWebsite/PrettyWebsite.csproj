@@ -216,7 +216,13 @@
   <!--<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />-->
   <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="true" />-->
   <ItemGroup>
+    <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
+    <Compile Include="Business\Initializers\FilterConfig.cs" />
+    <Compile Include="Business\Initializers\RestrictRootPagesInitialization.cs" />
+    <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
+    <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
+    <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
