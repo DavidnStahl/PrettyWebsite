@@ -227,6 +227,7 @@
   <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="true" />-->
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
+    <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\Initializers\RestrictRootPagesInitialization.cs" />

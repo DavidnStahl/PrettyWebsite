@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels.Interfaces;
 
 namespace PrettyWebsite.Business.ActionFilters
 {

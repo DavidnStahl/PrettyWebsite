@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PrettyWebsite.Models.Pages;
 
 namespace PrettyWebsite.Business.Initializers
 {
@@ -20,7 +21,7 @@ namespace PrettyWebsite.Business.Initializers
             var sysRoot = contentTypeRepository.Load("SysRoot") as PageType;
 
             var setting = new AvailableSetting { Availability = Availability.Specific };
-            setting.AllowedContentTypeNames.Add(contentTypeRepository.Load<NackademinStartPage>().Name);
+            setting.AllowedContentTypeNames.Add(contentTypeRepository.Load<StartPage>().Name);
             //setting.AllowedContentTypeNames.Add(contentTypeRepository.Load<ContainerPage>().Name);
 
             var availableSettingsRepository = context.Locate.Advanced.GetInstance<IAvailableSettingsRepository>();

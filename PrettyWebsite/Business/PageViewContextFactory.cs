@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels;
 
 namespace PrettyWebsite.Business
 {
@@ -33,8 +35,8 @@ namespace PrettyWebsite.Business
                 startPageContentLink = currentContentLink;
             }
 
-            var startPage = _contentLoader.Get<NackademinStartPage>(startPageContentLink);
-            var menu = _contentLoader.GetChildren<PageData>(startPage.ContentLink).Where(x => x.VisibleInMenu).ToList();
+            var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
+            var menu = _contentLoader.GetChildren<SitePageData>(startPage.ContentLink).Where(x => x.VisibleInMenu).ToList();
             menu.Insert(0, startPage);
             return new LayoutModel
             {
