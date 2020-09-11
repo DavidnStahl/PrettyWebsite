@@ -235,6 +235,8 @@
     <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
+    <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
