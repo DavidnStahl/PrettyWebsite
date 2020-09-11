@@ -1,0 +1,19 @@
+﻿@using PrettyWebsite.Models.ViewModels
+
+@model StartPageViewModel
+
+<header>
+    <ul>
+        @foreach (var menuItem in Model.Layout.Menu)
+        {
+            <li>
+                <a href="@Url.ContentUrl(menuItem.ContentLink)">
+                    @menuItem.Name
+                </a>
+            </li>
+        }
+    </ul>
+</header>
+
+<h1>Bajs!</h1>
+@Html.PropertyFor(model => model.CurrentPage.ContentArea)

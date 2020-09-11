@@ -216,18 +216,24 @@
   <!--<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />-->
   <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="true" />-->
   <ItemGroup>
+    <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Models\Pages\SitePageData.cs" />
+    <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\LayoutModel.cs" />
+    <Compile Include="Models\ViewModels\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\StartPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Media\" />
-    <Folder Include="Models\Pages\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />
     <Folder Include="Views\Shared\" />
@@ -244,6 +250,7 @@
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
     <None Include="packages.config" />
+    <Content Include="Views\StartPage\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
