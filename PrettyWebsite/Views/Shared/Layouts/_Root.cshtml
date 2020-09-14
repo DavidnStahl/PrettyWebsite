@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" href="~/Content/Bootstrap 5/css/bootstrap.css"/>
+    <link rel="stylesheet" href="~/Content/Bootstrap 5/css/bootstrap.css" />
     <script src="~/Content/Bootstrap 5/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="~/Content/Site.css"/>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    <link rel="stylesheet" href="~/Content/Navigation.css" />
+    @{Html.RenderPartial("Navigation"); }
 </head>
+
 <body>
     <div class="container">
         @RenderBody()

@@ -1,0 +1,262 @@
+﻿html {
+    margin: 0;
+    min-height: 100vh;
+}
+
+body {
+    margin-top: -0.60rem !important;
+    padding: 0 !important;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+section {
+    color: black;
+    font-size: medium;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+navbar ul {
+    top: 0px;
+}
+
+
+.container-text {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+
+.bg-ui {
+    margin: 0;
+    background-color: blue;
+}
+
+.responsivLanguish {
+    background-color: blue;
+    border: blue;
+    border-radius: 0%;
+    min-width: 100%;
+    padding-left: 10%;
+}
+
+    .responsivLanguish:hover {
+        border: blue;
+        border-radius: 0%;
+    }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2.625), only screen and ( min--moz-device-pixel-ratio: 2.625), only screen and ( -o-min-device-pixel-ratio: 2.625/1), only screen and ( min-device-pixel-ratio: 2.625), only screen and ( min-resolution: 402dpi), only screen and ( min-resolution: 2.625dppx) {
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .bg-ui {
+        margin: 0;
+        background-color: blue;
+        min-width: 100%;
+    }
+
+    .responsiv {
+        width: 70%;
+        height: auto;
+    }
+
+    .responsivCv {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .bg-ui {
+        margin: 0;
+        background-color: blue;
+        min-width: 100%;
+    }
+
+    .responsiv {
+        width: 70%;
+        height: auto;
+    }
+
+    .responsivCv {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .bg-ui {
+        margin: 0;
+        background-color: blue;
+        min-width: 100%;
+    }
+
+    .responsiv {
+        width: 70%;
+        height: auto;
+    }
+
+    .responsivCv {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media only screen and (min-width: 411px) and (max-width: 840px) {
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .bg-ui {
+        margin: 0;
+        background-color: blue;
+        min-width: 100%;
+    }
+
+    .responsiv {
+        width: 70%;
+        height: auto;
+    }
+
+    .responsivCv {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    /* Your Styles... */
+}
+
+@media only screen and (min-device-width: 260px) and (max-device-width: 840px) and (-webkit-min-device-pixel-ratio: 3) {
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .bg-ui {
+        margin: 0;
+        background-color: blue;
+        min-width: 100%;
+    }
+
+    .responsiv {
+        width: 70%;
+        height: auto;
+    }
+
+    .responsivCv {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+@media only screen and (min-device-width: 840px) {
+
+    .responsivLanguish {
+        min-width: 100%;
+        padding-left: 10%;
+    }
+
+    .responsiv {
+        width: 30%;
+        height: auto;
+    }
+
+    .responsivCv {
+        width: 70%;
+        height: 110%;
+    }
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+navbar-toggler {
+    color: white;
+}
+
+.font-color-menu {
+    color: #fff;
+}
+
+.btn-primary {
+    font-family: Open Sans;
+    font-size: 13px;
+    color: rgba(58, 133, 191, 0.75);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(58, 133, 191, 0.75);
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-outline-warning {
+    border-radius: 50px;
+    color: #fff;
+}
+
+.btn-linkedin {
+    background: #11CDD4;
+    background-image: -webkit-linear-gradient(top, #11CDD4, #11999E);
+    background-image: -moz-linear-gradient(top, #11CDD4, #11999E);
+    background-image: -o-linear-gradient(top, #11CDD4, #11999E);
+    background-image: linear-gradient(to bottom, #11CDD4, #11999E);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    padding: 10px;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #337FED 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .btn-linkedin:hover {
+        background: #30E3BC;
+        background-image: -webkit-linear-gradient(top, #30E3BC, #2BC4AD);
+        background-image: -moz-linear-gradient(top, #30E3BC, #2BC4AD);
+        background-image: -o-linear-gradient(top, #30E3BC, #2BC4AD);
+        background-image: linear-gradient(to bottom, #30E3BC, #2BC4AD);
+        text-decoration: none;
+    }

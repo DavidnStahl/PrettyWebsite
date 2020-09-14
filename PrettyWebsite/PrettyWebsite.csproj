@@ -319,6 +319,7 @@
     <Content Include="Content\Bootstrap 5\js\bootstrap.esm.min.js" />
     <Content Include="Content\Bootstrap 5\js\bootstrap.js" />
     <Content Include="Content\Bootstrap 5\js\bootstrap.min.js" />
+    <Content Include="Content\Navigation.css" />
     <Content Include="Content\Site.css" />
     <Content Include="license.txt" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
@@ -354,6 +355,7 @@
     <Content Include="Views\StartPage\Index.cshtml" />
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Navigation.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
