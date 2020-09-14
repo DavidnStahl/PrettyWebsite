@@ -2,6 +2,7 @@
 @model PrettyWebsite.Models.ViewModels.NavigationViewModel
 
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="@Url.ContentUrl(Model.Menu.ToList()[0].ContentLink)">Pretty Website</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,23 +25,7 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
-        <div class="form-inline my-2 my-lg-0">
-
-            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
-            {
-                <div class="input-group mb-3">
-                    <select class="bootstrap-select btn btn-secondary dropdown-toggle">
-                        <option value="1" selected="selected">Title</option>
-                        <option value="2">Articles And News</option>
-
-                    </select>
-
-                <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <div class="input-group-prepend">
-                    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
-                </div>
-            </div>            
-        </form>
+        
     </div>
 </nav>
 

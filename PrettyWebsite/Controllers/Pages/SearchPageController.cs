@@ -1,4 +1,5 @@
 ﻿using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Models.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
@@ -9,15 +10,16 @@ using System.Web.Mvc;
 namespace PrettyWebsite.Controllers.Pages
 {
     
-    public class SearchController : PageControllerBase<StartPage>
+    public class SearchPageController : PageControllerBase<SearchPage>
     {
-        public ActionResult Index(StartPage currentPage, string query)
+        public ActionResult Index(SearchPage currentPage, string query, string choose)
         {
-            
 
-            var model = new StartPageViewModel(currentPage);
+            var x = query;
+            var model = new SearchPageViewModel(currentPage);
 
             return View(model);
         }
+
     }
 }
