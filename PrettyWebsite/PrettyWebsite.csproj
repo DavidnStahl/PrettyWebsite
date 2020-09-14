@@ -1485,6 +1485,9 @@
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Navigation.cshtml" />
+    <Content Include="Views\FooterBlock\Index.cshtml" />
+    <Content Include="Views\HeaderBlock\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

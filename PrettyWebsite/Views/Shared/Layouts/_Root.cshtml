@@ -18,6 +18,9 @@
 
 
 <body>
+
+    @Html.PropertyFor(model => model.Layout.Header);
+
     <div class="container">
         @RenderBody()
     </div>
@@ -25,4 +28,5 @@
     @Html.PropertyFor(model => model.Layout.Footer);
 
 </body>
+
 </html>
