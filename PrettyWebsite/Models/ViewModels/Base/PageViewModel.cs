@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Interfaces;
 
-namespace PrettyWebsite.Models.ViewModels
+namespace PrettyWebsite.Models.ViewModels.Base
 {
     public class PageViewModel<T> : IPageViewModel<T> where T : SitePageData
     {
