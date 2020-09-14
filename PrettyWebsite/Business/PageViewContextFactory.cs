@@ -36,12 +36,11 @@ namespace PrettyWebsite.Business
             }
 
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
-            var menu = _contentLoader.GetChildren<SitePageData>(startPage.ContentLink).Where(x => x.VisibleInMenu).ToList();
-            menu.Insert(0, startPage);
+
             return new LayoutModel
             {
-                Menu = menu
-
+                Header = startPage.Header,
+                Footer = startPage.Footer,
                 //Logotype = startPage.SiteLogotype,
                 //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
                 //ProductPages = startPage.ProductPageLinks,

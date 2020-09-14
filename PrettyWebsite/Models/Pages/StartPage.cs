@@ -6,6 +6,8 @@ using System.Web;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using PrettyWebsite.Models.Blocks;
+using PrettyWebsite.Validation;
 
 namespace PrettyWebsite.Models.Pages
 {
@@ -19,12 +21,30 @@ namespace PrettyWebsite.Models.Pages
     ]
     public class StartPage : SitePageData
     {
+        [CultureSpecific]
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 10)]
+        [AllowedTypes(typeof(HeaderBlock))]
+        [MaxItems(1)]
+        [Required]
+        public virtual ContentArea Header { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 20)]
+        [AllowedTypes(typeof(FooterBlock))]
+        [MaxItems(1)]
+        [Required]
+        public virtual ContentArea Footer { get; set; }
 
         [CultureSpecific]
         [Display(
             Name = "News container",
             GroupName = SystemTabNames.Content,
-            Order = 10)]
+            Order = 30)]
         public virtual ContentArea ContentArea { get; set; }
+
     }
 }
