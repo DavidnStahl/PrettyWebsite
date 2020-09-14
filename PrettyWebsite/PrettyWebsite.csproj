@@ -282,6 +282,7 @@
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Controllers\Base\BasePartialController.cs" />
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
+    <Compile Include="Controllers\Pages\SearchController.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
     <Compile Include="EpiServerDefaultIcon\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Global.asax.cs">
@@ -1476,6 +1477,7 @@
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Navigation.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

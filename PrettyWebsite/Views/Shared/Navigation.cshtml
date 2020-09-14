@@ -25,16 +25,25 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <div class="form-inline my-2 my-lg-0">
 
-            <div class="input-group mb-3">
+            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+            {
+                <div class="input-group mb-3">
+                    <select class="bootstrap-select btn btn-secondary dropdown-toggle">
+                        <option value="1" selected="selected">Title</option>
+                        <option value="2">Articles And News</option>
 
-                <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <div class="input-group-prepend">
-                    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+                    </select>
+
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <div class="input-group-prepend">
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+                    </div>
                 </div>
-            </div>            
-        </form>
+            }
+            
+        </div>
     </div>
 </nav>
 
