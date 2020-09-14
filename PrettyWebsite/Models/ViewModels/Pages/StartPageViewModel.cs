@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using PrettyWebsite.Models.Pages;
+﻿using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels.Base;
 
-namespace PrettyWebsite.Models.ViewModels
+namespace PrettyWebsite.Models.ViewModels.Pages
 {
     public class StartPageViewModel : PageViewModel<StartPage>
     {

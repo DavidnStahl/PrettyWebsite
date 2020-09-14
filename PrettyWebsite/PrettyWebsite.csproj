@@ -280,8 +280,8 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
-    <Compile Include="Controllers\PageControllerBase.cs" />
-    <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\Base\PageControllerBase.cs" />
+    <Compile Include="Controllers\Pages\StartPageController.cs" />
     <Compile Include="EpiServerDefaultIcon\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,14 +291,16 @@
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
-    <Compile Include="Models\ViewModels\PageViewModel.cs" />
-    <Compile Include="Models\ViewModels\StartPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Base\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controllers\Blocks\" />
     <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
+    <Folder Include="Models\ViewModels\Blocks\" />
     <Folder Include="Static\" />
   </ItemGroup>
   <ItemGroup>

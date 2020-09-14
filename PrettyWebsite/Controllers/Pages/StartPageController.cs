@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
+using PrettyWebsite.Models.ViewModels.Pages;
 
-namespace PrettyWebsite.Controllers
+namespace PrettyWebsite.Controllers.Pages
 {
     public class StartPageController : PageControllerBase<StartPage>
     {
