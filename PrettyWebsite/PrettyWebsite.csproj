@@ -302,7 +302,6 @@
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Models\ViewModels\Blocks\" />
-    <Folder Include="Scripts\" />
     <Folder Include="Static\" />
   </ItemGroup>
   <ItemGroup>
