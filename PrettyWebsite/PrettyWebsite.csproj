@@ -280,6 +280,7 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
+    <Compile Include="Controllers\Base\BasePartialController.cs" />
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
     <Compile Include="EpiServerDefaultIcon\EpiserverDefaultContentIcons.cs" />
@@ -287,6 +288,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
@@ -297,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Blocks\" />
-    <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Models\ViewModels\Blocks\" />
@@ -312,7 +313,6 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
-    <Content Include="License.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
