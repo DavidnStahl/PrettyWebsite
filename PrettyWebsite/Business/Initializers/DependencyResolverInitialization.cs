@@ -2,6 +2,8 @@
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
+using PrettyWebsite.Repositories;
+using PrettyWebsite.Repositories.Interfaces;
 using PrettyWebsite.Services;
 using System.Web.Mvc;
 
@@ -24,6 +26,7 @@ namespace PrettyWebsite.Business.Initializers
             context.ConfigurationComplete += (o, e) =>
             {
                 context.Services.AddTransient<IRssFeedService, RssFeedService>();
+                context.Services.AddTransient<IDataStoreRepository, DataStoreRepository>();
             };
         }
     }
