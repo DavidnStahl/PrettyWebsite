@@ -10,10 +10,7 @@ namespace PrettyWebsite.Controllers.Pages
     {
         public ActionResult Index(StartPage currentPage)
         {
-            var feed = new RssFeedService();
-            var result = feed.Get();
             var model = new StartPageViewModel(currentPage);
-            model.RssFeed = result;
             return View(model);
         }
     }
