@@ -25,14 +25,14 @@ namespace PrettyWebsite.Services
                     Title = item.Title.Text,
                     Body = item.Summary.Text,
                     Url = item.Links[0].Uri.OriginalString,
-                    PublicationDate = item.PublishDate.ToString(),
-                    Category = item.Categories
+                    PublicationDate = item.PublishDate,
+                    Category = item.Categories[0].Name
                 };
 
                 rssFeedList.Add(rssFeed);                
             }
 
-            return rssFeedList;
+            return rssFeedList.OrderByDescending(x => x.PublicationDate).ToList();
         }
     }
 }
