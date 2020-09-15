@@ -1571,6 +1571,7 @@
     <Content Include="Views\RssFeedBlock\Index.cshtml" />
     <Content Include="Views\MovieReviewBlock\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="ServerLicense\License.config" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
