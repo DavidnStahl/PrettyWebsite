@@ -2,6 +2,7 @@
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
+using PrettyWebsite.Services;
 using System.Web.Mvc;
 
 namespace PrettyWebsite.Business.Initializers
@@ -22,7 +23,7 @@ namespace PrettyWebsite.Business.Initializers
         {
             context.ConfigurationComplete += (o, e) =>
             {
-                
+                context.Services.AddTransient<IRssFeedService, RssFeedService>();
             };
         }
     }

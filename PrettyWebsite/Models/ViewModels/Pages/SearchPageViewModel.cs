@@ -9,7 +9,7 @@ namespace PrettyWebsite.Models.ViewModels.Pages
 {
 
     public class SearchPageViewModel : PageViewModel<SearchPage>
-    {
+    {        
         
         public SearchPageViewModel(SearchPage currentPage) : base(currentPage)
         {

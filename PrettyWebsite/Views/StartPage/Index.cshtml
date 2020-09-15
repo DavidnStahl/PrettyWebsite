@@ -4,3 +4,20 @@
 
 <h1>Tjena!</h1>
 @Html.PropertyFor(model => model.CurrentPage.ContentArea)
+
+
+<div>
+    @foreach (var item in Model.RssFeed)
+    {
+        <h2>@item.Title</h2>
+        <p>@item.Body.</p>
+        <a href="@item.Url">@item.Url</a>
+        <p>@item.PublicationDate</p>
+        <div>
+            @foreach (var category in item.Category)
+            {
+                <p>@category.Name</p>
+            }
+    </div>
+}
+</div>
