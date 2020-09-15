@@ -27,6 +27,7 @@ namespace PrettyWebsite.Business.Initializers
             {
                 context.Services.AddTransient<IRssFeedService, RssFeedService>();
                 context.Services.AddTransient<IDataStoreRepository, DataStoreRepository>();
+                context.Services.AddTransient<IMovieRepository, MovieRepository>();
             };
         }
     }
