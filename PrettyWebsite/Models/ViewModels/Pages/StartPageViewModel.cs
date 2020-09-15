@@ -6,7 +6,7 @@ namespace PrettyWebsite.Models.ViewModels.Pages
 {
     public class StartPageViewModel : PageViewModel<StartPage>
     {
-        public List<RssFeed> RssFeed { get; set; }
+        
         public StartPageViewModel(StartPage currentPage) : base(currentPage)
         {
         }
