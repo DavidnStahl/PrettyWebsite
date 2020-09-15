@@ -307,6 +307,7 @@
     <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
     <Compile Include="Models\ViewModels\Base\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\MovieViewModel.cs" />
     <Compile Include="Models\ViewModels\NavigationViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
