@@ -1613,8 +1613,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v16.0\Web\Microsoft.Web.Publishing.targets" Condition="!Exists('$(VSToolsPath)\Web\Microsoft.Web.Publishing.targets')" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v16.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.targets" Condition="!Exists('$(VSToolsPath)\Web\Microsoft.Web.Publishing.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" />
   <Target Name="BeforeBuild">
     <TransformXml Source="Web.Config" Transform="Web.$(Configuration).config" Destination="Web.config" />
   </Target>
