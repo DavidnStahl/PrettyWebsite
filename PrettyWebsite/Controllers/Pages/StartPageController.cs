@@ -2,6 +2,7 @@
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Models.ViewModels.Pages;
+using PrettyWebsite.Services;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -10,7 +11,6 @@ namespace PrettyWebsite.Controllers.Pages
         public ActionResult Index(StartPage currentPage)
         {
             var model = new StartPageViewModel(currentPage);
-
             return View(model);
         }
     }
