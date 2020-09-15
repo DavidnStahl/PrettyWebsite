@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PrettyWebsite.Repositories.Interfaces
 {
-    interface IMovieRepository
+    public interface IMovieRepository
     {
         Task<MovieSearch> SearchByTitle(string query);
         Task<Movie> GetMovie(string id);

@@ -1,0 +1,44 @@
+﻿@model PrettyWebsite.Models.ViewModels.MovieViewModel
+
+<div class="card">
+    <img src="@Model.Movie.Poster" alt="">
+    <div class="container">
+
+        <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
+        <p><strong>Genre:</strong> @Model.Movie.Genre</p>
+        <p><strong>Director:</strong> @Model.Movie.Director</p>
+        <p><strong>Actors:</strong> @Model.Movie.Actors</p>
+        <p><strong>Plot:</strong> @Model.Movie.Plot</p>
+        <p>
+            <strong>Ratings:</strong><br />
+            @foreach (var item in Model.Movie.Ratings)
+            {
+                @item.Source @: @item.Value<br />
+            }
+        </p>
+        <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
+    </div>
+</div>
+
+@*@Model.Movie.Type
+@Model.Movie.Runtime
+@Model.Movie.Released
+@Model.Movie.Genre
+@Model.Movie.Rated
+@Model.Movie.Plot
+@Model.Movie.Language
+@Model.Movie.Country
+@Model.Movie.Writer
+@Model.Movie.Production
+@Model.Movie.Director
+@Model.Movie.Actors
+@Model.Movie.Awards
+@Model.Movie.Metascore
+@Model.Movie.imdbRating
+@Model.Movie.imdbVotes
+@Model.Movie.BoxOffice*@
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
