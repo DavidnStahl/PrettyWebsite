@@ -12,9 +12,9 @@ namespace PrettyWebsite.Controllers.Pages
     
     public class SearchPageController : PageControllerBase<SearchPage>
     {
-        public ActionResult Index(SearchPage currentPage, string query, string choose)
+        public ActionResult Index(SearchPage currentPage,string searchType, string query)
         {
-
+            var y = searchType;
             var x = query;
             var model = new SearchPageViewModel(currentPage);
 
