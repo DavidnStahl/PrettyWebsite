@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 
+@using System.Web.Optimization
 @using PrettyWebsite.Controllers
 @model PrettyWebsite.Models.ViewModels.RegisterViewModel
 @{
@@ -9,6 +10,8 @@
 <html>
 <head>
     <title>Create Administrator Account</title>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/js")
 </head>
 
 <body>
