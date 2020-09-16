@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -1569,6 +1569,11 @@
     <Content Include="Views\HeaderBlock\Index.cshtml" />
     <Content Include="Views\SearchPage\Index.cshtml" />
     <Content Include="Views\RssFeedBlock\Index.cshtml" />
+    <Content Include="Views\SearchPage\MovieDetails.cshtml" />
+    <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
+    <Content Include="Views\MovieReviewBlock\Get.cshtml" />
+    <Content Include="Views\MovieReviewBlock\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
