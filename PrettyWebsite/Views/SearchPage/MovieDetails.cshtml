@@ -1,5 +1,11 @@
 ﻿@model PrettyWebsite.Models.ViewModels.MovieViewModel
 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/Static/js/ReviewStar.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <div class="card">
     <img src="@Model.Movie.Poster" alt="">
     <div class="container">
@@ -18,25 +24,67 @@
         </p>
         <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
     </div>
+
+
+    @using (Html.BeginForm("MovieDetails", "SearchPage", FormMethod.Get))
+    {
+        <div class="form-group">
+            <input hidden name="id" type="text" value="@Model.Movie.imdbID" />
+            <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+            <textarea name="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Enter your review here..." rows="6"></textarea>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h2><small>Hover and click on a star</small></h2>
+            </div>
+            <div class="row lead">
+                <div id="stars" class="starrr"></div>
+                <h4>You gave a rating of <span id="count">0</span> star(s)</h4>
+                <input hidden name="rating" type="text" id="count2" />
+            </div>
+        </div>
+        <input type="submit" value="submit" />
+    }
 </div>
 
+@if (Model.ReviewList.Count > 0)
+{
+    foreach (var review in Model.ReviewList)
+    {
+        <div class="card">
+
+            <div class="container">
+
+                <p><strong>Author</strong> @review.Name</p>
+                <p>@review.Text</p>
+                <p><strong>Rating:</strong> @review.Rating</p>
+                <p><strong>Date:</strong> @review.PublicationDate</p>
+            </div>
+        </div>
+    }
+}
+
+
 @*@Model.Movie.Type
-@Model.Movie.Runtime
-@Model.Movie.Released
-@Model.Movie.Genre
-@Model.Movie.Rated
-@Model.Movie.Plot
-@Model.Movie.Language
-@Model.Movie.Country
-@Model.Movie.Writer
-@Model.Movie.Production
-@Model.Movie.Director
-@Model.Movie.Actors
-@Model.Movie.Awards
-@Model.Movie.Metascore
-@Model.Movie.imdbRating
-@Model.Movie.imdbVotes
-@Model.Movie.BoxOffice*@
+    @Model.Movie.Runtime
+    @Model.Movie.Released
+    @Model.Movie.Genre
+    @Model.Movie.Rated
+    @Model.Movie.Plot
+    @Model.Movie.Language
+    @Model.Movie.Country
+    @Model.Movie.Writer
+    @Model.Movie.Production
+    @Model.Movie.Director
+    @Model.Movie.Actors
+    @Model.Movie.Awards
+    @Model.Movie.Metascore
+    @Model.Movie.imdbRating
+    @Model.Movie.imdbVotes
+    @Model.Movie.BoxOffice*@
 
 <p>
     @Html.ActionLink("Back to List", "Index")
