@@ -17,7 +17,7 @@ namespace PrettyWebsite.Controllers.Pages
     public class SearchPageController : PageControllerBase<SearchPage>
     {
         private readonly IMovieRepository _movieRepository;
-     
+
 
         public SearchPageController(IMovieRepository movieRepository)
         {
@@ -41,8 +41,8 @@ namespace PrettyWebsite.Controllers.Pages
             //Byt ut till selectListItem
             if (searchType == "1")
             {
-                model.MovieSearchViewModel = new MovieSearchViewModel(currentPage) { Search = new MovieSearch() };
-                model.MovieSearchViewModel.Search = await _movieRepository.SearchByTitle(query);
+                model.MovieSearchViewModel = new MovieSearchViewModel(currentPage);
+                model.MovieSearchViewModel.SearchResult = await _movieRepository.SearchByTitle(query);
 
                 return View(model);
             }
@@ -54,13 +54,12 @@ namespace PrettyWebsite.Controllers.Pages
         }
 
         [HttpGet]
-        public async Task<ActionResult> MovieDetails(MoviePage currentPage, string id)
+        public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id)
         {
             var movie = await _movieRepository.GetMovie(id);
             var model = new MovieViewModel(currentPage, movie);
 
             return View(model);
         }
-
     }
 }

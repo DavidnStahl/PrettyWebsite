@@ -363,7 +363,6 @@
     <Compile Include="Models\Blocks\RssFeedBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\MovieSearch.cs" />
     <Compile Include="Models\Pages\MoviePage.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
@@ -391,6 +390,7 @@
     <Compile Include="Services\IRssFeedService.cs" />
     <Compile Include="Services\RssFeedService.cs" />
     <Compile Include="Validation\MaxItemsAttribute.cs" />
+    <Compile Include="Views\MovieSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Media\" />
@@ -1576,6 +1576,7 @@
     <Content Include="Views\RssFeedBlock\Index.cshtml" />
     <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\SearchPage\MovieDetails.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

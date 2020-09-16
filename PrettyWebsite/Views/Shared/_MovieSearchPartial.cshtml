@@ -1,12 +1,14 @@
 ﻿@model PrettyWebsite.Models.ViewModels.MovieSearchViewModel
 
 
-@if (Model.Search != null)
+@if (Model.SearchResult.Search.Count() > 0)
 {
-<ul>
-    @foreach (var movie in Model.Search.SearchResult)
-    {
-<li>
-    <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)MovieDetails?id=@movie.imdbID">@movie.Title</a>
-</li>}
-</ul>}
+    <ul>
+        @foreach (var movie in Model.SearchResult.Search)
+        {
+            <li>
+                <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)MovieDetails?id=@movie.imdbID">@movie.Title</a>
+            </li>
+        }
+    </ul>
+}

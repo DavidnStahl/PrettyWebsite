@@ -6,6 +6,7 @@ using System.Web;
 using System.Threading.Tasks;
 using System.Net.Http;
 using PrettyWebsite.Models;
+using PrettyWebsite.Views;
 
 namespace PrettyWebsite.Repositories
 {
