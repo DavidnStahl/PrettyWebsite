@@ -9,8 +9,10 @@ namespace PrettyWebsite.Repositories.Interfaces
 {
     public interface IDataStoreRepository
     {
-        void Save(ReviewData data);
+        void Save(Review data);
 
-        List<ReviewData> Get(string id);
+        List<Review> Get(string id);
+
+        void Delete(string id);
     }
 }

@@ -85,5 +85,6 @@ namespace PrettyWebsite
         /// Virtual path to folder with static graphics, such as "~/Static/gfx/"
         /// </summary>
         public const string StaticGraphicsFolderPath = "~/Static/gfx/";
+
     }
 }

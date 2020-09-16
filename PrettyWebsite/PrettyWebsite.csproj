@@ -353,7 +353,7 @@
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Pages\SearchPageController.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
-    <Compile Include="DataStore\ReviewData.cs" />
+    <Compile Include="DataStore\Review.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="EpiServerDefaultIcon\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Global.asax.cs">
@@ -402,6 +402,7 @@
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Bootstrap 5\css\bootstrap-grid.css" />
@@ -1570,7 +1571,6 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
-    <Content Include="License.config" />
     <None Include="packages.config" />
     <Content Include="Views\StartPage\Index.cshtml" />
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
@@ -1580,6 +1580,12 @@
     <Content Include="Views\HeaderBlock\Index.cshtml" />
     <Content Include="Views\SearchPage\Index.cshtml" />
     <Content Include="Views\RssFeedBlock\Index.cshtml" />
+    <Content Include="Views\MovieReviewBlock\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\SearchPage\MovieDetails.cshtml" />
+    <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\MovieReviewBlock\Get.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

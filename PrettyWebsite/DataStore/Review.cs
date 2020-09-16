@@ -5,12 +5,12 @@ using System;
 namespace PrettyWebsite.DataStore
 {
     [EPiServerDataStore(AutomaticallyCreateStore = true, AutomaticallyRemapStore = true)]
-    public class ReviewData
+    public class Review
     {
         public Identity Id { get; set; }
 
 
-        public DateTimeOffset PubliationDate { get; set; }
+        public DateTime PubliationDate { get; set; }
         public string MovieId { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }

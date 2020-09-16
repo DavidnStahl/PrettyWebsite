@@ -18,7 +18,7 @@ namespace PrettyWebsite.Models.ViewModels.Blocks
         public string Text { get; set; }
         [Display(Name = "Rating")]
         public double Rating { get; set; }
-        public List<ReviewData> ReviewDataList { get; set; }
+        public List<Review> ReviewDataList { get; set; }
 
 
         public MovieReviewBlockViewModel(MovieReviewBlock currentBlock) : base(currentBlock)

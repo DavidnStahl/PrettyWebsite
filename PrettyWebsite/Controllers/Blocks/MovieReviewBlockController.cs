@@ -1,4 +1,5 @@
-﻿using EPiServer.Web.Mvc;
+﻿using EPiServer.Find.Framework.UI.Localization;
+using EPiServer.Web.Mvc;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.ViewModels.Blocks;
@@ -18,28 +19,22 @@ namespace PrettyWebsite.Controllers.Blocks
         {
             _dataStoreRepository = dataStoreRepository;
         }
-        public ActionResult Index(MovieReviewBlock currentBlock, string id)
+        public override ActionResult Index(MovieReviewBlock currentBlock)
         {
             var model = new MovieReviewBlockViewModel(currentBlock);
-            model.ReviewDataList = _dataStoreRepository.Get(id);
+            model.ReviewDataList = _dataStoreRepository.Get("tt1375666");
             return PartialView(model);
+
+
         }
 
-        public ActionResult Index(MovieReviewBlock currentBlock, string id, MovieReviewBlockViewModel data)
+        [HttpPost]
+        public virtual ActionResult Get(MovieReviewBlock currentBlock)
         {
-            ReviewData reviewData = new ReviewData
-            {
-                MovieId = id,
-                Name = data.Name,
-                Text = data.Text,
-                Rating = data.Rating,
-                PubliationDate = DateTimeOffset.Now
-            };
-            _dataStoreRepository.Save(reviewData);
-
-            var model = new MovieReviewBlockViewModel(currentBlock);
-            model.ReviewDataList = _dataStoreRepository.Get(id);
-            return PartialView(model);
+            
+            /*var model = new MovieReviewBlockViewModel(currentBlock);
+            model.ReviewDataList = _dataStoreRepository.Get(id);*/
+            return PartialView();
         }
 
     }

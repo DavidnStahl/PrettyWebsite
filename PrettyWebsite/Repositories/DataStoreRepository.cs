@@ -11,19 +11,31 @@ namespace PrettyWebsite.Repositories
 {
     public class DataStoreRepository : IDataStoreRepository
     {
-        public void Save(ReviewData data)
+        public void Save(Review data)
         {
-            DynamicDataStore store = typeof(ReviewData).GetOrCreateStore();
+            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
             store.Save(data);
         }
 
-        public  List<ReviewData> Get(string id)
+        public  List<Review> Get(string id)
         {
-            DynamicDataStore store = typeof(ReviewData).GetOrCreateStore();
-            var reviewData = store.Items<ReviewData>().Where(data => data.MovieId == id)
-                                                      .OrderByDescending(date => date.PubliationDate)
+            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
+            var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
                                                       .ToList();
             return reviewData;
+        }
+
+        public void Delete(string id)
+        {
+            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
+            var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
+                                                   .ToList();
+
+            foreach (var item in reviewData)
+            {
+                store.Delete(item.Id);
+            }
+            
         }
     }
 }
