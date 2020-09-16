@@ -7,11 +7,12 @@ using System.Web;
 
 namespace PrettyWebsite.Models.ViewModels
 {
-    public class MovieViewModel : PageViewModel<MoviePage>
+    //public class MovieViewModel : PageViewModel<MoviePage>
+    public class MovieViewModel : PageViewModel<SearchPage>
     {
         public Movie Movie { get; }
             
-        public MovieViewModel(MoviePage currentPage, Movie movie) : base(currentPage)
+        public MovieViewModel(SearchPage currentPage, Movie movie) : base(currentPage)
         {
             Movie = movie;
         }
