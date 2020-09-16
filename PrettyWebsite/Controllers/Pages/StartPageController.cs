@@ -19,7 +19,7 @@ namespace PrettyWebsite.Controllers.Pages
         }
         public ActionResult Index(StartPage currentPage, string name = null, string text = null,string rating = null)
         {
-            var id = "tt1375666";
+            /*var id = "tt1375666";
             //_dataStoreRepository.Delete(id);
            
             if (name != null)
@@ -30,14 +30,14 @@ namespace PrettyWebsite.Controllers.Pages
                     Name = name,
                     Text = text,
                     Rating = double.Parse(rating),
-                    PubliationDate = DateTime.Now
+                    PublicationDate = DateTime.Now
                 };
                 _dataStoreRepository.Save(reviewData);
             }
 
             
             
-            var y = _dataStoreRepository.Get(id);
+            var y = _dataStoreRepository.Get(id);*/
             var model = new StartPageViewModel(currentPage);
             return View(model);
         }

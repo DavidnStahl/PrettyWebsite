@@ -9,8 +9,7 @@ namespace PrettyWebsite.DataStore
     {
         public Identity Id { get; set; }
 
-
-        public DateTime PubliationDate { get; set; }
+        public DateTime PublicationDate { get; set; }
         public string MovieId { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
