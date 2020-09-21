@@ -6,8 +6,20 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="~/Static/js/ReviewStar.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 <!------ Include the above in your HEAD tag ---------->
+
+@{
+    var stars = 0;
+}
 
 <div class="card">
     <img src="@Model.Movie.Poster" alt="">
@@ -28,39 +40,75 @@
         <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
     </div>
 
-    @if(Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
+    @if (Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
     {
-      @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
+        @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
     }
 
 
-
-
-    @if (Model.ReviewList.Count > 0)
-    {
-        foreach (var review in Model.ReviewList)
-        {
-            <div class="card">
-
-                <div class="container">
-
-
-                    <p><strong>ReviewRating</strong> @review.ReviewRating.ToString()</p>
-                    <p><strong>Author</strong> @review.Name</p>
-                    <p>@review.Text</p>
-                    <p><strong>Rating:</strong> @review.Rating</p>
-                    <p><strong>Date:</strong> @review.PublicationDate</p>
-                    @if (Model.reviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
+    <div class="container text-dark bg-warning">
+        <div class="row">
+            <div>
+                <h1 class="text-center">Reviews</h1>
+                @if (Model.ReviewList.Count > 0)
+                {
+                    foreach (var review in Model.ReviewList)
                     {
-                        <button onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
-                        <button onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                        stars = 0;
+                        <div class="list-group">
+                            <div class="list-group-item">
+
+                                <div class="col-md-11">
+                                    <div class="col-md-9"><h4 class="list-group-item-heading text-center"> <strong>Author:</strong> @review.Name</h4></div>
+                                    <div class="col-md-3"><h4 class="list-group-item-heading"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
+                                    <div class="list-group-item-text">
+                                        <p>@review.Text</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    @if (Model.reviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
+                                    {
+                                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
+                                        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="disabled btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
+                                        <button type="button" class="disabled btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                                    }
+
+                                </div>
+                                <div class="col-md-3 text-left">
+
+                                    @for (int i = 0; i < Convert.ToInt32(@review.Rating); i++)
+                                    {
+                                        <span class="float-left fa fa-star checked"></span>
+                                        stars++;
+                                    }
+
+                                    @for (int i = stars; i < 6; i++)
+                                    {
+                                        <i class="float-left fa fa-star-o unChecked" aria-hidden="true"></i>
+                                    }
+                                </div>
+
+                                <div class="row">
+                                    <span>@review.PublicationDate</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
                     }
-
-                </div>
-
+                }
             </div>
-        }
-    }
+
+        </div>
+    </div>
+
+
 
     <p>
         @Html.ActionLink("Back to List", "Index")
@@ -68,10 +116,10 @@
 
     <script>
 
-        
+
         function rating(value, id, movieId) {
             var url = '/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId;
             window.location.href = ('/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId);
-    }
+        }
 
     </script>

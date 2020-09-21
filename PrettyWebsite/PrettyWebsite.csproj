@@ -432,6 +432,7 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
+    <Content Include="Static\css\form.css" />
     <Content Include="Static\icons\alarm-fill.svg" />
     <Content Include="Static\icons\alarm.svg" />
     <Content Include="Static\icons\align-bottom.svg" />
@@ -1561,6 +1562,7 @@
     <Content Include="Static\js\bootstrap.bundle.js" />
     <Content Include="Static\js\bootstrap.esm.js" />
     <Content Include="Static\js\bootstrap.js" />
+    <Content Include="Static\js\global.js" />
     <Content Include="Static\js\ReviewStar.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
