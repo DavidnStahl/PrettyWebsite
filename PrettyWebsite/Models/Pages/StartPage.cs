@@ -7,6 +7,7 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using PrettyWebsite.Models.Blocks;
+using PrettyWebsite.Models.Containers;
 using PrettyWebsite.Validation;
 
 namespace PrettyWebsite.Models.Pages
@@ -16,7 +17,7 @@ namespace PrettyWebsite.Models.Pages
         GUID = "2FE55D24-7A71-4F68-9012-63CBDD00DD80"
     )]
     [AvailableContentTypes(
-        Availability.Specific, Include = new[] {typeof(SearchPage)},
+        Availability.Specific, Include = new[] {typeof(SearchPage), typeof(NewsContainer) },
         ExcludeOn = new[] { typeof(StartPage)})
     ]
     public class StartPage : SitePageData

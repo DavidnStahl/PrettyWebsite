@@ -12,7 +12,7 @@ namespace PrettyWebsite.Models.Blocks
     {
         [Display(Order = 10, GroupName = SystemTabNames.Content)]
         [Required]
-        public virtual ContentReference Url { get; set; }
+        public virtual Url Url { get; set; }
        
         [Display(Order = 20, GroupName = SystemTabNames.Content)]
         [Required]
