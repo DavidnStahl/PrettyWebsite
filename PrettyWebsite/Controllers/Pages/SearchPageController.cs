@@ -1,4 +1,7 @@
-﻿using PrettyWebsite.DataStore;
+﻿using EPiServer.Find;
+using EPiServer.Find.Framework;
+using EPiServer.Find.UnifiedSearch;
+using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
@@ -28,17 +31,12 @@ namespace PrettyWebsite.Controllers.Pages
         {
             var model = new SearchPageViewModel(currentPage);
 
-            //model.SearchType = new List<SelectListItem>() {
-            //         new SelectListItem { Text = "Movie By Title", Value = "1"},
-            //         new SelectListItem { Text = "Articles And News", Value = "2" }
-            //};
 
             if (string.IsNullOrWhiteSpace(query))
             {
                 return View(model);
             }
 
-            //Byt ut till selectListItem
             if (searchType == "1")
             {
                 model.MovieSearchViewModel = new MovieSearchViewModel(currentPage);
@@ -48,7 +46,16 @@ namespace PrettyWebsite.Controllers.Pages
             }
             else
             {
-                // skapa model.NewsSearchViewModel
+                model.NewsSearchViewModel = new NewsSearchViewModel(currentPage);
+
+                var hitSpec = new HitSpecification
+                {
+                    ExcerptLength = 255
+                };
+                //lägg till sortering på sökresultat?
+                var result = SearchClient.Instance.UnifiedSearchFor(query, Language.English).UsingSynonyms().ApplyBestBets();
+                model.NewsSearchViewModel.SearchResult = result.Take(50).GetResult(hitSpec);
+
                 return View(model);
             }
         }

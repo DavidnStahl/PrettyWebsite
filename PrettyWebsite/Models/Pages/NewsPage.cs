@@ -12,7 +12,6 @@ namespace PrettyWebsite.Models.Pages
     [ContentType(DisplayName = "NewsPage", GUID = "3f3cf916-b627-4cf6-9aa3-91623ffbe38b", Description = "")]
     public class NewsPage : SitePageData
     {
-        [CultureSpecific]
         [Display(
           GroupName = SystemTabNames.Content,
           Order = 10

@@ -13,9 +13,7 @@ namespace PrettyWebsite.Models.ViewModels.Pages
     {
         public MovieSearchViewModel MovieSearchViewModel { get; set; }
 
-        //public NewsSearchViewModel NewsSearchViewModel { get; set; }
-
-        //public IEnumerable<SelectListItem> SearchType { get; set; }
+        public NewsSearchViewModel NewsSearchViewModel { get; set; }
 
         public SearchPageViewModel(SearchPage currentPage) : base(currentPage)
         {

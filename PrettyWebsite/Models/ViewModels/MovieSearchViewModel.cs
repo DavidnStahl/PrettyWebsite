@@ -15,7 +15,6 @@ namespace PrettyWebsite.Models.ViewModels
     public class MovieSearchViewModel : PageViewModel<SearchPage>
     {
         public MovieSearch SearchResult { get; set; }
-        public NewsSearch NewsSearchResult { get; set; }
 
         public MovieSearchViewModel(SearchPage currentPage) : base(currentPage)
         {
