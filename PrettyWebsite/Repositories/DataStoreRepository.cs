@@ -1,4 +1,5 @@
-﻿using EPiServer.Data.Dynamic;
+﻿using EPiServer.Data;
+using EPiServer.Data.Dynamic;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Repositories.Interfaces;
 using System;
@@ -17,11 +18,29 @@ namespace PrettyWebsite.Repositories
             store.Save(data);
         }
 
+        public void SaveRating(Identity id,string rating)
+        {
+            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
+            var reviewData = store.Items<Review>().FirstOrDefault(data => data.Id == id);
+
+            if(rating == "up")
+            {
+                reviewData.ReviewRating++;
+            }
+            else
+            {
+                reviewData.ReviewRating--;
+            }
+            
+            store.Save(reviewData);
+        }
+
         public  List<Review> Get(string id)
         {
             var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
             var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
-                                                      .ToList();
+                                                  .OrderByDescending(data => data.ReviewRating)
+                                                  .ToList();
             return reviewData;
         }
 
@@ -29,7 +48,7 @@ namespace PrettyWebsite.Repositories
         {
             var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
             var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
-                                                   .ToList();
+                                                  .ToList();
 
             foreach (var item in reviewData)
             {

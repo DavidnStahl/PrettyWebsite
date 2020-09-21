@@ -1,4 +1,7 @@
-﻿using PrettyWebsite.DataStore;
+﻿using Castle.MicroKernel;
+using EPiServer.Data;
+using EPiServer.Web.Routing;
+using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
@@ -66,15 +69,54 @@ namespace PrettyWebsite.Controllers.Pages
                     Name = name,
                     Text = text,
                     Rating = double.Parse(rating),
-                    PublicationDate = DateTime.Now
+                    PublicationDate = DateTime.Now,
+                    ReviewRating = 0
                 };
                 _dataStoreRepository.Save(reviewData);
             }
             var reviewList = _dataStoreRepository.Get(id);
+
+            var reviewAverage = reviewList.Select(data => data.Rating).Average();
+
             var movie = await _movieRepository.GetMovie(id);
+
             var model = new MoviePageViewModel(currentPage, movie, reviewList);
+            model.Ratings = movie.Ratings.ToList();
+            model.Ratings.Add(new Rating
+            {
+                Source = "Prettywebsite",
+                Value = reviewAverage.ToString() + "/5.0"
+            });
+
+            if(Session["User"] == null)
+            {
+                Session["User"] = new User
+                {
+                    MovieList = new List<string>(),
+                    ReviewRatedList = new List<string>()
+                };
+            }
+
+            var user = Session["User"] as User;
+
+            model.movieList = user.MovieList;
+            model.reviewRatedList = user.ReviewRatedList;
 
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult ReviewRating(SearchPage currentPage,string id, string rating,string movieId)
+        {
+            Identity.TryParse(id, out Identity identity);
+
+            _dataStoreRepository.SaveRating(identity, rating);
+
+            var user = Session["User"] as User;
+            user.ReviewRatedList.Add(id);
+
+            return RedirectToAction("MovieDetails",new { id = movieId });
+        }
+
     }
 }

@@ -1,9 +1,12 @@
 ﻿@model PrettyWebsite.Models.ViewModels.Pages.MoviePageViewModel
 
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="~/Static/js/ReviewStar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="card">
@@ -17,7 +20,7 @@
         <p><strong>Plot:</strong> @Model.Movie.Plot</p>
         <p>
             <strong>Ratings:</strong><br />
-            @foreach (var item in Model.Movie.Ratings)
+            @foreach (var item in Model.Ratings)
             {
                 @item.Source @: @item.Value<br />
             }
@@ -25,8 +28,13 @@
         <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
     </div>
 
-    @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
-    
+    @if(Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
+    {
+      @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
+    }
+
+
+
 
     @if (Model.ReviewList.Count > 0)
     {
@@ -36,35 +44,34 @@
 
                 <div class="container">
 
+
+                    <p><strong>ReviewRating</strong> @review.ReviewRating.ToString()</p>
                     <p><strong>Author</strong> @review.Name</p>
                     <p>@review.Text</p>
                     <p><strong>Rating:</strong> @review.Rating</p>
                     <p><strong>Date:</strong> @review.PublicationDate</p>
+                    @if (Model.reviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
+                    {
+                        <button onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
+                        <button onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                    }
+
                 </div>
+
             </div>
         }
     }
-
-
-    @*@Model.Movie.Type
-        @Model.Movie.Runtime
-        @Model.Movie.Released
-        @Model.Movie.Genre
-        @Model.Movie.Rated
-        @Model.Movie.Plot
-        @Model.Movie.Language
-        @Model.Movie.Country
-        @Model.Movie.Writer
-        @Model.Movie.Production
-        @Model.Movie.Director
-        @Model.Movie.Actors
-        @Model.Movie.Awards
-        @Model.Movie.Metascore
-        @Model.Movie.imdbRating
-        @Model.Movie.imdbVotes
-        @Model.Movie.BoxOffice*@
 
     <p>
         @Html.ActionLink("Back to List", "Index")
     </p>
 
+    <script>
+
+        
+        function rating(value, id, movieId) {
+            var url = '/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId;
+            window.location.href = ('/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId);
+    }
+
+    </script>
