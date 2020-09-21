@@ -354,6 +354,7 @@
     <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
+    <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Controllers\Base\BasePartialController.cs" />
@@ -361,6 +362,7 @@
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
+    <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Pages\SearchPageController.cs" />
@@ -402,6 +404,7 @@
     <Compile Include="Models\ViewModels\NavigationViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsPageViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsSearchViewModel.cs" />
+    <Compile Include="Models\ViewModels\NewsViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
@@ -1585,6 +1588,8 @@
     <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\MovieReviewBlock\Get.cshtml" />
     <Content Include="Views\MovieReviewBlock\Index.cshtml" />
+    <Content Include="Views\NewsBlock\Index.cshtml" />
+    <Content Include="Views\NewsPage\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

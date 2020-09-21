@@ -24,7 +24,7 @@ namespace PrettyWebsite.Models.Pages
             Order = 20
         )]
         [Required]
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public virtual DateTime PublicationDate { get; set; }
 
         [CultureSpecific]

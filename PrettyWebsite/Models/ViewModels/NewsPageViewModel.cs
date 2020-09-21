@@ -11,7 +11,6 @@ namespace PrettyWebsite.Models.ViewModels
     {
         public NewsPageViewModel(NewsPage currentPage) : base(currentPage)
         {
-
         }
     }
 }

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Pages;
 
 namespace PrettyWebsite.Models.Containers
@@ -17,7 +18,7 @@ namespace PrettyWebsite.Models.Containers
         Availability.Specific,
         Include = new[] { typeof(NewsPage) }
     )]
-    public class NewsContainer : SitePageData
+    public class NewsContainer : SitePageData, IUseFolderIcon
     {
         /*
                 [CultureSpecific]

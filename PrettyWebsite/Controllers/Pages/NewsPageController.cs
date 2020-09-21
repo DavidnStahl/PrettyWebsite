@@ -6,6 +6,7 @@ using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web.Mvc;
 using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -13,10 +14,9 @@ namespace PrettyWebsite.Controllers.Pages
     {
         public ActionResult Index(NewsPage currentPage)
         {
-            /* Implementation of action. You can create your own view model class that you pass to the view or
-             * you can pass the page type for simpler templates */
+            var model = new NewsPageViewModel(currentPage);
 
-            return View(currentPage);
+            return View(model);
         }
     }
 }

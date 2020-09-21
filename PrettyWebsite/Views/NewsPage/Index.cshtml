@@ -1,0 +1,11 @@
+﻿@model PrettyWebsite.Models.ViewModels.NewsPageViewModel
+
+<div>
+    <img src="@Model.CurrentPage.Image.Url" alt="@Model.CurrentPage.Image.AltText" />
+    @Html.PropertyFor(x => x.CurrentPage.Image)
+    <p>@Model.CurrentPage.PublicationDate.ToShortDateString()</p>    
+    <h2>@Html.PropertyFor(x => x.CurrentPage.Headline)</h2>
+    @Html.PropertyFor(x => x.CurrentPage.Text)
+    
+</div>
+
