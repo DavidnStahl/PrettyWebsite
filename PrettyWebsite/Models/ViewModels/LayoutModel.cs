@@ -11,10 +11,6 @@ namespace PrettyWebsite.Models.ViewModels
 {
     public class LayoutModel
     {
-        [AllowedTypes(typeof(HeaderBlock))]
-        public ContentArea Header { get; set; }
-
-        [AllowedTypes(typeof(FooterBlock))]
-        public ContentArea Footer { get; set; }
+        public SitePageSettings PageSettings { get; set; }
     }
 }

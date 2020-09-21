@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using EPiServer.Find.Cms;
+using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 
@@ -37,10 +39,12 @@ namespace PrettyWebsite.Business
 
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
 
+            var pageSettings = _contentLoader.Get<SitePageSettings>(startPage.Settings);
+
+
             return new LayoutModel
             {
-                Header = startPage.Header,
-                Footer = startPage.Footer,
+                PageSettings = pageSettings,
                 //Logotype = startPage.SiteLogotype,
                 //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
                 //ProductPages = startPage.ProductPageLinks,

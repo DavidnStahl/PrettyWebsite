@@ -6,6 +6,7 @@ using System.Web;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Validation;
 
@@ -16,7 +17,7 @@ namespace PrettyWebsite.Models.Pages
         GUID = "2FE55D24-7A71-4F68-9012-63CBDD00DD80"
     )]
     [AvailableContentTypes(
-        Availability.Specific, Include = new[] {typeof(SearchPage)},
+        Availability.Specific, Include = new[] {typeof(SearchPage), typeof(SitePageSettings)},
         ExcludeOn = new[] { typeof(StartPage)})
     ]
     public class StartPage : SitePageData
@@ -25,31 +26,13 @@ namespace PrettyWebsite.Models.Pages
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        [AllowedTypes(typeof(HeaderBlock))]
-        [MaxItems(1)]
-        [Required]
-        public virtual ContentArea Header { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 20)]
-        [AllowedTypes(typeof(FooterBlock))]
-        [MaxItems(1)]
-        [Required]
-        public virtual ContentArea Footer { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Content container",
-            GroupName = SystemTabNames.Content,
-            Order = 30)]
-        public virtual ContentArea ContentArea { get; set; }
+        [ContentSelection(typeof(SitePageSettings))]
+        public virtual PageReference Settings { get; set; }
 
         [CultureSpecific]
         [Display(
             Name = "News container",
-            GroupName = SystemTabNames.Content,
+            GroupName = SystemTabNames.Content, 
             Order = 40)]
         public virtual ContentArea NewsArea { get; set; }
 
