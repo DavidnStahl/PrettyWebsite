@@ -41,10 +41,17 @@ namespace PrettyWebsite.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "News container",
+            Name = "Content container",
             GroupName = SystemTabNames.Content,
             Order = 30)]
         public virtual ContentArea ContentArea { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "News container",
+            GroupName = SystemTabNames.Content,
+            Order = 40)]
+        public virtual ContentArea NewsArea { get; set; }
 
     }
 }

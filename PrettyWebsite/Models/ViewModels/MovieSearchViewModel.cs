@@ -16,6 +16,7 @@ namespace PrettyWebsite.Models.ViewModels
 
         public MovieSearchViewModel(SearchPage currentPage) : base(currentPage)
         {
+            
         }
 
     }
