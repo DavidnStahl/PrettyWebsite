@@ -344,9 +344,7 @@
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\AdministratorRegistrationPage.cs" />
-    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionAttribute.cs" />
     <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionFactory.cs" />
-    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelector.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
