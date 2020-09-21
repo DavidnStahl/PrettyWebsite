@@ -344,6 +344,9 @@
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\AdministratorRegistrationPage.cs" />
+    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionAttribute.cs" />
+    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionFactory.cs" />
+    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelector.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
@@ -355,6 +358,7 @@
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\SettingIcons\SettingsIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Controllers\Base\BaseFormController.cs" />
     <Compile Include="Controllers\Base\BasePartialController.cs" />
@@ -378,6 +382,7 @@
     <Compile Include="Models\Blocks\ReviewFormBlock.cs" />
     <Compile Include="Models\Blocks\RssFeedBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
+    <Compile Include="Models\Pages\SitePageSettings.cs" />
     <Compile Include="Models\Forms\ReviewFormModel.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
