@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PrettyWebsite.Views
+namespace PrettyWebsite.Models
 {
     public class MovieSearch
     {
