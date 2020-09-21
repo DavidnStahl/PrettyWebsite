@@ -376,6 +376,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\RenderContentHelper.cs" />
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
     <Compile Include="Models\Blocks\MovieReviewBlock.cs" />
@@ -1591,6 +1592,7 @@
     <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\ReviewForm\Index.cshtml" />
     <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

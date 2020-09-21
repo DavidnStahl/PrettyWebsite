@@ -21,8 +21,7 @@ namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
             ContentLoader
         { get; set; }
 
-        public IEnumerable<ISelectItem> GetSelections(
-            ExtendedMetadata metadata)
+        public IEnumerable<ISelectItem> GetSelections(ExtendedMetadata metadata)
         {
             var contentType = ContentTypeRepository.Service.Load<T>();
             if (contentType == null)
@@ -43,6 +42,7 @@ namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
                         })
                     .OrderBy(x => x.Text)
                     .ToList();
+
             selectItems.Insert(0, new SelectItem());
             return selectItems;
         }
