@@ -6,6 +6,7 @@ using System.Web;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.Shell.ObjectEditing;
 using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Validation;
@@ -26,7 +27,7 @@ namespace PrettyWebsite.Models.Pages
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        [ContentSelection(typeof(SitePageSettings))]
+        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<SitePageSettings>))]
         public virtual PageReference Settings { get; set; }
 
         [CultureSpecific]

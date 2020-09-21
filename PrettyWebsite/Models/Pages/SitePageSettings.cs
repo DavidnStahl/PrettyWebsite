@@ -4,6 +4,7 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.ServiceLocation;
+using EPiServer.Shell.ObjectEditing;
 using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Blocks;
@@ -22,7 +23,7 @@ namespace PrettyWebsite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 10)]
         [Required]
-        [ContentSelection(typeof(HeaderBlock))]
+        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<HeaderBlock>))]
         public virtual ContentReference Header { get; set; }
            
         [CultureSpecific]
@@ -31,7 +32,7 @@ namespace PrettyWebsite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 20)]
         [Required]
-        [ContentSelection(typeof(FooterBlock))]
+        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<FooterBlock>))]
         public virtual ContentReference Footer { get; set; }
     }
 }
