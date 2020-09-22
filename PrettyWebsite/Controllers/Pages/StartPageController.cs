@@ -14,7 +14,7 @@ namespace PrettyWebsite.Controllers.Pages
     {
         public ActionResult Index(StartPage currentPage)
         {            
-            var model = new StartPageViewModel(currentPage);
+            var model = new StartPageViewModel(currentPage);           
             return View(model);
         }
     }

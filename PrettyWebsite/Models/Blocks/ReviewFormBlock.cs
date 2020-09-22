@@ -7,7 +7,7 @@ using EPiServer.DataAnnotations;
 namespace PrettyWebsite.Models.Blocks
 {
     [ContentType(DisplayName = "ReviewFormBlock", GUID = "ee99f934-97be-4b00-a088-24787a2b0073", Description = "")]
-    public class ReviewFormBlock : BlockData
+    public class ReviewFormBlock : SiteBlockData
     {
         
                 [CultureSpecific]

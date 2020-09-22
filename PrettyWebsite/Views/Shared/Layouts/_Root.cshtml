@@ -20,12 +20,12 @@
 
 
 <body>
-    @Html.PropertyFor(model => model.Layout.PageSettings.Header);
-    <div class="container">
+    @Html.PropertyFor(model => model.Layout.PageSettings.Header)
+    <div class="container bg-dark">
         @RenderBody()
     </div>
 
-    @Html.PropertyFor(model => model.Layout.PageSettings.Footer);
+    @Html.PropertyFor(model => model.Layout.PageSettings.Footer)
 
 </body>
 

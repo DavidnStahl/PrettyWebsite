@@ -1,0 +1,14 @@
+﻿@model PrettyWebsite.Models.Forms.SearchFormModel
+
+@if (Model.SearchResult.Search.Count() > 0)
+{
+
+    @foreach (var movie in Model.SearchResult.Search)
+    {
+        <li class="nav-item ml-3">
+            <a href="/Search/MovieDetails?id=@movie.imdbID">@movie.Title</a>
+        </li>
+    }
+
+}
+

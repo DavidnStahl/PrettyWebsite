@@ -59,34 +59,22 @@ namespace PrettyWebsite.Controllers.Pages
         }
 
         [HttpGet]
-        public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id, string name = null, string text = null, string rating = null)
+        public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id)
         {
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(text) && !string.IsNullOrEmpty(rating))
-            {
-                Review reviewData = new Review
-                {
-                    MovieId = id,
-                    Name = name,
-                    Text = text,
-                    Rating = double.Parse(rating),
-                    PublicationDate = DateTime.Now,
-                    ReviewRating = 0
-                };
-                _dataStoreRepository.Save(reviewData);
-            }
+            Session["newId"] = id;
             var reviewList = _dataStoreRepository.Get(id);
-
-            var reviewAverage = reviewList.Select(data => data.Rating).Average();
-
             var movie = await _movieRepository.GetMovie(id);
 
             var model = new MoviePageViewModel(currentPage, movie, reviewList);
             model.Ratings = movie.Ratings.ToList();
-            model.Ratings.Add(new Rating
+            if (reviewList.Count > 0)
             {
-                Source = "Prettywebsite",
-                Value = reviewAverage.ToString() + "/5.0"
-            });
+                model.Ratings.Add(new Rating
+                {
+                    Source = "Prettywebsite",
+                    Value = Math.Round(reviewList.Select(data => data.Rating).Average(),1) + "/5.0"
+                });
+            }
 
             if(Session["User"] == null)
             {

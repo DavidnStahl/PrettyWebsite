@@ -6,17 +6,17 @@ using EPiServer.DataAnnotations;
 
 namespace PrettyWebsite.Models.Blocks
 {
-    [ContentType(DisplayName = "HeaderBlock", GUID = "4a009a73-e3cb-435c-b305-6dbd35eb4791", Description = "")]
-    public class HeaderBlock : SiteBlockData
+    [ContentType(DisplayName = "SearchFormBlock", GUID = "8a3ec8d4-a96b-49b4-bf74-595d7128ad59", Description = "")]
+    public class SearchFormBlock : BlockData
     {
-        
+        /*
                 [CultureSpecific]
                 [Display(
-                    Name = "SearchForm",
-                    Description = "",
+                    Name = "Name",
+                    Description = "Name field's description",
                     GroupName = SystemTabNames.Content,
                     Order = 1)]
-                public virtual ContentReference SearchForm { get; set; }
-         
+                public virtual string Name { get; set; }
+         */
     }
 }

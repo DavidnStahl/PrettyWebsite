@@ -14,17 +14,18 @@
 <link href="~/Static/css/form.css" rel="stylesheet" media="all">
 <!-- Main JS-->
 <!-- Jquery JS-->
-
-
-
 <!-- Main JS-->
 <script src="~/Static/js/global.js"></script>
+<div class="text-center mt-3 mb-4">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#showForm" aria-expanded="false" aria-controls="collapseExample">
+        Create Movie Review
+    </button>
+</div>
 
-<button class="btn btn--radius-2 btn--blue-2 hidden" onclick="showFrom()">Create Review</button>
 
 @using (Html.BeginForm("Submit", null))
 {
-    <div id="showForm" class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div id="showForm" class="collapse page-wrapper bg-dark p-t-100 p-b-50">
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
                 <div class="card-heading">
@@ -36,8 +37,9 @@
                     @Html.HiddenFor(m => m.CurrentPageLink)
                     @Html.HiddenFor(m => m.CurrentLanguage)
                     @Html.HiddenFor(m => m.Id)
-                    <div class="form-row value">
-                        <span class="text-danger">@Html.ValidationSummary()</span>
+                    <div class="form-row">
+                        <div class="name"></div>
+                        <div class="value text-danger">@Html.ValidationSummary()</div>
                     </div>
                     <div class="form-row">
 
@@ -48,14 +50,13 @@
                                @class = "input--style-6",
                                @type = "text"
                             })
-                            <!--<input class="input--style-6" type="text" name="full_name">-->
                         </div>
+                        
                     </div>
                     <div class="form-row">
                         <div class="name">(*) Text</div>
                         <div class="value">
-                            <div class="input-group">
-                                <!--<textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer"></textarea>-->
+                            <div class="input-group">                               
                                 @Html.TextAreaFor(m => m.Text, htmlAttributes: new
                                {
                                    @class = "input--style-6"
@@ -98,4 +99,5 @@
     }
 
 </script>
+
 

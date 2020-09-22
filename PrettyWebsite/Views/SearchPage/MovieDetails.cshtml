@@ -1,29 +1,13 @@
 ﻿@model PrettyWebsite.Models.ViewModels.Pages.MoviePageViewModel
-
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="~/Static/js/ReviewStar.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
-
-
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<!------ Include the above in your HEAD tag ---------->
 
 @{
     var stars = 0;
 }
 
-<div class="card">
+<div class="card mb-4">
     <img src="@Model.Movie.Poster" alt="">
-    <div class="container">
+    <div class="container mb-4 mt-4">
 
         <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
         <p><strong>Genre:</strong> @Model.Movie.Genre</p>
@@ -40,33 +24,35 @@
         <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
     </div>
 
+
     @if (Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
     {
         @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
     }
 
+    @if (Model.ReviewList.Count > 0)
+    {
+        <div class="container text-dark bg-warning">
+            <div class="row">
+                <div>
+                    <h1 class="text-center mt-3 mb-3">Reviews</h1>
 
-    <div class="container text-dark bg-warning">
-        <div class="row">
-            <div>
-                <h1 class="text-center">Reviews</h1>
-                @if (Model.ReviewList.Count > 0)
-                {
-                    foreach (var review in Model.ReviewList)
+                    @foreach (var review in Model.ReviewList)
                     {
                         stars = 0;
                         <div class="list-group">
                             <div class="list-group-item">
 
-                                <div class="col-md-11">
-                                    <div class="col-md-9"><h4 class="list-group-item-heading text-center"> <strong>Author:</strong> @review.Name</h4></div>
-                                    <div class="col-md-3"><h4 class="list-group-item-heading"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
-                                    <div class="list-group-item-text">
+                                <div class="col-md-11 text">
+                                    <div class="col-md-4"><h4 class="list-group-item-heading text-center"> <strong>Author:</strong> @review.Name</h4></div>
+                                    <div class="col-md-4"><h4 class="list-group-item-heading text-center"> @review.PublicationDate</h4></div>
+                                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
+                                    <div class="list-group-item-text mt-4 mb-4">
                                         <p>@review.Text</p>
                                     </div>
                                 </div>
 
-                                <div class="col-md-1">
+                                <div class="col-md-1 mt-4 mb-4">
                                     @if (Model.reviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
                                     {
                                         <button type="button" class="btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
@@ -92,34 +78,31 @@
                                         <i class="float-left fa fa-star-o unChecked" aria-hidden="true"></i>
                                     }
                                 </div>
-
-                                <div class="row">
-                                    <span>@review.PublicationDate</span>
-                                </div>
                             </div>
 
 
                         </div>
 
                     }
-                }
+
+                </div>
+
             </div>
-
         </div>
+    }
+
+
+    <div class="mt-4 mb-4 text-center">
+        @Html.ActionLink("Back to Search", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
     </div>
+</div>
+
+        <script>
 
 
+            function rating(value, id, movieId) {
+                var url = '/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId;
+                window.location.href = ('/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId);
+            }
 
-    <p>
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-
-    <script>
-
-
-        function rating(value, id, movieId) {
-            var url = '/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId;
-            window.location.href = ('/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId);
-        }
-
-    </script>
+        </script>
