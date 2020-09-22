@@ -344,6 +344,7 @@
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\AdministratorRegistrationPage.cs" />
+    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
@@ -356,7 +357,9 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\SettingIcons\SettingsIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
+    <Compile Include="Controllers\Base\BaseFormController.cs" />
     <Compile Include="Controllers\Base\BasePartialController.cs" />
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
@@ -364,6 +367,7 @@
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
     <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
+    <Compile Include="Controllers\Form\ReviewFormController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Pages\SearchPageController.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
@@ -374,13 +378,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\RenderContentHelper.cs" />
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
     <Compile Include="Models\Blocks\ImageBlock.cs" />
     <Compile Include="Models\Blocks\MovieReviewBlock.cs" />
+    <Compile Include="Models\Blocks\ReviewFormBlock.cs" />
     <Compile Include="Models\Blocks\NewsBlock.cs" />
     <Compile Include="Models\Blocks\RssFeedBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
+    <Compile Include="Models\Pages\SitePageSettings.cs" />
+    <Compile Include="Models\Forms\ReviewFormModel.cs" />
     <Compile Include="Models\Containers\NewsContainer.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Pages\MoviePage.cs" />
@@ -390,11 +398,13 @@
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RssFeed.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\Base\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\FooterBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\HeaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieReviewBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\RssFeedBlockViewModel.cs" />
+    <Compile Include="Models\Forms\BaseFormModel.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
@@ -405,6 +415,7 @@
     <Compile Include="Models\ViewModels\NewsPageViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsSearchViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsViewModel.cs" />
+    <Compile Include="Models\ViewModels\Pages\MoviePageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
@@ -413,8 +424,10 @@
     <Compile Include="Repositories\Interfaces\IDataStoreRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMovieRepository.cs" />
     <Compile Include="Repositories\MovieRepository.cs" />
+    <Compile Include="Services\CookieService.cs" />
+    <Compile Include="Services\Interface\ICookieService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Services\IRssFeedService.cs" />
+    <Compile Include="Services\Interface\IRssFeedService.cs" />
     <Compile Include="Services\RssFeedService.cs" />
     <Compile Include="Validation\MaxItemsAttribute.cs" />
     <Compile Include="Models\MovieSearch.cs" />
@@ -422,6 +435,7 @@
   <ItemGroup>
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
+    <Folder Include="Views\BaseForm\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
@@ -1590,6 +1604,9 @@
     <Content Include="Views\MovieReviewBlock\Index.cshtml" />
     <Content Include="Views\NewsBlock\Index.cshtml" />
     <Content Include="Views\NewsPage\Index.cshtml" />
+    <Content Include="Views\ReviewForm\Index.cshtml" />
+    <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

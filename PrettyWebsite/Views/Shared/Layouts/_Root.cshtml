@@ -20,12 +20,12 @@
 
 
 <body>
-    @Html.PropertyFor(model => model.Layout.Header);
+    @Html.PropertyFor(model => model.Layout.PageSettings.Header, new { Tag = "ContentReferencePartial" })
     <div class="container">
         @RenderBody()
     </div>
 
-    @Html.PropertyFor(model => model.Layout.Footer);
+    @Html.PropertyFor(model => model.Layout.PageSettings.Footer, new { Tag = "ContentReferencePartial" })
 
 </body>
 

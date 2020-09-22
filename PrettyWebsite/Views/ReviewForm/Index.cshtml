@@ -1,0 +1,51 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using PrettyWebsite.Models.Forms
+
+@model ReviewFormModel
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/Static/js/ReviewStar.js"></script>
+
+<div>
+    <h2>@Html.PropertyFor(m => m.ParentBlock.Title)</h2>
+    <p>@Html.ValidationSummary()</p>
+    @using (Html.BeginForm("Submit", null))
+    {
+        @Html.HiddenFor(m => m.CurrentBlockLink)
+        @Html.HiddenFor(m => m.CurrentPageLink)
+        @Html.HiddenFor(m => m.CurrentLanguage)
+        @Html.HiddenFor(m => m.Id)
+
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Author)
+                @Html.TextBoxFor(m => m.Author)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Text)
+                @Html.TextAreaFor(m => m.Text)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Rating)
+                <div class="container">
+                    <div class="row">
+                        <h2><small>Hover and click on a star</small></h2>
+                    </div>
+                    <div class="row lead">
+                        <div id="stars" class="starrr"></div>
+                        <h4>You gave a rating of <span id="count">0</span> star(s)</h4>
+                        @Html.HiddenFor(m => m.Rating, new { @id = "count2", @value = "1" } )
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="submit" />
+            </div>
+        </div>
+    }
+</div>
+

@@ -9,6 +9,8 @@ using PrettyWebsite.Models.ViewModels.Pages;
 using PrettyWebsite.Repositories.Interfaces;
 using PrettyWebsite.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -63,11 +65,8 @@ namespace PrettyWebsite.Controllers.Pages
         [HttpGet]
         public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id, string name = null, string text = null, string rating = null)
         {
-            //_dataStoreRepository.Delete(null);
-
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(text) && !string.IsNullOrEmpty(rating))
             {
-
                 Review reviewData = new Review
                 {
                     MovieId = id,
@@ -80,7 +79,7 @@ namespace PrettyWebsite.Controllers.Pages
             }
             var reviewList = _dataStoreRepository.Get(id);
             var movie = await _movieRepository.GetMovie(id);
-            var model = new MovieViewModel(new SearchPage(), movie, reviewList);
+            var model = new MoviePageViewModel(currentPage, movie, reviewList);
 
             return View(model);
         }
