@@ -344,9 +344,7 @@
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\AdministratorRegistrationPage.cs" />
-    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionAttribute.cs" />
     <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionFactory.cs" />
-    <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelector.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
@@ -377,6 +375,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\RenderContentHelper.cs" />
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
     <Compile Include="Models\Blocks\MovieReviewBlock.cs" />
@@ -1597,6 +1596,7 @@
     <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
     <Content Include="Views\SearchBlock\Index.cshtml" />
     <Content Include="Views\SearchBlock\Submit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

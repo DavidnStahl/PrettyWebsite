@@ -1,0 +1,11 @@
+﻿@using EPiServer.Core
+@using PrettyWebsite.Helpers
+
+
+@model ContentReference
+
+
+@if (!ContentReference.IsNullOrEmpty(Model))
+{
+    Html.RenderContent(Model);
+}
