@@ -17,22 +17,22 @@ namespace PrettyWebsite.Models.Pages
     {
 
 
-        [CultureSpecific]
-        [Display(
-            Name = "Header",
-            GroupName = SystemTabNames.Content,
-            Order = 10)]
-        [Required]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<HeaderBlock>))]
-        public virtual ContentReference Header { get; set; }
+        //[CultureSpecific]
+        //[Display(
+        //    Name = "Header",
+        //    GroupName = SystemTabNames.Content,
+        //    Order = 10)]
+        //[Required]
+        //[SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<HeaderBlock>))]
+        //public virtual ContentReference Header { get; set; }
            
-        [CultureSpecific]
-        [Display(
-            Name = "Footer",
-            GroupName = SystemTabNames.Content,
-            Order = 20)]
-        [Required]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<FooterBlock>))]
-        public virtual ContentReference Footer { get; set; }
+        //[CultureSpecific]
+        //[Display(
+        //    Name = "Footer",
+        //    GroupName = SystemTabNames.Content,
+        //    Order = 20)]
+        //[Required]
+        //[SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<FooterBlock>))]
+        //public virtual ContentReference Footer { get; set; }
     }
 }

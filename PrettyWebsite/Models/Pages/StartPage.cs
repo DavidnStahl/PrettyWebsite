@@ -24,12 +24,12 @@ namespace PrettyWebsite.Models.Pages
     ]
     public class StartPage : SitePageData
     {
-        [CultureSpecific]
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 10)]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<SitePageSettings>))]
-        public virtual PageReference Settings { get; set; }
+        //[CultureSpecific]
+        //[Display(
+        //    GroupName = SystemTabNames.Content,
+        //    Order = 10)]
+        //[SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<SitePageSettings>))]
+        //public virtual PageReference Settings { get; set; }
 
         [CultureSpecific]
         [Display(
