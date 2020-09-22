@@ -16,5 +16,8 @@ namespace PrettyWebsite.Models.ViewModels
 
         [AllowedTypes(typeof(FooterBlock))]
         public ContentArea Footer { get; set; }
+
+        //public SettingsPage SettingsPage { get; set; }
+
     }
 }

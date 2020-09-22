@@ -4,6 +4,7 @@ using System.Web.UI.WebControls;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.Find.Blocks.Models;
 using EPiServer.SpecializedProperties;
 using PrettyWebsite.Models.Blocks;
 
@@ -17,6 +18,12 @@ namespace PrettyWebsite.Models.Pages
           Order = 10
       )]
         public virtual ImageBlock Image { get; set; }
+
+        //[Display(
+        //    GroupName = SystemTabNames.Content,
+        //    Order = 10)]
+        //[UIHint(UIHint.Image)]
+        //public virtual ContentReference PageImage { get; set; }
 
         [CultureSpecific]
         [Display(
