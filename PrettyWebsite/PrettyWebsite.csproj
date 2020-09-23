@@ -366,6 +366,8 @@
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Form\SearchBlockController.cs" />
     <Compile Include="Controllers\Form\ReviewFormController.cs" />
+    <Compile Include="Controllers\Form\SearchResultController.cs" />
+    <Compile Include="Controllers\Base\DefaultPageController.cs" />
     <Compile Include="Controllers\Pages\SearchPageController.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
     <Compile Include="DataStore\Review.cs" />
@@ -407,7 +409,7 @@
     <Compile Include="Models\ViewModels\MovieViewModel.cs" />
     <Compile Include="Models\ViewModels\NavigationViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\MoviePageViewModel.cs" />
-    <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Pages\MovieResultPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -425,7 +427,10 @@
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Views\BaseForm\" />
+    <Folder Include="Views\DefaultPage\" />
+    <Folder Include="Views\DefaultSearchPage\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\SearchResult\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
@@ -1596,6 +1601,7 @@
     <Content Include="Views\SearchFormBlock\Index.cshtml" />
     <Content Include="Views\SearchFormBlock\Submit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
+    <Content Include="Views\Shared\_MovieSearchResult.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

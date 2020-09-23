@@ -1,5 +1,6 @@
 ﻿using EPiServer.Find;
 using PrettyWebsite.Models.Blocks;
+using PrettyWebsite.Models.ViewModels.Interfaces;
 using PrettyWebsite.Views;
 using System;
 using System.Collections.Generic;

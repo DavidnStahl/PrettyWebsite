@@ -2,11 +2,11 @@
 @using PrettyWebsite.Models.Forms
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @model SearchFormModel
 
-@using (Html.BeginForm("Submit", null))
-{
+
 
     @Html.HiddenFor(m => m.CurrentBlockLink)
     @Html.HiddenFor(m => m.CurrentPageLink)
@@ -16,27 +16,41 @@
         <div class="col-auto">
             <div class="row g-3">
                 <div class="col-auto">
-                    @Html.DropDownListFor(m => m.SelectedType, new List<SelectListItem>
-                    {
-                        new SelectListItem { Text = "Movie", Value = "1", Selected=true},
-                        new SelectListItem { Text = "Article", Value = "2"},
-                    }, htmlAttributes: new { @class = "form-select btn-danger text-white mt-3 ml-4 mr-4", @style = "height:52px;font-size:medium;" })
-                    <!--<select class="form-select btn-danger text-white mt-3 ml-4 mr-4" style="height:52px;font-size:medium;" aria-label="Default select example">
-                    <option value="1" selected="selected">Movie</option>
-                    <option value="2">Article</option>
-                 </select>-->
+                    
+                    <select class="form-select btn-danger text-white mt-3 ml-4 mr-4" id="select" style="height:52px;font-size:medium;" aria-label="Default select example">
+                        <option value="1" selected="selected">Movie</option>
+                        <option value="2">Article</option>
+                    </select>
                 </div>
                 <div class="col-auto">
-                    @Html.TextBoxFor(m => m.query, htmlAttributes: new { @type = "text", @class = "form-control mt-3 ml-3", @style = "height:52px;width:150px;", @placeholder = "Search here.." })
-                    <!--<input autofocus type="text" class="form-control mt-3 ml-3" id="inputPassword2" style="height:52px;width:150px;" placeholder="Search here..">-->
+                    
+                    <input autofocus type="text" class="form-control mt-3 ml-3" id="searchText" style="height:52px;width:150px;" placeholder="Search here..">
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3 mt-3" style="padding-right:20px;padding-left:20px;"><i class="fa fa-search" style="color:white;"></i></button>
+                    <button id="btn" class="btn btn-primary mb-3 mt-3" style="padding-right:20px;padding-left:20px;"><i class="fa fa-search" style="color:white;"></i></button>
                 </div>
             </div>
         </div>
     </div>
-}
+
+
+
+   <div id="partialResult"></div>
+
+<script>
+    $("#btn").click(function () {
+
+        var type = $("#select").val();
+        var query = $("#searchText").val();
+        $.get("/SearchResult/Submit?type=" + type + "&query=" + query,            
+            function (data, status) {
+                $("#partialResult").empty().append(data);
+                //alert("Data: " + data + "\nStatus: " + status);
+            });
+    });
+</script>
+
+
 
 
 

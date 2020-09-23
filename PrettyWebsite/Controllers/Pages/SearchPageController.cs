@@ -29,9 +29,9 @@ namespace PrettyWebsite.Controllers.Pages
             _dataStoreRepository = dataStoreRepository;
         }
 
-        public async Task<ActionResult> Index(SearchPage currentPage, string searchType, string query)
+        /*public async Task<ActionResult> Index(SearchPage currentPage, string searchType, string query)
         {
-            var model = new SearchPageViewModel(currentPage);
+            var model = new MovieResultPageViewModel(currentPage);
 
             //model.SearchType = new List<SelectListItem>() {
             //         new SelectListItem { Text = "Movie By Title", Value = "1"},
@@ -56,7 +56,7 @@ namespace PrettyWebsite.Controllers.Pages
                 // skapa model.NewsSearchViewModel
                 return View(model);
             }
-        }
+        }*/
 
         [HttpGet]
         public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id)

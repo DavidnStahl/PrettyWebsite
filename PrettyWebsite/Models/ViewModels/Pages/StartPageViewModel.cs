@@ -1,4 +1,5 @@
 ﻿using PrettyWebsite.DataStore;
+using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Base;
 using System.Collections.Generic;

@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Web.Mvc;
 using PrettyWebsite.DataStore;
+using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Models.ViewModels.Pages;
