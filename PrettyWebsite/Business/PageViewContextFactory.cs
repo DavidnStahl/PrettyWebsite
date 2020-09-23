@@ -58,6 +58,23 @@ namespace PrettyWebsite.Business
             };
         }
 
+        private SitePageSettings GetSitePageSettings()
+        {
+            var settingsPage = new SitePageSettings();
+
+            if (SiteDefinition.Current.StartPage != ContentReference.EmptyReference)
+            {
+                var settingsPages = _contentLoader.GetChildren<SitePageSettings>(SiteDefinition.Current.StartPage);
+
+                if (settingsPages.Any())
+                {
+                    settingsPage = settingsPages.FirstOrDefault();
+                }
+            }
+
+            return settingsPage;
+        }
+
         //private string GetLoginUrl(ContentReference returnToContentLink)
         //{
         //    return string.Format(
