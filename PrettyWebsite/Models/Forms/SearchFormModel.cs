@@ -14,6 +14,6 @@ namespace PrettyWebsite.Models.Forms
 
         public MovieSearch SearchResult { get; set; }
 
-
+        public string SelectedType { get; set; }
     }
 }

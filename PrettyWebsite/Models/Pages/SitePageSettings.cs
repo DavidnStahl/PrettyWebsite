@@ -25,7 +25,7 @@ namespace PrettyWebsite.Models.Pages
         [Required]
         [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<HeaderBlock>))]
         public virtual ContentReference Header { get; set; }
-           
+
         [CultureSpecific]
         [Display(
             Name = "Footer",

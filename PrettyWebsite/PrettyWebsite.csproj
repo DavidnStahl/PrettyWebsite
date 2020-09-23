@@ -364,7 +364,7 @@
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
-    <Compile Include="Controllers\Form\SearchFormController.cs" />
+    <Compile Include="Controllers\Form\SearchBlockController.cs" />
     <Compile Include="Controllers\Form\ReviewFormController.cs" />
     <Compile Include="Controllers\Pages\SearchPageController.cs" />
     <Compile Include="Controllers\Pages\StartPageController.cs" />
@@ -426,7 +426,6 @@
     <Folder Include="Models\Properties\" />
     <Folder Include="Views\BaseForm\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\NavigationBlock\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
@@ -1594,8 +1593,8 @@
     <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\ReviewForm\Index.cshtml" />
     <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
-    <Content Include="Views\SearchBlock\Index.cshtml" />
-    <Content Include="Views\SearchBlock\Submit.cshtml" />
+    <Content Include="Views\SearchFormBlock\Index.cshtml" />
+    <Content Include="Views\SearchFormBlock\Submit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>

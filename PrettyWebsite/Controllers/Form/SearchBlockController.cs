@@ -16,11 +16,11 @@ using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
-    public class SearchFormController : BaseFormController<SearchFormBlock>
+    public class SearchFormBlockController : BaseFormController<SearchFormBlock>
     {
         private readonly IMovieRepository _movieRepository;
 
-        public SearchFormController(IMovieRepository movieRepository)
+        public SearchFormBlockController(IMovieRepository movieRepository)
         {
             _movieRepository = movieRepository;
         }
