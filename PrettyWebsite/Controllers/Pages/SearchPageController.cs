@@ -28,36 +28,7 @@ namespace PrettyWebsite.Controllers.Pages
             _movieRepository = movieRepository;
             _dataStoreRepository = dataStoreRepository;
         }
-
-        /*public async Task<ActionResult> Index(SearchPage currentPage, string searchType, string query)
-        {
-            var model = new MovieResultPageViewModel(currentPage);
-
-            //model.SearchType = new List<SelectListItem>() {
-            //         new SelectListItem { Text = "Movie By Title", Value = "1"},
-            //         new SelectListItem { Text = "Articles And News", Value = "2" }
-            //};
-
-            if (string.IsNullOrWhiteSpace(query))
-            {
-                return View(model);
-            }
-
-            //Byt ut till selectListItem
-            if (searchType == "1")
-            {
-                model.MovieSearchViewModel = new MovieSearchViewModel(currentPage);
-                model.MovieSearchViewModel.SearchResult = await _movieRepository.SearchByTitle(query);
-
-                return View(model);
-            }
-            else
-            {
-                // skapa model.NewsSearchViewModel
-                return View(model);
-            }
-        }*/
-
+       
         [HttpGet]
         public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id)
         {

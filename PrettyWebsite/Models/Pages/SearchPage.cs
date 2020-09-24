@@ -15,16 +15,23 @@ namespace PrettyWebsite.Models.Pages
     {
         [CultureSpecific]
         [Display(
-            Name = "Review container",
+            Name = "ReviewForm container",
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual ContentArea ContentArea { get; set; }
 
         [CultureSpecific]
         [Display(
-            Name = "Review2 container",
+            Name = "ReviewResult container",
             GroupName = SystemTabNames.Content,
             Order = 20)]
         public virtual ContentArea ContentArea2 { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "MovieDetails container",
+            GroupName = SystemTabNames.Content,
+            Order = 30)]
+        public virtual ContentArea ContentArea3 { get; set; }
     }
 }
