@@ -1,30 +1,15 @@
 ﻿@model PrettyWebsite.Models.ViewModels.NewsPageViewModel
 
 <div>
-    <img src="@Html.EditorFor(x => x.CurrentPage.Image.Url)" alt="@Model.CurrentPage.Image.AltText" />
+    <div @Html.EditAttributes(x => x.CurrentPage.Image)>
+        <img src="@Url.ContentUrl(Model.CurrentPage.Image.PageImage)" alt="@Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />
+    </div>
 
-
-    @*<img src=" @Html.PropertyFor(x => x.CurrentPage.Image.Url)" alt=" @Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />*@
-
-     @Html.PropertyFor(x => x.CurrentPage.Image)
-    <a href="@Html.PropertyFor(x => x.CurrentPage.Image)">välj bild</a>
-
-    <p>@Model.CurrentPage.PublicationDate.ToShortDateString()</p>
     <h2>@Html.PropertyFor(x => x.CurrentPage.Headline)</h2>
     @Html.PropertyFor(x => x.CurrentPage.Text)
-
-</div>
-
-<div @Html.EditAttributes(x => x.CurrentPage.Image)>
-    <img src="@Url.ContentUrl(Model.CurrentPage.Image.Url)" alt="@Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />
 </div>
 
 
-<div @Html.EditAttributes(x => x.CurrentPage.Image)>
-    <img src="@Html.PropertyFor(x => x.CurrentPage.Image.Url)" alt="@Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />
-</div>
 
 
-@*<div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
-    <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
-</div>*@
+

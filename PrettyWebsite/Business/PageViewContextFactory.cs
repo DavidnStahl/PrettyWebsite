@@ -39,12 +39,12 @@ namespace PrettyWebsite.Business
 
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
 
-            var pageSettings = _contentLoader.Get<SitePageSettings>(startPage.Settings);
+            //var pageSettings = _contentLoader.Get<SitePageSettings>(startPage.Settings);
 
 
             return new LayoutModel
             {
-                PageSettings = pageSettings,
+                PageSettings = GetSitePageSettings(),
                 //Logotype = startPage.SiteLogotype,
                 //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
                 //ProductPages = startPage.ProductPageLinks,
