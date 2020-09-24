@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PrettyWebsite.Services
+namespace PrettyWebsite.Views
 {
-    public interface ICookieService
+    public class MovieSearch
     {
-        void Save(User user);
-
-        string Get(User user);
+        public IEnumerable<Movie> Search { get; set; }
     }
 }
