@@ -21,11 +21,11 @@
 
 <body>
     @Html.PropertyFor(model => model.Layout.PageSettings.Header, new { Tag = "ContentReferencePartial" })
-    <div class="container">
+    <div class="container bg-dark">
         @RenderBody()
     </div>
 
-    @Html.PropertyFor(model => model.Layout.PageSettings.Footer, new { Tag = "ContentReferencePartial" })
+    @Html.PropertyFor(model => model.Layout.PageSettings.Footer)
 
 
     <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>

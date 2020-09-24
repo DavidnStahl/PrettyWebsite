@@ -1,14 +1,23 @@
 ﻿@model PrettyWebsite.Models.ViewModels.Pages.MoviePageViewModel
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="~/Static/js/ReviewStar.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
-<div class="card">
+<!-- Main CSS-->
+<link href="~/Static/css/form.css" rel="stylesheet" media="all">
+<!-- Main JS-->
+<!-- Jquery JS-->
+<!-- Main JS-->
+<script src="~/Static/js/global.js"></script>
+
+<div class="card mb-4">
     <img src="@Model.Movie.Poster" alt="">
-    <div class="container">
+    <div class="container mb-4 mt-4">
 
         <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
         <p><strong>Genre:</strong> @Model.Movie.Genre</p>
@@ -17,7 +26,7 @@
         <p><strong>Plot:</strong> @Model.Movie.Plot</p>
         <p>
             <strong>Ratings:</strong><br />
-            @foreach (var item in Model.Movie.Ratings)
+            @foreach (var item in Model.Ratings)
             {
                 @item.Source @: @item.Value<br />
             }
@@ -25,46 +34,21 @@
         <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
     </div>
 
-    @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
-    
 
-    @if (Model.ReviewList.Count > 0)
+    @if (Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
     {
-        foreach (var review in Model.ReviewList)
-        {
-            <div class="card">
-
-                <div class="container">
-
-                    <p><strong>Author</strong> @review.Name</p>
-                    <p>@review.Text</p>
-                    <p><strong>Rating:</strong> @review.Rating</p>
-                    <p><strong>Date:</strong> @review.PublicationDate</p>
-                </div>
-            </div>
-        }
+        @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
     }
 
 
-    @*@Model.Movie.Type
-        @Model.Movie.Runtime
-        @Model.Movie.Released
-        @Model.Movie.Genre
-        @Model.Movie.Rated
-        @Model.Movie.Plot
-        @Model.Movie.Language
-        @Model.Movie.Country
-        @Model.Movie.Writer
-        @Model.Movie.Production
-        @Model.Movie.Director
-        @Model.Movie.Actors
-        @Model.Movie.Awards
-        @Model.Movie.Metascore
-        @Model.Movie.imdbRating
-        @Model.Movie.imdbVotes
-        @Model.Movie.BoxOffice*@
+    @if (Model.ReviewList.Count > 0)
+    {
+        @Html.PropertyFor(m => m.CurrentPage.ContentArea2)
+    }
 
-    <p>
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="mt-4 mb-4 text-center">
+        @Html.ActionLink("Back to Search", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
+    </div>
+</div>
+
 

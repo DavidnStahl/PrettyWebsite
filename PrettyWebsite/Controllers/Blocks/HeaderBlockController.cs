@@ -34,8 +34,8 @@ namespace PrettyWebsite.Controllers.Blocks
             {
                 Navigation = new NavigationViewModel
                 {
-                    Menu = menu
-                }
+                    Menu = menu                   
+                }                  
             };
 
             return PartialView(model);
