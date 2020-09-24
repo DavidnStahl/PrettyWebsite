@@ -23,9 +23,10 @@ namespace PrettyWebsite.Controllers.Form
             if (!string.IsNullOrWhiteSpace(query))
             {
                 model.SearchResult = await _movieRepository.SearchByTitle(query);
-                return PartialView("_MovieSearchResult",model);
 
+                return PartialView("_MovieSearchResult",model);
             }
+
             return PartialView();
         }
     }

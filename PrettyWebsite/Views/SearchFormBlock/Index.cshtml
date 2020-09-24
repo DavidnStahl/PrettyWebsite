@@ -18,13 +18,13 @@
                 <div class="col-auto">
                     
                     <select class="form-select btn-danger text-white mt-3 ml-4 mr-4" id="select" style="height:52px;font-size:medium;" aria-label="Default select example">
-                        <option value="1" selected="selected">Movie</option>
-                        <option value="2">Article</option>
+                        <option value="1" selected="selected">@Html.PropertyFor(m => m.ParentBlock.SearchType1)</option>
+                        <option value="2">@Html.PropertyFor(m => m.ParentBlock.SearchType2)</option>
                     </select>
                 </div>
                 <div class="col-auto">
                     
-                    <input autofocus type="text" class="form-control mt-3 ml-3" id="searchText" style="height:52px;width:150px;" placeholder="Search here..">
+                    <input autofocus type="text" class="form-control mt-3 ml-3" id="searchText" style="height:52px;width:150px;" placeholder="@Html.PropertyFor(m => m.ParentBlock.placeholder)">
                 </div>
                 <div class="col-auto">
                     <button id="btn" class="btn btn-primary mb-3 mt-3" style="padding-right:20px;padding-left:20px;"><i class="fa fa-search" style="color:white;"></i></button>

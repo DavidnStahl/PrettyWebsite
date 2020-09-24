@@ -4,6 +4,8 @@
 
 @model ReviewFormModel
 
+
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -29,7 +31,7 @@
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
                 <div class="card-heading">
-                    <h2 class="title">Movie Review</h2>
+                    <h2 class="title">@Html.PropertyFor(m => m.ParentBlock.Title)</h2>
                 </div>
                 <div class="card-body">
 
@@ -43,7 +45,7 @@
                     </div>
                     <div class="form-row">
 
-                        <div class="name">(*) Author</div>
+                        <div class="name">@Html.PropertyFor(m => m.ParentBlock.NameLabel)</div>
                         <div class="value">
                             @Html.TextBoxFor(m => m.Author, htmlAttributes: new
                             {
@@ -51,12 +53,12 @@
                                @type = "text"
                             })
                         </div>
-                        
+
                     </div>
                     <div class="form-row">
-                        <div class="name">(*) Text</div>
+                        <div class="name">@Html.PropertyFor(m => m.ParentBlock.TextLabel)</div>
                         <div class="value">
-                            <div class="input-group">                               
+                            <div class="input-group">
                                 @Html.TextAreaFor(m => m.Text, htmlAttributes: new
                                {
                                    @class = "input--style-6"
@@ -65,15 +67,15 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="name">Rating</div>
+                        <div class="name">@Html.PropertyFor(m => m.ParentBlock.RatingLabel)</div>
                         <div class="value">
                             <div class="container">
                                 <div class="row">
-                                    <h2><small>Hover and click on a star</small></h2>
+                                    <h2><small>@Html.PropertyFor(m => m.ParentBlock.StarDescription)</small></h2>
                                 </div>
                                 <div class="row lead">
                                     <div id="stars" class="starrr"></div>
-                                    <h4>You gave a rating of <span id="count">0</span> star(s)</h4>
+                                    <h4>@Html.PropertyFor(m => m.ParentBlock.RatingResponse)<span id="count">0</span>@Html.PropertyFor(m => m.ParentBlock.HelpLabelStars)</h4>
                                     @Html.HiddenFor(m => m.Rating, new { @id = "count2", @value = "1" })
                                 </div>
                             </div>
@@ -84,20 +86,12 @@
 
                 </div>
                 <div class="card-footer">
-                    <input class="btn btn--radius-2 btn--blue-2" type="submit" value="Submit Review" />
+                    <input class="btn btn--radius-2 btn--blue-2" type="submit" value="@Html.PropertyFor(m => m.ParentBlock.SubmitButtonText)" />
                 </div>
             </div>
         </div>
     </div>
 }
 
-<script>
-
-
-    function showForm() {
-        document.getElementById("showForm").style.visibility = "visible";
-    }
-
-</script>
 
 

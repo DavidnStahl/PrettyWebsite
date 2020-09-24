@@ -22,12 +22,6 @@ namespace PrettyWebsite.Controllers.Blocks
 {
     public class SearchFormBlockController : BaseFormController<SearchFormBlock>
     {
-        private readonly IMovieRepository _movieRepository;
-
-        public SearchFormBlockController(IMovieRepository movieRepository)
-        {
-            _movieRepository = movieRepository;
-        }
         public override ActionResult Index(SearchFormBlock currentBlock)
         {
             var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
@@ -45,30 +39,6 @@ namespace PrettyWebsite.Controllers.Blocks
 
             return PartialView(model);
         }
-        /*[HttpPost]
-        public  virtual async Task<ActionResult> Submit(SearchFormModel formModel, SearchFormBlock block, PageData page)
-        {
-            var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
-            var currentBlockLink = formModel.CurrentBlockLink;
-            // var returnUrl = UrlResolver.Current.GetUrl(formModel.CurrentPageLink) + $"MovieDetails?id={Session["newId"]}";
-            var model = new SearchFormModel()
-            {
-                CurrentPageLink = pageRouteHelper.PageLink,
-                CurrentBlockLink = currentBlockLink,
-                CurrentLanguage = ContentLanguage.PreferredCulture.Name,
-                ParentBlock = formModel.ParentBlock
-            };
-            if (!string.IsNullOrWhiteSpace(formModel.query))
-            {               
-                model.SearchResult = await _movieRepository.SearchByTitle(formModel.query);
-
-                return PartialView(model);
-
-            }
-
-            //SaveModelState(formModel.CurrentBlockLink);
-
-            return PartialView(model);
-        }*/
+        
     }
 }

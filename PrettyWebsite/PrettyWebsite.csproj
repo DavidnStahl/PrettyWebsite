@@ -363,6 +363,8 @@
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
+    <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
+    <Compile Include="Controllers\Blocks\MovieReviewResultController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Form\SearchBlockController.cs" />
     <Compile Include="Controllers\Form\ReviewFormController.cs" />
@@ -399,6 +401,7 @@
     <Compile Include="Models\ViewModels\Blocks\FooterBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\HeaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieReviewBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blocks\MovieReviewResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\RssFeedBlockViewModel.cs" />
     <Compile Include="Models\Forms\BaseFormModel.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IBlockViewModel.cs" />
@@ -430,6 +433,7 @@
     <Folder Include="Views\DefaultPage\" />
     <Folder Include="Views\DefaultSearchPage\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\MovieReviewResult\" />
     <Folder Include="Views\SearchResult\" />
   </ItemGroup>
   <ItemGroup>
@@ -1599,9 +1603,10 @@
     <Content Include="Views\ReviewForm\Index.cshtml" />
     <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
     <Content Include="Views\SearchFormBlock\Index.cshtml" />
-    <Content Include="Views\SearchFormBlock\Submit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <Content Include="Views\Shared\_MovieSearchResult.cshtml" />
+    <Content Include="Views\MovieReviewBlock\Index.cshtml" />
+    <Content Include="Views\Shared\_MovieReviewResult.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

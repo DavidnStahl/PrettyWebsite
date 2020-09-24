@@ -41,7 +41,7 @@ namespace PrettyWebsite.Controllers.Form
                 CurrentBlockLink = currentBlockLink,
                 CurrentLanguage = ContentLanguage.PreferredCulture.Name,
                 ParentBlock = currentBlock,
-                Id = Session["newId"].ToString()   
+                Id = Session["movieId"].ToString()   
             };
 
             return PartialView(model);
@@ -50,12 +50,13 @@ namespace PrettyWebsite.Controllers.Form
         [HttpPost]
         public virtual ActionResult Submit(ReviewFormModel formModel, ReviewFormBlock block,PageData page)
         {
-            var returnUrl = UrlResolver.Current.GetUrl(formModel.CurrentPageLink) + $"MovieDetails?id={Session["newId"]}";
+            Session["movieId"] = formModel.Id;
+            var returnUrl = UrlResolver.Current.GetUrl(formModel.CurrentPageLink) + $"MovieDetails?id={formModel.Id}";
             if (ModelState.IsValid)
             {
                 Review reviewData = new Review
                 {
-                    MovieId = Session["newId"].ToString(),
+                    MovieId = Session["movieId"].ToString(),
                     Name = formModel.Author,
                     Text = formModel.Text,
                     Rating = Convert.ToDouble(formModel.Rating) == 0 ? 1 : Convert.ToDouble(formModel.Rating),

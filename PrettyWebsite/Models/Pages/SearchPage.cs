@@ -19,5 +19,12 @@ namespace PrettyWebsite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual ContentArea ContentArea { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "Review2 container",
+            GroupName = SystemTabNames.Content,
+            Order = 20)]
+        public virtual ContentArea ContentArea2 { get; set; }
     }
 }

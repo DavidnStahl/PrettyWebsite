@@ -1,9 +1,19 @@
 ﻿@model PrettyWebsite.Models.ViewModels.Pages.MoviePageViewModel
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-@{
-    var stars = 0;
-}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/Static/js/ReviewStar.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- Main CSS-->
+<link href="~/Static/css/form.css" rel="stylesheet" media="all">
+<!-- Main JS-->
+<!-- Jquery JS-->
+<!-- Main JS-->
+<script src="~/Static/js/global.js"></script>
 
 <div class="card mb-4">
     <img src="@Model.Movie.Poster" alt="">
@@ -32,77 +42,12 @@
 
     @if (Model.ReviewList.Count > 0)
     {
-        <div class="container text-dark bg-warning">
-            <div class="row">
-                <div>
-                    <h1 class="text-center mt-3 mb-3">Reviews</h1>
-
-                    @foreach (var review in Model.ReviewList)
-                    {
-                        stars = 0;
-                        <div class="list-group">
-                            <div class="list-group-item">
-
-                                <div class="col-md-11 text">
-                                    <div class="col-md-4"><h4 class="list-group-item-heading text-center"> <strong>Author:</strong> @review.Name</h4></div>
-                                    <div class="col-md-4"><h4 class="list-group-item-heading text-center"> @review.PublicationDate</h4></div>
-                                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
-                                    <div class="list-group-item-text mt-4 mb-4">
-                                        <p>@review.Text</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-1 mt-4 mb-4">
-                                    @if (Model.reviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
-                                    {
-                                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
-                                        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
-                                    }
-                                    else
-                                    {
-                                        <button type="button" class="disabled btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-up"></i></button>
-                                        <button type="button" class="disabled btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()','@Model.Movie.imdbID.ToString()')"><i class="fa fa-thumbs-down"></i></button>
-                                    }
-
-                                </div>
-                                <div class="col-md-3 text-left">
-
-                                    @for (int i = 0; i < Convert.ToInt32(@review.Rating); i++)
-                                    {
-                                        <span class="float-left fa fa-star checked"></span>
-                                        stars++;
-                                    }
-
-                                    @for (int i = stars; i < 6; i++)
-                                    {
-                                        <i class="float-left fa fa-star-o unChecked" aria-hidden="true"></i>
-                                    }
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    }
-
-                </div>
-
-            </div>
-        </div>
+        @Html.PropertyFor(m => m.CurrentPage.ContentArea2)
     }
-
 
     <div class="mt-4 mb-4 text-center">
         @Html.ActionLink("Back to Search", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
     </div>
 </div>
 
-        <script>
 
-
-            function rating(value, id, movieId) {
-                var url = '/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId;
-                window.location.href = ('/Search/ReviewRating?id=' + id + '&rating=' + value + '&movieId=' + movieId);
-            }
-
-        </script>

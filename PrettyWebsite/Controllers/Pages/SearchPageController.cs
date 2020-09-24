@@ -61,7 +61,7 @@ namespace PrettyWebsite.Controllers.Pages
         [HttpGet]
         public async Task<ActionResult> MovieDetails(SearchPage currentPage, string id)
         {
-            Session["newId"] = id;
+            Session["movieId"] = id;
             var reviewList = _dataStoreRepository.Get(id);
             var movie = await _movieRepository.GetMovie(id);
 
