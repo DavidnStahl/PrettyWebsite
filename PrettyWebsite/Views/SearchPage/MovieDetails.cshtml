@@ -17,17 +17,17 @@
 
 <div class="card mb-4 mt-4">
 
-    @Html.PropertyFor(m => m.CurrentPage.ContentArea3, new { movie = Model.Movie, ratings = Model.Ratings })
+    @Html.PropertyFor(m => m.CurrentPage.MovieDetailsContentArea, new { movie = Model.Movie, ratings = Model.Ratings })
 
     @if (Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
     {
-        @Html.PropertyFor(m => m.CurrentPage.ContentArea, new { Id = Model.Movie.imdbID })
+        @Html.PropertyFor(m => m.CurrentPage.ReviewFormContentArea, new { Id = Model.Movie.imdbID })
     }
 
 
     @if (Model.ReviewList.Count > 0)
     {
-        @Html.PropertyFor(m => m.CurrentPage.ContentArea2)
+        @Html.PropertyFor(m => m.CurrentPage.MovieReviewContentArea)
     }
 </div>
 
