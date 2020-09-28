@@ -25,7 +25,7 @@
         @RenderBody()
     </div>
 
-    @Html.PropertyFor(model => model.Layout.PageSettings.Footer)
+    @Html.PropertyFor(model => model.Layout.PageSettings.Footer, new { Tag = "ContentReferencePartial" })
 
 
     <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
