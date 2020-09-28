@@ -13,25 +13,29 @@ namespace PrettyWebsite.Models.Pages
     
     public class SearchPage : SitePageData
     {
+        
         [CultureSpecific]
         [Display(
-            Name = "ReviewForm container",
+            Name = "ReviewFormBlock container",
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        public virtual ContentArea ContentArea { get; set; }
+        [AllowedTypes(new[] { typeof(ReviewFormBlock) })]
+        public virtual ContentArea ReviewFormContentArea { get; set; }
 
         [CultureSpecific]
         [Display(
-            Name = "ReviewResult container",
+            Name = "MovieReviewBlock container",
             GroupName = SystemTabNames.Content,
             Order = 20)]
-        public virtual ContentArea ContentArea2 { get; set; }
+        [AllowedTypes(new[] { typeof(MovieReviewBlock) })]
+        public virtual ContentArea MovieReviewContentArea { get; set; }
 
         [CultureSpecific]
         [Display(
             Name = "MovieDetails container",
             GroupName = SystemTabNames.Content,
             Order = 30)]
-        public virtual ContentArea ContentArea3 { get; set; }
+        [AllowedTypes(new[] { typeof(MovieDetailBlock) })]
+        public virtual ContentArea MovieDetailsContentArea { get; set; }
     }
 }
