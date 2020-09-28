@@ -13,7 +13,6 @@ namespace PrettyWebsite.Models.ViewModels.Pages
     public class MoviePageViewModel : PageViewModel<SearchPage>
     {
         public Movie Movie { get; }
-
         public List<Rating> Ratings { get; set; }
         public List<Review> ReviewList { get; set; }
 
