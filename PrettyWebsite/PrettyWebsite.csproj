@@ -385,6 +385,7 @@
     <Compile Include="Helpers\RenderContentHelper.cs" />
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
+    <Compile Include="Models\Blocks\ImageBlock.cs" />
     <Compile Include="Models\Blocks\MovieDetailBlock.cs" />
     <Compile Include="Models\Blocks\MovieReviewBlock.cs" />
     <Compile Include="Models\Blocks\ReviewFormBlock.cs" />

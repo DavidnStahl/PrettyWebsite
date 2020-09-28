@@ -7,7 +7,7 @@ using EPiServer.DataAnnotations;
 using PrettyWebsite.Models;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Base;
-
+using PrettyWebsite.Views;
 
 
 namespace PrettyWebsite.Models.ViewModels
