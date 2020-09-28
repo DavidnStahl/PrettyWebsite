@@ -405,6 +405,7 @@
     <Compile Include="Models\ViewModels\Blocks\HeaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieDetailBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieReviewBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Result\FindResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Result\MovieReviewResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\RssFeedBlockViewModel.cs" />
     <Compile Include="Models\Forms\BaseFormModel.cs" />
@@ -1603,15 +1604,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\SearchPage\MovieDetails.cshtml" />
-    <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\ReviewForm\Index.cshtml" />
-    <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
     <Content Include="Views\SearchFormBlock\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <Content Include="Views\Shared\_MovieSearchResult.cshtml" />
     <Content Include="Views\MovieReviewBlock\Index.cshtml" />
     <Content Include="Views\Shared\_MovieReviewResult.cshtml" />
     <Content Include="Views\MovieDetailBlock\Index.cshtml" />
+    <Content Include="Views\Shared\_FindSearchResult.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
