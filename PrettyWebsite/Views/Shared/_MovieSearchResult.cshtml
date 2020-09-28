@@ -10,9 +10,9 @@
 
 @if (Model.SearchResult.Search.Count() > 0)
 {
-<div class="container-fluid " style="display:flex;">
+<div style="display:flex;">
 
-    <div class="d-flex flex-wrap bd-highlight">
+    <div class="d-flex flex-wrap bd-highlight" style="margin:0;padding:0;">
 
         @foreach (var movie in Model.SearchResult.Search)
         {

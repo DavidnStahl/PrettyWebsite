@@ -15,25 +15,9 @@
 <!-- Main JS-->
 <script src="~/Static/js/global.js"></script>
 
-<div class="card mb-4">
-    <img src="@Model.Movie.Poster" alt="">
-    <div class="container mb-4 mt-4">
+<div class="card mb-4 mt-4">    
 
-        <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
-        <p><strong>Genre:</strong> @Model.Movie.Genre</p>
-        <p><strong>Director:</strong> @Model.Movie.Director</p>
-        <p><strong>Actors:</strong> @Model.Movie.Actors</p>
-        <p><strong>Plot:</strong> @Model.Movie.Plot</p>
-        <p>
-            <strong>Ratings:</strong><br />
-            @foreach (var item in Model.Ratings)
-            {
-                @item.Source @: @item.Value<br />
-            }
-        </p>
-        <p><strong>Duration:</strong> @Model.Movie.Runtime</p>
-    </div>
-
+    @Html.PropertyFor(m => m.CurrentPage.ContentArea3, new { movie = Model.Movie, ratings = Model.Ratings })
 
     @if (Model.movieList.FirstOrDefault(x => x.Contains(Model.Movie.imdbID)) == null)
     {
@@ -45,10 +29,6 @@
     {
         @Html.PropertyFor(m => m.CurrentPage.ContentArea2)
     }
-
-    <div class="mt-4 mb-4 text-center">
-        @Html.ActionLink("Back to Search", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
-    </div>
 </div>
 
 

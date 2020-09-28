@@ -16,27 +16,16 @@ using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
-    public class MovieDetailBlockController : AsyncBlockController<MovieDetailBlock>
+    public class MovieDetailBlockController : BlockController<MovieDetailBlock>
     {
-        private readonly IMovieRepository _movieRepository;
-        private readonly IDataStoreRepository _dataStoreRepository;
-
-
-        public MovieDetailBlockController(IMovieRepository movieRepository, IDataStoreRepository dataStoreRepository)
+        public override ActionResult Index(MovieDetailBlock currentBlock)
         {
-            _movieRepository = movieRepository;
-            _dataStoreRepository = dataStoreRepository;
-        }
-        public override async Task<ActionResult> Index(MovieDetailBlock currentBlock)
-        {
-            var json = ControllerContext.ParentActionViewContext.ViewData["model"].ToJson();
-
-            var deserializedProduct = JsonConvert.DeserializeObject<MoviePageViewModel>(json);
-
             var model = new MovieDetailBlockViewModel(currentBlock)
             {
-                Movie = await _movieRepository.GetMovie(Session["movieId"].ToString())
+                Movie = JsonConvert.DeserializeObject<Movie>(ControllerContext.ParentActionViewContext.ViewData["movie"].ToJson()),
+                Ratings = JsonConvert.DeserializeObject<List<Rating>>(ControllerContext.ParentActionViewContext.ViewData["ratings"].ToJson())
             };
+
             return PartialView(model);
         }
 
