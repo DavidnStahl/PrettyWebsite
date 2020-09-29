@@ -15,8 +15,6 @@ namespace PrettyWebsite.Models.Pages
     [ContentType(DisplayName = "SitePageSettings", GUID = "EB3B22EE-9DA0-4384-82B0-CC8DD7E233B2", Description = "")]
     public class SitePageSettings : SitePageData, IUseSettingsIcon
     {
-
-
         [CultureSpecific]
         [Display(
             Name = "Header",

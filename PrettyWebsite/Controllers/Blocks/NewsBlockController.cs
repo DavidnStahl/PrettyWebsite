@@ -18,11 +18,6 @@ namespace PrettyWebsite.Controllers.Blocks
     {
         private readonly IContentLoader _contentLoader;
 
-        public NewsBlockController(IContentLoader contentLoader)
-        {
-            _contentLoader = contentLoader;
-        }
-
         public override ActionResult Index(NewsBlock currentBlock)
         {
             NewsContainer newsContainer = null;
