@@ -399,6 +399,7 @@
     <Compile Include="Models\Blocks\RssFeedBlock.cs" />
     <Compile Include="Models\Blocks\SearchFormBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
+    <Compile Include="Models\Containers\CategoryNewsContainer.cs" />
     <Compile Include="Models\Forms\SearchFormModel.cs" />
     <Compile Include="Models\ImageFile.cs" />
     <Compile Include="Models\Pages\SitePageSettings.cs" />

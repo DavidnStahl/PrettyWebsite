@@ -16,7 +16,10 @@ namespace PrettyWebsite.Models.Containers
     )]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(NewsPage) }
+        Include = new[]
+        {
+            typeof(NewsPage), typeof(CategoryNewsContainer)
+        }
     )]
     public class NewsContainer : SitePageData, IUseFolderIcon
     {
