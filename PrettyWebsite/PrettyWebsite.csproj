@@ -367,6 +367,7 @@
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieDetailBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
+    <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Result\MovieReviewResultController.cs" />
