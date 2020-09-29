@@ -1,5 +1,6 @@
 ﻿using EPiServer.Find.Cms;
 using EPiServer.Find.Cms.Conventions;
+using PrettyWebsite.Models;
 using PrettyWebsite.Models.Pages;
 using System;
 using System.Web.Mvc;
@@ -14,6 +15,8 @@ namespace PrettyWebsite
             AreaRegistration.RegisterAllAreas();
 
             ContentIndexer.Instance.Conventions.ForInstancesOf<SearchPage>().ShouldIndex(x => false);
+
+            ContentIndexer.Instance.Conventions.ForInstancesOf<ImageFile>().ShouldIndex(x => false);
             //ContentIndexer.Instance.Conventions.ForInstancesOf<StartPage>().ShouldIndex(x => false);
             ContentIndexer.Instance.Conventions.ForInstancesOf<SitePageSettings>().ShouldIndex(x => false);
 

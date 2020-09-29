@@ -1,6 +1,4 @@
-﻿@using PrettyWebsite.Models.ViewModels
-
-@model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
+﻿@model PrettyWebsite.Models.ViewModels.Pages.ArticlePageViewModel
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -14,16 +12,7 @@
 <!-- Jquery JS-->
 <!-- Main JS-->
 <script src="~/Static/js/global.js"></script>
-
-
-@Html.PropertyFor(m => m.CurrentPage.CarouselArea)
-
-@Html.PropertyFor(m => m.CurrentPage.RssFeedArea)
-
-
-
-
-
-
-
+<div class="card mb-4 mt-4">
+    @Html.PropertyFor(model => model.CurrentPage.NewsArea)
+</div>
 
