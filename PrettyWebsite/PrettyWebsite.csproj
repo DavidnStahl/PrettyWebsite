@@ -368,10 +368,11 @@
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
+    <Compile Include="Controllers\Blocks\ImageCarouselBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieDetailBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
-    <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
+    <Compile Include="Controllers\Pages\ArticlePageController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Result\MovieReviewResultController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
     <Compile Include="Models\Blocks\ImageBlock.cs" />
+    <Compile Include="Models\Blocks\ImageCarouselBlock.cs" />
     <Compile Include="Models\Blocks\MovieDetailBlock.cs" />
     <Compile Include="Models\Blocks\MovieReviewBlock.cs" />
     <Compile Include="Models\Blocks\ReviewFormBlock.cs" />
@@ -402,6 +404,7 @@
     <Compile Include="Models\Containers\CategoryNewsContainer.cs" />
     <Compile Include="Models\Forms\SearchFormModel.cs" />
     <Compile Include="Models\ImageFile.cs" />
+    <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\SitePageSettings.cs" />
     <Compile Include="Models\Forms\ReviewFormModel.cs" />
     <Compile Include="Models\Containers\NewsContainer.cs" />
@@ -416,8 +419,10 @@
     <Compile Include="Models\ViewModels\Base\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\FooterBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\HeaderBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blocks\ImageCarouselBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieDetailBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\MovieReviewBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Pages\ArticlePageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Result\FindResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Result\MovieReviewResultViewModel.cs" />
@@ -1626,7 +1631,6 @@
     <Content Include="Views\Shared\_MovieSearchPartial.cshtml" />
     <Content Include="Views\MovieReviewBlock\Get.cshtml" />
     <Content Include="Views\MovieReviewBlock\Index.cshtml" />
-    <Content Include="Views\NewsBlock\Index.cshtml" />
     <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\ReviewForm\Index.cshtml" />
     <Content Include="Views\SearchFormBlock\Index.cshtml" />
@@ -1637,6 +1641,8 @@
     <Content Include="Views\Shared\_MovieReviewResult.cshtml" />
     <Content Include="Views\MovieDetailBlock\Index.cshtml" />
     <Content Include="Views\Shared\_FindSearchResult.cshtml" />
+    <Content Include="Views\ArticlePage\Index.cshtml" />
+    <Content Include="Views\ImageCarouselBlock\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

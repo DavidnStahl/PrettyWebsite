@@ -1,9 +1,0 @@
-﻿@model PrettyWebsite.Models.ViewModels.NewsViewModel
-
-
-@foreach (var news in Model.NewsList)
-{
-    <h2>@news.Headline</h2>
-    @Html.Raw(news.Text)
-    <p>@news.PublicationDate.ToShortDateString();</p>
-}

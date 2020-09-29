@@ -32,7 +32,7 @@ namespace PrettyWebsite.Services
                 rssFeedList.Add(rssFeed);                
             }
 
-            return rssFeedList.OrderByDescending(x => x.PublicationDate).ToList();
+            return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();
         }
     }
 }
