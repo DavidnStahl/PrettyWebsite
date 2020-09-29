@@ -367,6 +367,8 @@
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieDetailBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
+    <Compile Include="Controllers\ImageFileController.cs" />
+    <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Result\MovieReviewResultController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Form\SearchBlockController.cs" />
@@ -394,6 +396,7 @@
     <Compile Include="Models\Blocks\SearchFormBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Forms\SearchFormModel.cs" />
+    <Compile Include="Models\ImageFile.cs" />
     <Compile Include="Models\Pages\SitePageSettings.cs" />
     <Compile Include="Models\Forms\ReviewFormModel.cs" />
     <Compile Include="Models\Containers\NewsContainer.cs" />
