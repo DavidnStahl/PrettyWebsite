@@ -1,0 +1,21 @@
+﻿@model PrettyWebsite.Models.ViewModels.NewsViewModel
+
+
+
+@foreach (var news in Model.NewsList)
+{
+<div class="card mt-5 ml-5 mr-5">
+    @if (news.Image.PageImage != null)
+    {
+        <img class="img-fluid" src="@Url.ContentUrl(news.Image.PageImage)" alt="@news.Image.AltText)" />
+    }
+
+    <div class="card-header">
+        @news.Headline
+    </div>
+    <div class="card-body">
+        @Html.Raw(news.Text)
+    </div>
+</div>
+
+}
