@@ -24,6 +24,7 @@ namespace PrettyWebsite.Models.Containers
     )]
     public class NewsContainer : SitePageData, IUseFolderIcon, IExcludeFromSitemap
     {
+
         /*
                 [CultureSpecific]
                 [Display(
