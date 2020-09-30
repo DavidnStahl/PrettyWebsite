@@ -448,6 +448,7 @@
     <Compile Include="Repositories\Interfaces\IDataStoreRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMovieRepository.cs" />
     <Compile Include="Repositories\MovieRepository.cs" />
+    <Compile Include="ScheduledJobs\ScheduledJobDeleteBadReview.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Services\Interface\IRssFeedService.cs" />
     <Compile Include="Services\RssFeedService.cs" />

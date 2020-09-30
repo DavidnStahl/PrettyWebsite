@@ -56,5 +56,18 @@ namespace PrettyWebsite.Repositories
             }
             
         }
+
+        public void DeleteBadReview()
+        {
+            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
+            var reviewData = store.Items<Review>().Where(data => data.ReviewRating < -5)
+                                                  .ToList();
+
+            foreach (var item in reviewData)
+            {
+                store.Delete(item.Id);
+            }
+
+        }
     }
 }

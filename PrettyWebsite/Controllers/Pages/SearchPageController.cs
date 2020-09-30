@@ -64,18 +64,5 @@ namespace PrettyWebsite.Controllers.Pages
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult ReviewRating(SearchPage currentPage,string id, string rating,string movieId)
-        {
-            Identity.TryParse(id, out Identity identity);
-
-            _dataStoreRepository.SaveRating(identity, rating);
-
-            var user = Session["User"] as User;
-            user.ReviewRatedList.Add(id);
-
-            return RedirectToAction("MovieDetails",new { id = movieId });
-        }
-
     }
 }

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using Geta.SEO.Sitemaps.Models;
 using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Pages;
 
@@ -21,7 +22,7 @@ namespace PrettyWebsite.Models.Containers
             typeof(NewsPage), typeof(CategoryNewsContainer)
         }
     )]
-    public class NewsContainer : SitePageData, IUseFolderIcon
+    public class NewsContainer : SitePageData, IUseFolderIcon, IExcludeFromSitemap
     {
         /*
                 [CultureSpecific]
