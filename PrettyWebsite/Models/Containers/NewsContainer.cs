@@ -19,7 +19,7 @@ namespace PrettyWebsite.Models.Containers
         Availability.Specific,
         Include = new[]
         {
-            typeof(NewsPage), typeof(CategoryNewsContainer)
+             typeof(CategoryNewsContainer)
         }
     )]
     public class NewsContainer : SitePageData, IUseFolderIcon, IExcludeFromSitemap
