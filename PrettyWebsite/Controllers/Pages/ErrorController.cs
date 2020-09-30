@@ -10,13 +10,13 @@ using PrettyWebsite.Models.ViewModels;
 
 namespace PrettyWebsite.Controllers.Pages
 {
-    public class NewsPageController : PageControllerBase<NewsPage>
+    public class ErrorController : PageControllerBase<SitePageData>
     {
-        public ActionResult Index(NewsPage currentPage)
-        {
-            var model = new NewsPageViewModel(currentPage);
 
-            return View(model);
+        [BVNetwork.NotFound.Core.NotFoundPage.NotFoundPage]
+        public ActionResult Error404()
+        {
+            return View();
         }
     }
 }
