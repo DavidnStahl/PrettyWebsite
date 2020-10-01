@@ -5,35 +5,35 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
+using EPiServer.Web;
+using PrettyWebsite.Models.Pages;
 
 namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
 {
-    public class ContentSelectionFactory<T> : ISelectionFactory
-        where T : IContentData
+    public class ContentSelectionFactory<T> : ISelectionFactory where T : IContentData
     {
-        private Injected<IContentTypeRepository>
-            ContentTypeRepository
-        { get; set; }
-        private Injected<IContentModelUsage>
-            ContentModelUsage
-        { get; set; }
-        private Injected<IContentLoader>
-            ContentLoader
-        { get; set; }
+
+        private static readonly IContentTypeRepository _contentTypeRepository = ServiceLocator.Current.GetInstance<IContentTypeRepository>();
+        private static readonly IContentModelUsage _contentModelUsage = ServiceLocator.Current.GetInstance<IContentModelUsage>();
+
+        private static readonly IContentLoader _contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
 
         public IEnumerable<ISelectItem> GetSelections(ExtendedMetadata metadata)
         {
-            var contentType = ContentTypeRepository.Service.Load<T>();
+            var contentType = _contentTypeRepository.Load<T>();
             if (contentType == null)
             {
                 return Enumerable.Empty<SelectItem>();
             }
 
-            var selectItems = ContentModelUsage.Service
+            var startPage = _contentLoader
+                .Get<StartPage>(SiteDefinition.Current.StartPage);
+
+            var selectItems = _contentModelUsage
                     .ListContentOfContentType(contentType)
                     .Select(x => x.ContentLink.ToReferenceWithoutVersion())
                     .Distinct()
-                    .Select(x => ContentLoader.Service.Get<T>(x))
+                    .Select(x => _contentLoader.Get<T>(x, startPage.Language))
                     .OfType<IContent>()
                     .Select(x => new SelectItem
                         {
