@@ -36,21 +36,24 @@
                             </ul>
                         </li>
                     }
-                    <li class="nav-item ml-5">
-                        <a class="nav-link text-warning dropdown-toggle" href="#" id="languagenavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Change language
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="languagenavbarDropdown">
-                            @foreach (var page in Model.Layout.StartPages.Where(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
-                            {
-                                <li>
-                                    <a class="dropdown-item" href="@Url.ContentUrl(page.ContentLink)">
-                                        @page.Name
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                    </li>
+                    @if (Model.Layout.StartPages.Any())
+                    {
+                        <li class="nav-item ml-5">
+                            <a class="nav-link text-warning dropdown-toggle" href="#" id="languagenavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Change language
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languagenavbarDropdown">
+                                @foreach (var page in Model.Layout.StartPages.Where(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
+                                {
+                                    <li>
+                                        <a class="dropdown-item" href="@Url.ContentUrl(page.ContentLink)">
+                                            @page.Name
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
                 </ul>
 
             </div>
