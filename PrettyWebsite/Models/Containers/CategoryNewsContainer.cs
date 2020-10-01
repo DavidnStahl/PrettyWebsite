@@ -14,6 +14,10 @@ namespace PrettyWebsite.Models.Containers
         Include = new[]
         {
             typeof(NewsPage),
+        },
+        ExcludeOn = new []
+        {
+            typeof(StartPage)
         }
     )]
     public class CategoryNewsContainer : NewsContainer
