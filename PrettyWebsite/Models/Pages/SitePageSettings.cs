@@ -5,6 +5,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
+using Geta.SEO.Sitemaps.Models;
 using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Blocks;
@@ -13,7 +14,7 @@ using PrettyWebsite.Validation;
 namespace PrettyWebsite.Models.Pages
 {
     [ContentType(DisplayName = "SitePageSettings", GUID = "EB3B22EE-9DA0-4384-82B0-CC8DD7E233B2", Description = "")]
-    public class SitePageSettings : SitePageData, IUseSettingsIcon
+    public class SitePageSettings : SitePageData, IUseSettingsIcon, IExcludeFromSitemap
     {
         [CultureSpecific]
         [Display(

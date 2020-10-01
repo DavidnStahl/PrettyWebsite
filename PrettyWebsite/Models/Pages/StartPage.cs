@@ -33,10 +33,19 @@ namespace PrettyWebsite.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "News container",
+            Name = "Carousel container",
             GroupName = SystemTabNames.Content, 
-            Order = 40)]
-        public virtual ContentArea NewsArea { get; set; }
+            Order = 20)]
+        [AllowedTypes(new[] { typeof(ImageCarouselBlock) })]
+        public virtual ContentArea CarouselArea { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "Rssfeed container",
+            GroupName = SystemTabNames.Content,
+            Order = 30)]
+        [AllowedTypes(new[] { typeof(RssFeedBlock) })]
+        public virtual ContentArea RssFeedArea { get; set; }
 
     }
 }
