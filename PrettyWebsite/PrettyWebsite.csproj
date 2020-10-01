@@ -348,7 +348,6 @@
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
-    <Compile Include="Business\Initializers\EpiserverInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\Initializers\RestrictRootPagesInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />

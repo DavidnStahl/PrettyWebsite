@@ -39,12 +39,15 @@ namespace PrettyWebsite.Business
 
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
 
-            //var pageSettings = _contentLoader.Get<SitePageSettings>(startPage.Settings);
+
+
+            
 
 
             return new LayoutModel
             {
                 PageSettings = GetSitePageSettings(),
+                StartPages = GetStartPages(),
                 //Logotype = startPage.SiteLogotype,
                 //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
                 //ProductPages = startPage.ProductPageLinks,
@@ -73,6 +76,15 @@ namespace PrettyWebsite.Business
             }
 
             return settingsPage;
+        }
+
+        private IEnumerable<StartPage> GetStartPages()
+        {
+            var root = _contentLoader.GetAncestors(SiteDefinition.Current.StartPage).FirstOrDefault();
+
+            return root is null ? 
+                Array.Empty<StartPage>() : 
+                _contentLoader.GetChildren<StartPage>(root.ContentLink);
         }
 
         //private string GetLoginUrl(ContentReference returnToContentLink)
