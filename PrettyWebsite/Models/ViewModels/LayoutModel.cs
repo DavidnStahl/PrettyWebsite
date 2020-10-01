@@ -12,5 +12,7 @@ namespace PrettyWebsite.Models.ViewModels
     public class LayoutModel
     {
         public SitePageSettings PageSettings { get; set; }
+
+        public IEnumerable<StartPage> StartPages { get; set; }
     }
 }
