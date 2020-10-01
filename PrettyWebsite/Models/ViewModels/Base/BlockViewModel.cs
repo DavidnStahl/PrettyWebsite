@@ -15,5 +15,6 @@ namespace PrettyWebsite.Models.ViewModels.Base
         }
 
         public T CurrentBlock { get; }
+        public LayoutModel Layout { get; set; }
     }
 }
