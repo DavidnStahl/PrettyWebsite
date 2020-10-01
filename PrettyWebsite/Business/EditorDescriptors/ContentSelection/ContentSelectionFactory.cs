@@ -44,6 +44,7 @@ namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
                     .ToList();
 
             selectItems.Insert(0, new SelectItem());
+
             return selectItems;
         }
     }
