@@ -12,16 +12,15 @@ namespace PrettyWebsite.Repositories
 {
     public class DataStoreRepository : IDataStoreRepository
     {
+        private readonly DynamicDataStore _store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
         public void Save(Review data)
         {
-            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
-            store.Save(data);
+            _store.Save(data);
         }
 
         public void SaveRating(Identity id,string rating)
         {
-            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
-            var reviewData = store.Items<Review>().FirstOrDefault(data => data.Id == id);
+            var reviewData = _store.Items<Review>().FirstOrDefault(data => data.Id == id);
 
             if(rating == "up")
             {
@@ -31,14 +30,13 @@ namespace PrettyWebsite.Repositories
             {
                 reviewData.ReviewRating--;
             }
-            
-            store.Save(reviewData);
+
+            _store.Save(reviewData);
         }
 
         public  List<Review> Get(string id)
         {
-            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
-            var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
+            var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)
                                                   .OrderByDescending(data => data.ReviewRating)
                                                   .ToList();
             return reviewData;
@@ -46,26 +44,24 @@ namespace PrettyWebsite.Repositories
 
         public void Delete(string id)
         {
-            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
-            var reviewData = store.Items<Review>().Where(data => data.MovieId == id)
+            var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)
                                                   .ToList();
 
             foreach (var item in reviewData)
             {
-                store.Delete(item.Id);
+                _store.Delete(item.Id);
             }
             
         }
 
         public void DeleteBadReview()
         {
-            var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
-            var reviewData = store.Items<Review>().Where(data => data.ReviewRating < -5)
+            var reviewData = _store.Items<Review>().Where(data => data.ReviewRating < -5)
                                                   .ToList();
 
             foreach (var item in reviewData)
             {
-                store.Delete(item.Id);
+                _store.Delete(item.Id);
             }
 
         }
