@@ -18,5 +18,6 @@ namespace PrettyWebsite.Controllers.Pages
             var model = new StartPageViewModel(currentPage);           
             return View(model);
         }
+
     }
 }

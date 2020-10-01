@@ -11,7 +11,7 @@ using PrettyWebsite.Models.ViewModels;
 
 namespace PrettyWebsite.Controllers
 {
-    public abstract class PageControllerBase<T> : PageController<T>, IModifyLayout
+    public abstract class PageControllerBase<T> : PageController<T>
         where T : SitePageData
     {
         protected EPiServer.ServiceLocation.Injected<UISignInManager> UISignInManager;
@@ -21,14 +21,6 @@ namespace PrettyWebsite.Controllers
             UISignInManager.Service.SignOut();
 
             return RedirectToAction("Index");
-        }
-        public void ModifyLayout(LayoutModel layoutModel)
-        {
-            var page = PageContext.Page as SitePageData;
-            if (page != null)
-            {
-
-            }
         }
     }
 }

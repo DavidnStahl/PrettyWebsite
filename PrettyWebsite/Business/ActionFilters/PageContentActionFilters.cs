@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Interfaces;
 
@@ -21,20 +22,19 @@ namespace PrettyWebsite.Business.ActionFilters
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
             var viewModel = filterContext.Controller.ViewData.Model;
-            var model = viewModel as IPageViewModel<SitePageData>;
 
-            if (model != null)
+            if (viewModel is IPageViewModel<SitePageData> pageViewModel)
             {
                 var currentContentLink = filterContext.RequestContext.GetContentLink();
-                var layoutModel = model.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
-                var layoutController = filterContext.Controller as IModifyLayout;
+                pageViewModel.Layout = pageViewModel.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
+            }
 
-                if (layoutController != null)
-                {
-                    layoutController.ModifyLayout(layoutModel);
-                }
 
-                model.Layout = layoutModel;
+
+            if (viewModel is IBlockViewModel<SiteBlockData> blockViewModel)
+            {
+                var currentContentLink = filterContext.RequestContext.GetContentLink();
+                blockViewModel.Layout = blockViewModel.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
             }
         }
 

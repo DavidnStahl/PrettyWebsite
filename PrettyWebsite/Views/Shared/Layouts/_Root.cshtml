@@ -20,9 +20,9 @@
 
 
 
-<body>
+<body style="background-color:black;">
     @Html.PropertyFor(model => model.Layout.PageSettings.Header, new { Tag = "ContentReferencePartial" })
-    <div class="container bg-dark">
+    <div class="container" style="background-color:black;">
         @RenderBody()
     </div>
 

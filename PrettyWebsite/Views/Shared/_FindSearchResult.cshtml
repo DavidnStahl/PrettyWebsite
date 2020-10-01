@@ -16,12 +16,11 @@
         <div class="d-flex flex-wrap bd-highlight" style="margin:0;padding:0;">
             @foreach (var item in Model.Result)
             {
-                <div class="p-2 bd-highlight">
-               
-                    <h2><a href="@item.Url">@item.Title</a></h2>
-                    <p>@Html.Raw(item.Excerpt)</p>
-                
-                 </div>
+            <div class="p-2 bd-highlight">
+
+                <h2><a href="@item.Url">@item.Title</a></h2>
+                <p class="text-warning">@Html.Raw(item.Excerpt)</p>
+            </div>
 
              }
                    

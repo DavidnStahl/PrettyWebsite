@@ -21,6 +21,7 @@ namespace PrettyWebsite.Models.Blocks
         public virtual ContentReference PageImage { get; set; }
 
         [Display(Order = 20, GroupName = SystemTabNames.Content)]
+        [Searchable(false)]
         [StringLength(150)]
         public virtual string AltText { get; set; }     
         

@@ -41,6 +41,9 @@
     
 
 <script>
+    $('#select').change(function () {
+        $('#searchText').focus()
+    });
     $("#btn").click(function () {
 
         var type = $("#select").val();
