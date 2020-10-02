@@ -8,7 +8,7 @@
 
 
 
-@if (Model.SearchResult.Search.Count() > 0)
+@if (Model.SearchResult.Search.Any())
 {
 <div style="display:flex;">
 
@@ -16,16 +16,12 @@
 
         @foreach (var movie in Model.SearchResult.Search)
         {
-            <div class="p-2 bd-highlight"><a class="btn btn-warning text-white mb-3" style="width:345px;" href="/Search/MovieDetails?id=@movie.imdbID">@movie.Title</a></div>
+            <div class="p-2 bd-highlight"><a class="btn btn-warning text-white mb-3" style="width:345px;" href="@Url.Action("Index","Movie",new { id = movie.imdbID })">@movie.Title</a></div>
 
         }
     </div>
 
 </div>
-
-
-    
-
 }
 
 

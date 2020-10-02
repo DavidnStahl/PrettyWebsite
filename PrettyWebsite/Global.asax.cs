@@ -14,7 +14,7 @@ namespace PrettyWebsite
         {
             AreaRegistration.RegisterAllAreas();
 
-            ContentIndexer.Instance.Conventions.ForInstancesOf<SearchPage>().ShouldIndex(x => false);
+            ContentIndexer.Instance.Conventions.ForInstancesOf<MoviePage>().ShouldIndex(x => false);
 
             ContentIndexer.Instance.Conventions.ForInstancesOf<ImageFile>().ShouldIndex(x => false);
             //ContentIndexer.Instance.Conventions.ForInstancesOf<StartPage>().ShouldIndex(x => false);

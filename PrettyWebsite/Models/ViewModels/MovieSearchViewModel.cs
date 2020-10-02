@@ -12,11 +12,11 @@ using PrettyWebsite.Views;
 
 namespace PrettyWebsite.Models.ViewModels
 {
-    public class MovieSearchViewModel : PageViewModel<SearchPage>
+    public class MovieSearchViewModel : PageViewModel<MoviePage>
     {
         public MovieSearch SearchResult { get; set; }
 
-        public MovieSearchViewModel(SearchPage currentPage) : base(currentPage)
+        public MovieSearchViewModel(MoviePage currentPage) : base(currentPage)
         {
             
         }

@@ -37,59 +37,10 @@ namespace PrettyWebsite.Controllers.Form
 
             var model = new ReviewFormModel()
             {
-                CurrentPageLink = pageRouteHelper.PageLink,
-                CurrentBlockLink = currentBlockLink,
-                CurrentLanguage = ContentLanguage.PreferredCulture.Name,
-                ParentBlock = currentBlock,
                 Id = Session["movieId"].ToString()   
             };
 
             return PartialView(model);
-        }
-
-        [HttpPost]
-        public virtual ActionResult Submit(ReviewFormModel formModel, ReviewFormBlock block,PageData page)
-        {
-            Session["movieId"] = formModel.Id;
-            var returnUrl = UrlResolver.Current.GetUrl(formModel.CurrentPageLink) + $"MovieDetails?id={formModel.Id}";
-            if (ModelState.IsValid)
-            {
-                Review reviewData = new Review
-                {
-                    MovieId = Session["movieId"].ToString(),
-                    Name = formModel.Author,
-                    Text = formModel.Text,
-                    Rating = Convert.ToDouble(formModel.Rating) == 0 ? 1 : Convert.ToDouble(formModel.Rating),
-                    PublicationDate = DateTime.Now
-                };
-
-                _dataStoreRepository.Save(reviewData);
-
-                AddToSession(formModel.Id);
-            }
-
-            SaveModelState(formModel.CurrentBlockLink);
-
-            return Redirect(returnUrl);
-        }
-
-        public void AddToSession(string id)
-        {
-            if (Session["User"] as User == null)
-            {
-                User user = new User
-                {
-                    MovieList = new List<string> { id },
-                    ReviewRatedList = new List<string>()
-                };
-
-                Session["User"] = user;
-            }
-            else
-            {
-                User user = Session["User"] as User;
-                user.MovieList.Add(id);
-            }
         }
     }
 }

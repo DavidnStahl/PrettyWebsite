@@ -16,18 +16,18 @@ using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
-    public class MovieDetailBlockController : BlockController<MovieDetailBlock>
-    {
-        public override ActionResult Index(MovieDetailBlock currentBlock)
-        {
-            var model = new MovieDetailBlockViewModel(currentBlock)
-            {
-                Movie = JsonConvert.DeserializeObject<Movie>(ControllerContext.ParentActionViewContext.ViewData["movie"].ToJson()),
-                Ratings = JsonConvert.DeserializeObject<List<Rating>>(ControllerContext.ParentActionViewContext.ViewData["ratings"].ToJson())
-            };
+    //public class MovieDetailBlockController : BlockController<MovieDetailBlock>
+    //{
+    //    public override ActionResult Index(MovieDetailBlock currentBlock)
+    //    {
+    //        var model = new MovieDetailBlockViewModel(currentBlock)
+    //        {
+    //            Movie = JsonConvert.DeserializeObject<Movie>(ControllerContext.ParentActionViewContext.ViewData["movie"].ToJson()),
+    //            Ratings = JsonConvert.DeserializeObject<List<Rating>>(ControllerContext.ParentActionViewContext.ViewData["ratings"].ToJson())
+    //        };
 
-            return PartialView(model);
-        }
+    //        return PartialView(model);
+    //    }
 
-    }
+    //}
 }

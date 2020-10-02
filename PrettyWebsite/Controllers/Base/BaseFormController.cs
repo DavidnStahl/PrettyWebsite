@@ -19,13 +19,11 @@ namespace PrettyWebsite.Controllers.Base
         protected virtual void LoadModelState(ContentReference blockLink)
         {
             var key = StateKey(blockLink);
-            var modelState = TempData[key] as ModelStateDictionary;
 
-            if (modelState != null)
-            {
-                ViewData.ModelState.Merge(modelState);
-                TempData.Remove(key);
-            }
+            if (!(TempData[key] is ModelStateDictionary modelState)) return;
+
+            ViewData.ModelState.Merge(modelState);
+            TempData.Remove(key);
         }
 
         private static string StateKey(ContentReference blockLink)

@@ -13,14 +13,12 @@ namespace PrettyWebsite.Models.Blocks
     public class HeaderBlock : SiteBlockData
     {
 
-        [CultureSpecific]
         [Display(
-                    Name = "SearchForm",
-                    Description = "",
-                    GroupName = SystemTabNames.Content,
-                    Order = 1)]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<SearchFormBlock>))]
-        public virtual ContentReference SearchForm { get; set; }
+            Name = "Search Form",
+            Description = "",
+            GroupName = SystemTabNames.Content,
+            Order = 10)]
+        public virtual SearchFormBlock SearchForm { get; set; }
 
     }
 }

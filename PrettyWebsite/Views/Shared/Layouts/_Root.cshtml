@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using EPiServer.Web
 @model PrettyWebsite.Models.ViewModels.Interfaces.IPageViewModel<PrettyWebsite.Models.Pages.SitePageData>
 
 <!DOCTYPE html>
@@ -10,30 +11,37 @@
     <title></title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/js")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Static/css/Bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="~/Static/css/style.css" />
+    <link href="~/Static/css/form.css" rel="stylesheet" media="all">
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="~/Static/js/bootstrap.js"></script>
+
 </head>
 
 
 
 <body style="background-color:black;">
-    @Html.PropertyFor(model => model.Layout.PageSettings.Header, new { Tag = "ContentReferencePartial" })
+    @Html.PropertyFor(model => model.Layout.PageSettings.Header)
     <div class="container" style="background-color:black;">
         @RenderBody()
     </div>
 
-    @Html.PropertyFor(model => model.Layout.PageSettings.Footer, new { Tag = "ContentReferencePartial" })
+    @Html.PropertyFor(model => model.Layout.PageSettings.Footer)
 
-
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="~/Static/js/bootstrap.js"></script>
     <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            cookieconsent.run({ "notice_banner_type": "headline", "consent_type": "express", "palette": "dark", "language": "@Model.CurrentPage.Language", "website_name": "https://prettywebsite.azurewebsites.net/" });
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+        cookieconsent.run({ "notice_banner_type": "headline", "consent_type": "express", "palette": "dark", "language": "@(Model.Layout.StartPage.Language)", "website_name": @SiteDefinition.Current.SiteUrl });
+    });
     </script>
+    
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Static/js/ReviewStar.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <script src="~/Static/js/global.js"></script>
 </body>
 
 </html>

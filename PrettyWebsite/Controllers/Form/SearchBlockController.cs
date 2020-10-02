@@ -22,23 +22,6 @@ namespace PrettyWebsite.Controllers.Blocks
 {
     public class SearchFormBlockController : BaseFormController<SearchFormBlock>
     {
-        public override ActionResult Index(SearchFormBlock currentBlock)
-        {
-            var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
-            var currentBlockLink = ((IContent)currentBlock).ContentLink;
-
-            LoadModelState(currentBlockLink);
-
-            var model = new SearchFormModel()
-            {
-                CurrentPageLink = pageRouteHelper.PageLink,
-                CurrentBlockLink = currentBlockLink,
-                CurrentLanguage = ContentLanguage.PreferredCulture.Name,
-                ParentBlock = currentBlock
-            };
-
-            return PartialView(model);
-        }
-        
+        public override ActionResult Index(SearchFormBlock currentBlock) => PartialView();
     }
 }

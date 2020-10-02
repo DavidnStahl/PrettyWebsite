@@ -8,11 +8,11 @@ using System.Web;
 
 namespace PrettyWebsite.Models.ViewModels
 {
-    public class NewsSearchViewModel : PageViewModel<SearchPage>
+    public class NewsSearchViewModel : PageViewModel<MoviePage>
     {
         public UnifiedSearchResults SearchResult { get; set; }
 
-        public NewsSearchViewModel(SearchPage currentPage) : base(currentPage)
+        public NewsSearchViewModel(MoviePage currentPage) : base(currentPage)
         {
         }
     }

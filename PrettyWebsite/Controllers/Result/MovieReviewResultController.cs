@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PrettyWebsite.Models.ViewModels.Result;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
@@ -21,15 +22,16 @@ namespace PrettyWebsite.Controllers.Blocks
          
         public ActionResult Index()
         {
-            if (Session["User"] == null)
+            var user = new User
             {
-                Session["User"] = new User
-                {
-                    MovieList = new List<string>(),
-                    ReviewRatedList = new List<string>()
-                };
+                MovieList = new List<string>(),
+                ReviewRatedList = new List<string>()
+            };
+
+            if (Session["User"] is User sessionUser)
+            {
+                user = sessionUser;
             }
-            var user = Session["User"] as User;
 
             var model = new MovieReviewResultViewModel
             { 
@@ -39,17 +41,18 @@ namespace PrettyWebsite.Controllers.Blocks
             
             return PartialView("_MovieReviewResult",model);
         }
+
         [HttpGet]
         public ActionResult ReviewRating(string id,string rating)
         {
-            Identity.TryParse(id, out Identity identity);
+            Identity.TryParse(id, out var identity);
 
             _dataStoreRepository.SaveRating(identity, rating);
 
             var user = Session["User"] as User;
-            user.ReviewRatedList.Add(id);
+            user?.ReviewRatedList.Add(id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
