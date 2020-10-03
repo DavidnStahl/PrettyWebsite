@@ -16,70 +16,52 @@
     </button>
 </div>
 
-
-@using (Html.BeginForm("Submit", null))
+<div id="showForm" class="collapse bg-dark">
+@using (Html.BeginForm("Submit", "Movie", FormMethod.Post))
 {
-    <div id="showForm" class="collapse page-wrapper bg-dark p-t-100 p-b-50">
-        <div class="wrapper wrapper--w900">
-            <div class="card card-6">
-                <div class="card-heading">
-                    <h2 class="title">@localizationService.GetString("/ReviewForm/Title")</h2>
+    <div class="card p-2">
+
+        <div class="card-title m-2">
+            <h2 m-2>@localizationService.GetString("/ReviewForm/Title")</h2>
+        </div>
+
+        <div class="card-body m-2 p-2">
+
+            @Html.HiddenFor(m => m.Id)
+            <div class="row g-5">
+                <div class="row m-2">
+                    <label for="Author" class="col-sm-2 col-form-label">(*)&nbsp;@localizationService.GetString("/ReviewForm/Name")</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.Author, htmlAttributes: new {@class = "form-control", @type = "text"})
+                    </div>
+                    <span class="text-danger">@Html.ValidationMessageFor(m => m.Author)</span>
                 </div>
-                <div class="card-body">
-                    @Html.HiddenFor(m => m.Id)
-                    <div class="form-row">
-                        <div class="name"></div>
-                        <div class="value text-danger">@Html.ValidationSummary()</div>
+                <div class="row m-2">
+                    <label for="Text" class="col-sm-2 col-form-label">(*)&nbsp;@localizationService.GetString("/ReviewForm/Text")</label>
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(m => m.Text, htmlAttributes: new {@class = "form-control"})
                     </div>
-                    <div class="form-row">
-
-                        <div class="name">(*)&nbsp;@localizationService.GetString("/ReviewForm/Name")</div>
-                        <div class="value">
-                            @Html.TextBoxFor(m => m.Author, htmlAttributes: new
-                            {
-                               @class = "input--style-6",
-                               @type = "text"
-                            })
-                        </div>
-
-                    </div>
-                    <div class="form-row">
-                        <div class="name">(*)&nbsp;@localizationService.GetString("/ReviewForm/Text")</div>
-                        <div class="value">
-                            <div class="input-group">
-                                @Html.TextAreaFor(m => m.Text, htmlAttributes: new
-                               {
-                                   @class = "input--style-6"
-                               })
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">@localizationService.GetString("/ReviewForm/Rating")</div>
-                        <div class="value">
-                            <div class="container">
-                                <div class="row">
-                                    <h2><small>@localizationService.GetString("/ReviewForm/Star")</small></h2>
-                                </div>
-                                <div class="row lead">
-                                    <div id="stars" class="starrr"></div>
-                                    <h4>@localizationService.GetString("/ReviewForm/RatingResponse")&nbsp;<span id="count">0</span>&nbsp;@localizationService.GetString("/ReviewForm/StarLabel")</h4>
-                                    @Html.HiddenFor(m => m.Rating, new { @id = "count2", @value = "1" })
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                    <span class="text-danger">@Html.ValidationMessageFor(m => m.Text)</span>
                 </div>
-                <div class="card-footer">
-                    <input class="btn btn--radius-2 btn--blue-2" type="submit" value="@localizationService.GetString("/ReviewForm/SubmitButtonText")" />
+                <div class="row m-2">
+                    @Html.HiddenFor(m => m.Rating, new {@id = "count2", @value = "1"})
+                    <h2 class="p-2">@localizationService.GetString("/ReviewForm/Star")</h2>
+                    <div id="reviewStars" class="g-1 p-2 flex-row align-content-center justify-content-center">
+                        <i class="fas fa-star text-warning" data-index="0"></i>
+                        <i class="far fa-star text-warning" data-index="1"></i>
+                        <i class="far fa-star text-warning" data-index="2"></i>
+                        <i class="far fa-star text-warning" data-index="3"></i>
+                        <i class="far fa-star text-warning" data-index="4"></i>
+                    </div>
+                    <h4 class="p-2">@localizationService.GetString("/ReviewForm/RatingResponse")&nbsp;<span id="count">1</span>&nbsp;@localizationService.GetString("/ReviewForm/StarLabel")</h4>
                 </div>
             </div>
         </div>
+
+        <div class="card-footer">
+            <input class="btn btn-primary" type="submit" value="@localizationService.GetString("/ReviewForm/SubmitButtonText")"/>
+        </div>
+        
     </div>
 }
-
-
-
+</div>

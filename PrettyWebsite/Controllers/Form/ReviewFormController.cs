@@ -30,7 +30,6 @@ namespace PrettyWebsite.Controllers.Form
         }
         public override ActionResult Index(ReviewFormBlock currentBlock)
         {
-            var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
             var currentBlockLink = ((IContent)currentBlock).ContentLink;
 
             LoadModelState(currentBlockLink);

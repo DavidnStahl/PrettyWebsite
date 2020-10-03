@@ -4,6 +4,7 @@
     Layout = null;
     var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
 }
+
 <div class="container text-dark bg-warning">
     <div class="row">
         <div>
@@ -15,12 +16,9 @@
 </div>
 
 <script>
-    function play() {
-        $.get("/MovieReviewResult/Index",
-            function (data, status) {
-                $("#partialViewReviewResult").empty().append(data);
-                //alert("Data: " + data + "\nStatus: " + status);
-            });
-    };
-    play();
+    fetch("@Url.Action("Index", "MovieReviewResult",new{},Request.Url.Scheme)")
+        .then(response => response.text())
+        .then(function (result) {
+        $("#partialViewReviewResult").empty().append(result);
+    });
 </script>

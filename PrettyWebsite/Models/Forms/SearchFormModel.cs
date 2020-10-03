@@ -9,12 +9,8 @@ using System.Web;
 
 namespace PrettyWebsite.Models.Forms
 {
-    public class SearchFormModel : BaseFormModel<SearchFormBlock>
+    public class SearchFormModel
     {
-        public string query { get; set; }
-
         public MovieSearch SearchResult { get; set; }
-
-        public string SelectedType { get; set; }
     }
 }

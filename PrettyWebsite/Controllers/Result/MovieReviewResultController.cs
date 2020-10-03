@@ -22,16 +22,11 @@ namespace PrettyWebsite.Controllers.Blocks
          
         public ActionResult Index()
         {
-            var user = new User
+            var user = Session["User"] is User sessionUser ? sessionUser : new User
             {
                 MovieList = new List<string>(),
                 ReviewRatedList = new List<string>()
             };
-
-            if (Session["User"] is User sessionUser)
-            {
-                user = sessionUser;
-            }
 
             var model = new MovieReviewResultViewModel
             { 

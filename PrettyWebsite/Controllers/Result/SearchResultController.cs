@@ -17,6 +17,8 @@ namespace PrettyWebsite.Controllers.Form
         {
             _movieRepository = movieRepository;
         }
+
+        [HttpPost]
         public async Task<ActionResult> Submit(string type ,string query)
         {
             
@@ -24,7 +26,7 @@ namespace PrettyWebsite.Controllers.Form
             {
                 var model = new SearchFormModel
                 {
-                    SearchResult = await _movieRepository.SearchByTitle(query)
+                    SearchResult = await _movieRepository.SearchByTitle(query).ConfigureAwait(false)
                 };
 
                 return PartialView("_MovieSearchResult",model);

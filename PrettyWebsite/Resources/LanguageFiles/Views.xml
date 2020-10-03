@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages>
   <language name="English" id="en">
-    <SearchFormBlock>
+    <SearchForm>
       <Text1>Movie</Text1>
       <Text2>News</Text2>
       <Placeholder>Search here...</Placeholder>
-    </SearchFormBlock>
+    </SearchForm>
     <ReviewForm>
       <Title>Movie Review</Title>
       <Name>Author</Name>
@@ -32,11 +32,11 @@
     </MovieDetail>
   </language>
   <language name="Swedish" id="sv">
-    <SearchFormBlock>
+    <SearchForm>
       <Text1>Filmer</Text1>
       <Text2>Nyheter</Text2>
       <Placeholder>Sök här....</Placeholder>
-    </SearchFormBlock>
+    </SearchForm>
     <ReviewForm>
       <Title>Movie Review</Title>
       <Name>Author</Name>

@@ -13,12 +13,5 @@ namespace PrettyWebsite.Models.Blocks
     public class HeaderBlock : SiteBlockData
     {
 
-        [Display(
-            Name = "Search Form",
-            Description = "",
-            GroupName = SystemTabNames.Content,
-            Order = 10)]
-        public virtual SearchFormBlock SearchForm { get; set; }
-
     }
 }

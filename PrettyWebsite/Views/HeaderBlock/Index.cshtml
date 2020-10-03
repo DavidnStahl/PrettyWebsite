@@ -2,62 +2,59 @@
 @model PrettyWebsite.Models.ViewModels.Blocks.HeaderBlockViewModel
 
 <header>
-
     <nav class="container navbar navbar-expand-lg navbar-light mb-0" style="background-color:black;">
 
-            <a class="navbar-brand text-warning" style="padding-left:0;margin-left:0;" href="@Url.ContentUrl(Model.Navigation.StartPage.ContentLink)">Pretty Website</a>
-            <button class="navbar-toggler bg-warning" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-warning"></span>
-            </button>
+        <a class="navbar-brand text-warning" style="padding-left:0;margin-left:0;" href="@Url.ContentUrl(Model.Navigation.StartPage.ContentLink)">Pretty Website</a>
+        <button class="navbar-toggler bg-warning" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-warning"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    @foreach (var menuItem in Model.Navigation.Menu)
-                    {
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                @foreach (var menuItem in Model.Navigation.Menu)
+                {
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-warning dropdown-toggle" href="#" id="@string.Format("{0}navbarDropdown", menuItem.Key.Name)" role="button" data-toggle="dropdown" aria-expanded="false">
-                                @menuItem.Key.Name
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="@string.Format("{0}navbarDropdown", menuItem.Key.Name)">
-                                @foreach (var item in menuItem.Value)
-                                {
-                                    <li>
-                                        <a class="dropdown-item" href="@Url.ContentUrl(item.ContentLink)">
-                                            @item.Name
-                                            @if (Html.ViewContext.RequestContext.GetContentLink() == item.ContentLink)
-                                            {
-                                                <span class="sr-only">(current)</span>
-                                            }
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </li>
-                    }
-                    @if (Model.Layout.StartPages.Any(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
-                    {
-                        <li class="nav-item ml-5">
-                            <a class="nav-link text-warning dropdown-toggle" href="#" id="languagenavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Change language
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="languagenavbarDropdown">
-                                @foreach (var page in Model.Layout.StartPages.Where(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
-                                {
-                                    <li>
-                                        <a class="dropdown-item" href="@Url.ContentUrl(page.ContentLink)">
-                                            @page.Name
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </li>
-                    }
-                </ul>
-
-            </div>
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-warning dropdown-toggle" href="#" id="@string.Format("{0}navbarDropdown", menuItem.Key.Name)" role="button" data-toggle="dropdown" aria-expanded="false">
+                            @menuItem.Key.Name
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="@string.Format("{0}navbarDropdown", menuItem.Key.Name)">
+                            @foreach (var item in menuItem.Value)
+                            {
+                                <li>
+                                    <a class="dropdown-item" href="@Url.ContentUrl(item.ContentLink)">
+                                        @item.Name
+                                        @if (Html.ViewContext.RequestContext.GetContentLink() == item.ContentLink)
+                                        {
+                                            <span class="sr-only">(current)</span>
+                                        }
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+                @if (Model.Layout.StartPages.Any(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
+                {
+                    <li class="nav-item ml-5">
+                        <a class="nav-link text-warning dropdown-toggle" href="#" id="languagenavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Change language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languagenavbarDropdown">
+                            @foreach (var page in Model.Layout.StartPages.Where(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
+                            {
+                                <li>
+                                    <a class="dropdown-item" href="@Url.ContentUrl(page.ContentLink)">
+                                        @page.Name
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
     </nav>
-    @Html.PropertyFor(m => m.CurrentBlock.SearchForm)
+    @Html.Partial("_SearchForm")
 </header> 

@@ -27,13 +27,15 @@ namespace PrettyWebsite.Controllers.Pages
         private readonly IMovieRepository _movieRepository;
         private readonly IDataStoreRepository _dataStoreRepository;
         private readonly IContentLoader _contentLoader;
+        private readonly IPageRouteHelper _pageRouteHelper;
 
 
-        public MovieController(IMovieRepository movieRepository, IDataStoreRepository dataStoreRepository, IContentLoader contentLoader)
+        public MovieController(IMovieRepository movieRepository, IDataStoreRepository dataStoreRepository, IContentLoader contentLoader, IPageRouteHelper pageRouteHelper)
         {
             _movieRepository = movieRepository;
             _dataStoreRepository = dataStoreRepository;
             _contentLoader = contentLoader;
+            _pageRouteHelper = pageRouteHelper;
         }
        
         [HttpGet]
@@ -43,7 +45,9 @@ namespace PrettyWebsite.Controllers.Pages
             var reviewList = _dataStoreRepository.Get(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
-            var model = new MovieViewModel(null)
+            var startPage = SiteDefinition.Current.StartPage.ProviderName is null ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
+
+            var model = new MovieViewModel(startPage)
             {
                 Movie = movie, 
                 ReviewList = reviewList, 
@@ -97,7 +101,7 @@ namespace PrettyWebsite.Controllers.Pages
 
             SaveModelState(nameof(Submit));
 
-            return RedirectToAction(nameof(Index), (object)formModel.Id);
+            return RedirectToAction(nameof(Index), new { id = formModel.Id });
         }
 
         public void AddToSession(string id)

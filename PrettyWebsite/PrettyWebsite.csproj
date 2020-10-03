@@ -376,7 +376,6 @@
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Result\MovieReviewResultController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
-    <Compile Include="Controllers\Form\SearchBlockController.cs" />
     <Compile Include="Controllers\Form\ReviewFormController.cs" />
     <Compile Include="Controllers\Result\SearchResultController.cs" />
     <Compile Include="Controllers\Base\DefaultPageController.cs" />
@@ -399,7 +398,6 @@
     <Compile Include="Models\Blocks\ReviewFormBlock.cs" />
     <Compile Include="Models\Blocks\NewsBlock.cs" />
     <Compile Include="Models\Blocks\RssFeedBlock.cs" />
-    <Compile Include="Models\Blocks\SearchFormBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Containers\CategoryNewsContainer.cs" />
     <Compile Include="Models\Forms\SearchFormModel.cs" />
@@ -466,7 +464,6 @@
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <Content Include="Resources\LanguageFiles\Views.xml" />
-    <Content Include="Static\css\form.css" />
     <Content Include="Static\css\Bootstrap\bootstrap-grid.css" />
     <Content Include="Static\css\Bootstrap\bootstrap-reboot.css" />
     <Content Include="Static\css\Bootstrap\bootstrap-utilities.css" />
@@ -476,7 +473,7 @@
     <Content Include="Static\js\bootstrap.esm.js" />
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\global.js" />
-    <Content Include="Static\js\ReviewStar.js" />
+    <Content Include="Static\js\site.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -501,7 +498,7 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
-    <Content Include="Views\SearchFormBlock\Index.cshtml" />
+    <Content Include="Views\Shared\_SearchForm.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReferencePartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <Content Include="Views\Shared\_MovieSearchResult.cshtml" />

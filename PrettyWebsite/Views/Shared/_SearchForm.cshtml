@@ -1,0 +1,25 @@
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+
+@{
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
+}
+<div class="container g-3">
+    <div class="row">
+        @using (Html.BeginForm("Submit", "SearchResult", FormMethod.Post, new {id = "SearchForm"}))
+        {
+            <div class="row g-2">
+                <div class="input-group border-black border-2">
+                    <select class="form-select bg-danger text-white border-0" style="height: 100%;max-width: 20%" id="select" aria-label="Default select example">
+                        <option class="bg-white text-dark" value="1">@localizationService.GetString("/SearchForm/Text1")</option>
+                        <option class="bg-white text-dark" value="2">@localizationService.GetString("/SearchForm/Text2")</option>
+                    </select>
+                    <input autofocus type="text" class="form-control" id="searchText"
+                           placeholder="@localizationService.GetString("/SearchForm/Placeholder")">
+                    <button id="btn" class="btn btn-primary" type="submit"><i class="fa fa-search text-white"></i></button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row" id="partialResult"></div>
+</div>
