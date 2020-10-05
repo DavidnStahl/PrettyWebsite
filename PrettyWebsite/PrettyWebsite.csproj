@@ -374,7 +374,6 @@
     <Compile Include="Controllers\Blocks\ImageCarouselBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieDetailBlockController.cs" />
     <Compile Include="Controllers\Blocks\MovieReviewBlockController.cs" />
-    <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\Pages\ArticlePageController.cs" />
     <Compile Include="Controllers\Pages\ErrorController.cs" />
