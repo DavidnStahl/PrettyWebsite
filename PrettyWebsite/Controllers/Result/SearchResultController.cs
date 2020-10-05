@@ -38,7 +38,7 @@ namespace PrettyWebsite.Controllers.Form
 
             var findModel = new FindResultViewModel
             {
-                Result = SearchClient.Instance.UnifiedSearchFor(query, Language.English)
+                Result = SearchClient.Instance.UnifiedSearchFor(query)
                     .UsingSynonyms()
                     .ApplyBestBets()
                     .Take(100)
