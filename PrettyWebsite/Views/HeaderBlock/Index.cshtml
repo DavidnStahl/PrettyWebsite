@@ -1,5 +1,12 @@
-﻿@using EPiServer.Web.Routing
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
 @model PrettyWebsite.Models.ViewModels.Blocks.HeaderBlockViewModel
+
+@{
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
+}
+
 
 <header>
     <nav class="container navbar navbar-expand-lg navbar-light mb-0" style="background-color:black;">
@@ -35,13 +42,15 @@
                         </ul>
                     </li>
                 }
-                @if (Model.Layout.StartPages.Any(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
-                {
-                    <li class="nav-item ml-5">
-                        <a class="nav-link text-warning dropdown-toggle" href="#" id="languagenavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Change language
+            </ul>
+            @if (Model.Layout.StartPages.Any(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
+            {
+                <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-warning dropdown-toggle" href="#" id="languageNavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            @localizationService.GetString("/HeaderBlock/ChangeLanguage")
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="languagenavbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="languageNavbarDropdown">
                             @foreach (var page in Model.Layout.StartPages.Where(p => !Equals(p.Language, Model.Layout.StartPage.Language)))
                             {
                                 <li>
@@ -52,8 +61,8 @@
                             }
                         </ul>
                     </li>
-                }
-            </ul>
+                </ul>
+            }
         </div>
     </nav>
     @Html.Partial("_SearchForm")

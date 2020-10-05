@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages>
   <language name="English" id="en">
+    <HeaderBlock>
+      <ChangeLanguage>Change language</ChangeLanguage>
+    </HeaderBlock>
     <SearchForm>
       <Text1>Movie</Text1>
       <Text2>News</Text2>
@@ -32,6 +35,9 @@
     </MovieDetail>
   </language>
   <language name="Swedish" id="sv">
+    <HeaderBlock>
+      <ChangeLanguage>Byt språk</ChangeLanguage>
+    </HeaderBlock>
     <SearchForm>
       <Text1>Filmer</Text1>
       <Text2>Nyheter</Text2>

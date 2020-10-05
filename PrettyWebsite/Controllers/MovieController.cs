@@ -72,11 +72,9 @@ namespace PrettyWebsite.Controllers.Pages
                     MovieList = new List<string>(),
                     ReviewRatedList = new List<string>()
                 };
-
+            Session["User"] = user;
 
             model.MovieList = user.MovieList;
-
-            LoadModelState(nameof(Submit));
 
             return View(model);
         }
@@ -102,42 +100,14 @@ namespace PrettyWebsite.Controllers.Pages
                 AddToSession(formModel.Id);
             }
 
-            SaveModelState(nameof(Submit));
-
             return RedirectToAction(nameof(Index), new { id = formModel.Id });
         }
 
         public void AddToSession(string id)
         {
-            var user = Session["User"] is User sessionUser
-                ? sessionUser
-                : new User
-                {
-                    MovieList = new List<string>(),
-                    ReviewRatedList = new List<string>()
-                };
-            user.MovieList.Add(id);
-        }
 
-        protected virtual void LoadModelState(string stateKey)
-        {
-            var key = StateKey(stateKey);
-
-            if (!(TempData[key] is ModelStateDictionary modelState)) 
-                return;
-
-            ViewData.ModelState.Merge(modelState);
-            TempData.Remove(key);
-        }
-
-        public virtual void SaveModelState(string key)
-        {
-            TempData[StateKey(key)] = ViewData.ModelState;
-        }
-
-        private static string StateKey(string key)
-        {
-            return nameof(MovieController) + key;
+            var user = Session["User"] as User;
+            user?.MovieList.Add(id);
         }
     }
 }
