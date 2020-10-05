@@ -1,0 +1,24 @@
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@{
+    Layout = null;
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
+}
+
+<div class="container mb-4 mt-5 text-center">
+    <img class="mb-4" src="@Model.Movie.Poster" alt="">
+    <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
+    <p><strong>@localizationService.GetString("/MovieDetail/Genre"):</strong> @Model.Movie.Genre</p>
+    <p><strong>@localizationService.GetString("/MovieDetail/Director"):</strong> @Model.Movie.Director</p>
+    <p><strong>@localizationService.GetString("/MovieDetail/Actors"):</strong> @Model.Movie.Actors</p>
+    <p><strong>@localizationService.GetString("/MovieDetail/Plot"):</strong> @Model.Movie.Plot</p>
+    <p>
+        <strong>@localizationService.GetString("/MovieDetail/Ratings"):</strong><br />
+        @foreach (var item in Model.Ratings)
+        {
+            @item.Source @: @item.Value<br />
+        }
+    </p>
+    <p><strong>@localizationService.GetString("/MovieDetail/Duration"):</strong> @Model.Movie.Runtime</p>
+</div>
+

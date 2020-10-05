@@ -1,7 +1,11 @@
-﻿@model PrettyWebsite.Models.ViewModels.Blocks.MovieReviewResultViewModel
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@model PrettyWebsite.Models.ViewModels.Result.MovieReviewResultViewModel
 
 @{
+    Layout = null;
     var stars = 0;
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
 }
 
 @if (Model.ReviewDataList.Count > 0)
@@ -17,7 +21,7 @@
                 <div class="col-md-11 text">
                     <div class="col-md-4"><h4 class="list-group-item-heading text-center">@review.Name</h4></div>
                     <div class="col-md-4"><h4 class="list-group-item-heading text-center"> @review.PublicationDate</h4></div>
-                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
+                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> @localizationService.GetString("/MovieReviewResult/Votes") </small></h4></div>
                     <div class="list-group-item-text mt-4 mb-4">
                         <p>@review.Text</p>
                     </div>

@@ -48,8 +48,6 @@ namespace PrettyWebsite.Controllers.Blocks
                 }
             }
 
-            //var menu = _contentLoader.GetChildren<CategoryNewsContainer>(newsContainer.ContentLink).Where(x => x.VisibleInMenu).ToList();
-
             var model = new HeaderBlockViewModel(currentBlock)
             {
                 Navigation = new NavigationViewModel

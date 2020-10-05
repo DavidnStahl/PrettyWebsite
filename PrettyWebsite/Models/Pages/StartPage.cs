@@ -19,7 +19,7 @@ namespace PrettyWebsite.Models.Pages
         GUID = "2FE55D24-7A71-4F68-9012-63CBDD00DD80"
     )]
     [AvailableContentTypes(
-        Availability.Specific, Include = new[] {typeof(SearchPage), typeof(SitePageSettings), typeof(NewsContainer) },
+        Availability.Specific, Include = new[] { typeof(SitePageSettings), typeof(NewsContainer) },
         ExcludeOn = new[] { typeof(StartPage)})
     ]
     public class StartPage : SitePageData

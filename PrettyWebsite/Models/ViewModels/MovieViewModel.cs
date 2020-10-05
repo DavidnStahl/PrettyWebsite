@@ -8,15 +8,15 @@ using System.Web;
 
 namespace PrettyWebsite.Models.ViewModels
 {
-    public class MovieViewModel : PageViewModel<SearchPage>
+    public class MovieViewModel : PageViewModel<StartPage>
     {
-        public Movie Movie { get; }
+        public Movie Movie { get; set; }
         public List<Review> ReviewList { get; set; }
+        public List<Rating> Ratings { get; set; }
+        public List<string> MovieList { get; set; }
 
-        public MovieViewModel(SearchPage currentPage, Movie movie, List<Review> reviewList) : base(currentPage)
+        public MovieViewModel(StartPage currentPage) : base(currentPage)
         {
-            Movie = movie;
-            ReviewList = reviewList;
         }
     }
 }
