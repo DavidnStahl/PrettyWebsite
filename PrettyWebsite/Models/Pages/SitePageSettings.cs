@@ -16,22 +16,16 @@ namespace PrettyWebsite.Models.Pages
     [ContentType(DisplayName = "SitePageSettings", GUID = "EB3B22EE-9DA0-4384-82B0-CC8DD7E233B2", Description = "")]
     public class SitePageSettings : SitePageData, IUseSettingsIcon, IExcludeFromSitemap
     {
-        [CultureSpecific]
         [Display(
             Name = "Header",
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        [Required]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<HeaderBlock>))]
-        public virtual ContentReference Header { get; set; }
+        public virtual HeaderBlock Header { get; set; }
 
-        [CultureSpecific]
         [Display(
             Name = "Footer",
             GroupName = SystemTabNames.Content,
             Order = 20)]
-        [Required]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<FooterBlock>))]
-        public virtual ContentReference Footer { get; set; }
+        public virtual FooterBlock Footer { get; set; }
     }
 }

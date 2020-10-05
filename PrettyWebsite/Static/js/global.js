@@ -3,7 +3,6 @@
 
     /*[ File Input Config ]
         ===========================================================*/
-
     try {
 
         var file_input_container = $('.js-input-file');
@@ -31,18 +30,13 @@
                     } else {
                         info.text(fileName);
                     }
-
                 })
-
             });
-
         }
-
-
-
     }
     catch (e) {
         console.log(e);
     }
+
 
 })(jQuery);

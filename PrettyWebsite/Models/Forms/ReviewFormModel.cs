@@ -8,19 +8,16 @@ using System.Web;
 
 namespace PrettyWebsite.Models.Forms
 {
-    public class ReviewFormModel : BaseFormModel<ReviewFormBlock>
+    public class ReviewFormModel
     {
         public string Id { get; set; }
 
-        [DisplayName("Author")]
         [Required]
         public string Author { get; set; }
 
-        [DisplayName("Text")]
         [Required]
-
         public string Text { get; set; }
-        [Required]
+
         public int Rating { get; set; }
     }
 }
