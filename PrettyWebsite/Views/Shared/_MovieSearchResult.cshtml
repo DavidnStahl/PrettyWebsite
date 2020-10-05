@@ -8,24 +8,12 @@
 
 
 
-@if (Model.SearchResult.Search.Count() > 0)
+@if (Model.SearchResult.Search.Any())
 {
-<div style="display:flex;">
-
-    <div class="d-flex flex-wrap bd-highlight" style="margin:0;padding:0;">
-
-        @foreach (var movie in Model.SearchResult.Search)
-        {
-            <div class="p-2 bd-highlight"><a class="btn btn-warning text-white mb-3" style="width:345px;" href="/Search/MovieDetails?id=@movie.imdbID">@movie.Title</a></div>
-
-        }
-    </div>
-
-</div>
-
-
-    
-
+    foreach (var movie in Model.SearchResult.Search)
+    {
+        <option class="SearchTextOption" value="@movie.Title" data-href="@Url.Action("","Movie",new { id = movie.imdbID })"/>
+    }
 }
 
 

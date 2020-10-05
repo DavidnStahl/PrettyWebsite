@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <HeaderBlock>
+      <ChangeLanguage>Change language</ChangeLanguage>
+    </HeaderBlock>
+    <SearchForm>
+      <Text1>Movie</Text1>
+      <Text2>News</Text2>
+      <Placeholder>Search here...</Placeholder>
+    </SearchForm>
+    <ReviewForm>
+      <Title>Movie Review</Title>
+      <Name>Author</Name>
+      <Text>Text</Text>
+      <Rating>Rating</Rating>
+      <Star>Hover and click on a star</Star>
+      <RatingResponse>You gave a rating of</RatingResponse>
+      <StarLabel>star(s)</StarLabel>
+      <SubmitButtonText>Submit Review</SubmitButtonText>
+    </ReviewForm>
+    <MovieReview>
+      <Title>Reviews</Title>
+    </MovieReview>
+    <MovieReviewResult>
+      <Votes>votes</Votes>
+    </MovieReviewResult>
+    <MovieDetail>
+      <Genre>Genre</Genre>
+      <Director>Director</Director>
+      <Actors>Actors</Actors>
+      <Plot>Plot</Plot>
+      <Ratings>Ratings</Ratings>
+      <Duration>Duration</Duration>
+    </MovieDetail>
+  </language>
+  <language name="Swedish" id="sv">
+    <HeaderBlock>
+      <ChangeLanguage>Byt språk</ChangeLanguage>
+    </HeaderBlock>
+    <SearchForm>
+      <Text1>Filmer</Text1>
+      <Text2>Nyheter</Text2>
+      <Placeholder>Sök här....</Placeholder>
+    </SearchForm>
+    <ReviewForm>
+      <Title>Movie Review</Title>
+      <Name>Author</Name>
+      <Text>Text</Text>
+      <Rating>Rating</Rating>
+      <Star>Hover and click on a star</Star>
+      <RatingResponse>You gave a rating of</RatingResponse>
+      <StarLabel>star(s)</StarLabel>
+      <SubmitButtonText>Submit Review</SubmitButtonText>
+    </ReviewForm>
+    <MovieReview>
+      <Title>Reviews</Title>
+    </MovieReview>
+    <MovieReviewResult>
+      <Votes>votes</Votes>
+    </MovieReviewResult>
+    <MovieDetail>
+      <Title>Title</Title>
+      <Genre>Genre</Genre>
+      <Director>Director</Director>
+      <Actors>Actors</Actors>
+      <Plot>Plot</Plot>
+      <Ratings>Ratings</Ratings>
+      <Duration>Duration</Duration>
+    </MovieDetail>
+  </language>
+</languages>

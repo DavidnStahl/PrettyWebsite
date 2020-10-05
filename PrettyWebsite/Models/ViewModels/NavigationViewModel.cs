@@ -11,7 +11,6 @@ namespace PrettyWebsite.Models.ViewModels
 {
     public class NavigationViewModel
     {
-        public SearchFormBlock SearchFormBlock { get; set; }
         public StartPage StartPage { get; set; }
         public Dictionary<CategoryNewsContainer,IEnumerable<SitePageData>> Menu { get; set; }
     }
