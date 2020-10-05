@@ -14,12 +14,13 @@
                         <option class="bg-white text-dark" value="1">@localizationService.GetString("/SearchForm/Text1")</option>
                         <option class="bg-white text-dark" value="2">@localizationService.GetString("/SearchForm/Text2")</option>
                     </select>
-                    <input autofocus type="text" class="form-control" id="searchText"
+                    <input autofocus type="text" class="form-control" id="searchText" list="searchTextOptions"
                            placeholder="@localizationService.GetString("/SearchForm/Placeholder")">
+                    <datalist id="searchTextOptions"></datalist>
                     <button id="btn" class="btn btn-primary" type="submit"><i class="fa fa-search text-white"></i></button>
                 </div>
             </div>
         }
     </div>
-    <div class="row" id="partialResult"></div>
+    @*<div class="row" id="partialResult"></div>*@
 </div>

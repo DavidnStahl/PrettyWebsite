@@ -2,19 +2,41 @@
     $('#select').change(function () {
         $('#searchText').focus();
     });
-    $("#SearchForm").submit(function (event) {
-        event.preventDefault();
+
+    $("#searchText").on("input", function (event) {
+        var changeWindow = false;
+
+        var inputValue = this.value;
+        $('#searchTextOptions').find('.SearchTextOption').each(function(index) {
+            if (this.value == inputValue) {
+                changeWindow = true;
+                window.location.href = this.dataset.href;
+            }
+        });
+
+        if (!changeWindow) {
+            var parentForm = document.getElementById("SearchForm");
+            GetSearchOptions(parentForm);
+        }
+    });
+
+    function GetSearchOptions(form) {
         $.ajax({
-            method: this.method.toUpperCase(),
-            url: this.action,
+            method: form.method.toUpperCase(),
+            url: form.action,
             data: {
                 type: $("#select").val(),
                 query: $("#searchText").val()
             },
-            success: function(result) {
-                $("#partialResult").empty().append(result);
+            success: function (result) {
+                $("#searchTextOptions").empty().append(result);
             }
         });
+    }
+
+    $("#SearchForm").submit(function (event) {
+        event.preventDefault();
+        GetSearchOptions(this);
     });
 
 

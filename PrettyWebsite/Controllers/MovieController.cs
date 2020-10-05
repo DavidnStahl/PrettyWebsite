@@ -63,6 +63,8 @@ namespace PrettyWebsite.Controllers.Pages
                 });
             }
 
+            var x = Session["User"];
+
             var user = Session["User"] is User sessionUser 
                 ? sessionUser 
                 : new User 
@@ -70,6 +72,7 @@ namespace PrettyWebsite.Controllers.Pages
                     MovieList = new List<string>(),
                     ReviewRatedList = new List<string>()
                 };
+
 
             model.MovieList = user.MovieList;
 
@@ -120,7 +123,8 @@ namespace PrettyWebsite.Controllers.Pages
         {
             var key = StateKey(stateKey);
 
-            if (!(TempData[key] is ModelStateDictionary modelState)) return;
+            if (!(TempData[key] is ModelStateDictionary modelState)) 
+                return;
 
             ViewData.ModelState.Merge(modelState);
             TempData.Remove(key);
