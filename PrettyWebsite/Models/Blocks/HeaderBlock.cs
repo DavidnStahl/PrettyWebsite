@@ -12,6 +12,5 @@ namespace PrettyWebsite.Models.Blocks
     
     public class HeaderBlock : SiteBlockData
     {
-
     }
 }
