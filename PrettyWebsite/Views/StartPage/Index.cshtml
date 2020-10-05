@@ -2,10 +2,11 @@
 
 @model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
 
+@Html.PropertyFor(m => m.CurrentPage.CarouselArea,  new { CssClass = "row" })
 
-@Html.PropertyFor(m => m.CurrentPage.CarouselArea)
+@Html.PropertyFor(m => m.CurrentPage.RssFeedArea, new { CssClass = "row" })
 
-@Html.PropertyFor(m => m.CurrentPage.RssFeedArea)
+
 
 
 
