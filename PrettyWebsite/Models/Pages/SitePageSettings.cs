@@ -1,15 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using EPiServer;
-using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.ObjectEditing;
 using Geta.SEO.Sitemaps.Models;
-using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Blocks;
-using PrettyWebsite.Validation;
 
 namespace PrettyWebsite.Models.Pages
 {

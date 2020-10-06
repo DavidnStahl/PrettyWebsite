@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -10,7 +6,6 @@ using EPiServer.Shell.ObjectEditing;
 using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
 using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.Containers;
-using PrettyWebsite.Validation;
 
 namespace PrettyWebsite.Models.Pages
 {

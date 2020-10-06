@@ -2,7 +2,6 @@
 using EPiServer.Find.Cms.Conventions;
 using PrettyWebsite.Models;
 using PrettyWebsite.Models.Pages;
-using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 

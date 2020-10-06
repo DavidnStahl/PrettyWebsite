@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
-using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
+﻿using EPiServer.DataAnnotations;
 
 namespace PrettyWebsite.Models.Blocks
 {
