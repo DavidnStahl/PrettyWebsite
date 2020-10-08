@@ -1,12 +1,7 @@
-﻿using PrettyWebsite.DataStore;
-using PrettyWebsite.Models.Blocks;
-using PrettyWebsite.Models.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using PrettyWebsite.DataStore;
 
-namespace PrettyWebsite.Models.ViewModels.Blocks
+namespace PrettyWebsite.Models.ViewModels.Result
 {
     public class MovieReviewResultViewModel
     {

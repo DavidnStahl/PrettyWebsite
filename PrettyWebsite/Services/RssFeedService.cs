@@ -1,9 +1,7 @@
 ﻿using PrettyWebsite.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
-using System.Web;
 using System.Xml;
 
 namespace PrettyWebsite.Services

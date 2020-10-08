@@ -1,5 +1,4 @@
 ﻿using System;
-using EPiServer.Core;
 using EPiServer.PlugIn;
 using EPiServer.Scheduler;
 using PrettyWebsite.Repositories.Interfaces;

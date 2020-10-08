@@ -1,15 +1,11 @@
-﻿using EPiServer.Find;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using EPiServer.Find;
 using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.ViewModels.Result;
 using PrettyWebsite.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Form
 {
@@ -21,6 +17,8 @@ namespace PrettyWebsite.Controllers.Form
         {
             _movieRepository = movieRepository;
         }
+
+        [HttpPost]
         public async Task<ActionResult> Submit(string type ,string query)
         {
             
@@ -28,31 +26,26 @@ namespace PrettyWebsite.Controllers.Form
             {
                 var model = new SearchFormModel
                 {
-                    SearchResult = await _movieRepository.SearchByTitle(query)
+                    SearchResult = await _movieRepository.SearchByTitle(query).ConfigureAwait(false)
                 };
 
                 return PartialView("_MovieSearchResult",model);
             }
-            else if(!string.IsNullOrWhiteSpace(query) && type == "2")
+            var hitSpec = new HitSpecification
             {
-                var hitSpec = new HitSpecification
-                {
-                    ExcerptLength = 255
-                };
+                ExcerptLength = 255
+            };
 
-                var model = new FindResultViewModel
-                {
-                    Result = SearchClient.Instance.UnifiedSearchFor(query, Language.English)
-                                                  .UsingSynonyms()
-                                                  .ApplyBestBets()
-                                                  .Take(100)
-                                                  .GetResult(hitSpec)
-                };
+            var findModel = new FindResultViewModel
+            {
+                Result = SearchClient.Instance.UnifiedSearchFor(query)
+                    .UsingSynonyms()
+                    .ApplyBestBets()
+                    .Take(100)
+                    .GetResult(hitSpec)
+            };
 
-                return PartialView("_FindSearchResult", model);
-            }
-
-            return PartialView();
+            return PartialView("_FindSearchResult", findModel);
         }
        
     }
