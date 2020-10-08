@@ -55,8 +55,7 @@ namespace PrettyWebsite
         private static bool IsAnyUserRegistered()
         {
             var provider = ServiceLocator.Current.GetInstance<UIUserProvider>();
-            int totalUsers = 0;
-            var res = provider.GetAllUsers(0, 1, out totalUsers);
+            _ = provider.GetAllUsers(0, 1, out int totalUsers);
             return totalUsers > 0;
         }
 
@@ -77,7 +76,7 @@ namespace PrettyWebsite
             var routeData = new RouteValueDictionary();
             routeData.Add("Controller", "Register");
             routeData.Add("action", "Index");
-            RouteTable.Routes.Add("Register", new Route("Register", routeData, new MvcRouteHandler()) { RouteExistingFiles = false });
+            RouteTable.Routes.Add("Register",new Route("Register", routeData, new MvcRouteHandler()) { RouteExistingFiles = false });
         }
     }
 }

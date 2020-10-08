@@ -53,6 +53,5 @@ namespace PrettyWebsite.Business
 
         private IEnumerable<StartPage> GetStartPages() => _contentRepository
                 .GetChildren<StartPage>(SiteDefinition.Current.RootPage, new LoaderOptions { LanguageLoaderOption.MasterLanguage() });
-
     }
 }
