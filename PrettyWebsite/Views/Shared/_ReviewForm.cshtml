@@ -1,0 +1,58 @@
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@using PrettyWebsite.Models.Forms
+
+
+@model ReviewFormModel
+@{
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
+    Layout = null;
+}
+
+<div class="text-center mt-3 mb-4">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#showForm" aria-expanded="false" aria-controls="collapseExample">
+        Create Movie Review
+    </button>
+</div>
+
+<div id="showForm" class="collapse bg-dark">
+@using (Html.BeginForm("Submit", "Movie", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-body">
+            @Html.HiddenFor(m => m.Id)
+            <div class="row">
+                <div class="row mb-2">
+                    <label for="Author" class="col-sm-2 col-form-label">@localizationService.GetString("/ReviewForm/Name")</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.Author, htmlAttributes: new {@class = "form-control", @type = "text"})
+                    </div>
+                    <span class="text-danger">@Html.ValidationMessageFor(m => m.Author)</span>
+                </div>
+                <div class="row">
+                    <label for="Text" class="col-sm-2 col-form-label">@localizationService.GetString("/ReviewForm/Text")</label>
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(m => m.Text, htmlAttributes: new {@class = "form-control"})
+                    </div>
+                    <span class="text-danger">@Html.ValidationMessageFor(m => m.Text)</span>
+                </div>
+                <div class="row">
+                    @Html.HiddenFor(m => m.Rating, new {@id = "count2", @value = "1"})
+                    <h5 class="">@localizationService.GetString("/ReviewForm/Star")</h5>
+                    <div id="reviewStars" class="flex-row">
+                        <i class="fas fa-star text-warning" data-index="0"></i>
+                        <i class="far fa-star text-warning" data-index="1"></i>
+                        <i class="far fa-star text-warning" data-index="2"></i>
+                        <i class="far fa-star text-warning" data-index="3"></i>
+                        <i class="far fa-star text-warning" data-index="4"></i>
+                    </div>
+                    <h6 class="">@localizationService.GetString("/ReviewForm/RatingResponse")&nbsp;<span id="count">1</span>&nbsp;@localizationService.GetString("/ReviewForm/StarLabel")</h6>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <input class="btn btn-primary" type="submit" value="@localizationService.GetString("/ReviewForm/SubmitButtonText")"/>
+        </div>
+    </div>
+}
+</div>

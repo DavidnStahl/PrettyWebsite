@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 using EPiServer.Cms.UI.AspNetIdentity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

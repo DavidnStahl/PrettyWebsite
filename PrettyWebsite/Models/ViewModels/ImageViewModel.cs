@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PrettyWebsite.Models.ViewModels
+﻿namespace PrettyWebsite.Models.ViewModels
 {
     public class ImageViewModel
     {

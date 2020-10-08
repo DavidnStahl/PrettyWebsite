@@ -1,0 +1,18 @@
+﻿@using PrettyWebsite.Models.Forms
+@using PrettyWebsite.Models.ViewModels
+@model MovieViewModel
+
+<div class="card mb-4 mt-4">
+    @Html.Partial("_MovieDetail", new MovieDetailViewModel { Movie = Model.Movie, Ratings = Model.Ratings })
+
+    @if (!Model.MovieList.Any(m => m.Contains(Model.Movie.imdbID)))
+    {
+        @Html.Partial("_ReviewForm", new ReviewFormModel { Id = Model.Movie.imdbID })
+    }
+
+
+    @if (Model.ReviewList.Count > 0)
+    {
+        @Html.Partial("_MovieReview")
+    }
+</div>

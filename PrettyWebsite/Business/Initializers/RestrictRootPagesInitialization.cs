@@ -2,10 +2,6 @@
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.Initialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using PrettyWebsite.Models.Pages;
 
 namespace PrettyWebsite.Business.Initializers

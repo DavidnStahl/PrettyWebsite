@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EPiServer;
-using EPiServer.Core;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using PrettyWebsite.Models.Blocks;
@@ -47,8 +44,6 @@ namespace PrettyWebsite.Controllers.Blocks
                         );
                 }
             }
-
-            //var menu = _contentLoader.GetChildren<CategoryNewsContainer>(newsContainer.ContentLink).Where(x => x.VisibleInMenu).ToList();
 
             var model = new HeaderBlockViewModel(currentBlock)
             {

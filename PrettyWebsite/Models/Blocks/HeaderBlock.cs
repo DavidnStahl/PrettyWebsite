@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
-using PrettyWebsite.Business.EditorDescriptors.ContentSelection;
+﻿using EPiServer.DataAnnotations;
 
 namespace PrettyWebsite.Models.Blocks
 {
@@ -12,15 +6,5 @@ namespace PrettyWebsite.Models.Blocks
     
     public class HeaderBlock : SiteBlockData
     {
-
-        [CultureSpecific]
-        [Display(
-                    Name = "SearchForm",
-                    Description = "",
-                    GroupName = SystemTabNames.Content,
-                    Order = 1)]
-        [SelectOne(SelectionFactoryType = typeof(ContentSelectionFactory<SearchFormBlock>))]
-        public virtual ContentReference SearchForm { get; set; }
-
     }
 }

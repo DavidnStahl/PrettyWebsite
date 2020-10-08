@@ -1,24 +1,10 @@
-﻿@using PrettyWebsite.Models.ViewModels
+﻿@model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
 
-@model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
+@Html.PropertyFor(m => m.CurrentPage.CarouselArea,  new { CssClass = "row" })
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="~/Static/js/ReviewStar.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-<!-- Main CSS-->
-<link href="~/Static/css/form.css" rel="stylesheet" media="all">
-<!-- Main JS-->
-<!-- Jquery JS-->
-<!-- Main JS-->
-<script src="~/Static/js/global.js"></script>
+@Html.PropertyFor(m => m.CurrentPage.RssFeedArea, new { CssClass = "row" })
 
 
-@Html.PropertyFor(m => m.CurrentPage.CarouselArea)
-
-@Html.PropertyFor(m => m.CurrentPage.RssFeedArea)
 
 
 

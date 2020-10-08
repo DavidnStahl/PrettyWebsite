@@ -2,9 +2,7 @@
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.Security;
-using EPiServer.Web.Routing;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using System.Web.Profile;
 using EPiServer.Security;
@@ -15,59 +13,64 @@ namespace PrettyWebsite.Controllers
 {
     public class RegisterController : Controller
     {
-        const string AdminRoleName = "WebAdmins";
-        public const string ErrorKey = "CreateError";
+        private static UIUserProvider UiUserProvider => ServiceLocator.Current.GetInstance<UIUserProvider>();
+
+        private static UIRoleProvider UiRoleProvider => ServiceLocator.Current.GetInstance<UIRoleProvider>();
+
+        private static UISignInManager UiSignInManager => ServiceLocator.Current.GetInstance<UISignInManager>();
+
+        private const string AdminRoleName = "WebAdmins";
+        private const string ErrorKey = "CreateError";
 
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // POST: /Register
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
         public ActionResult Index(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var result = UiUserProvider.CreateUser(model.Username, model.Password, model.Email, null, null, true, out var status, out var errors);
+
+            if (status == UIUserCreateStatus.Success)
             {
-                UIUserCreateStatus status;
-                IEnumerable<string> errors = Enumerable.Empty<string>();
-                var result = UIUserProvider.CreateUser(model.Username, model.Password, model.Email, null, null, true, out status, out errors);
-                if (status == UIUserCreateStatus.Success)
+                UiRoleProvider.CreateRole(AdminRoleName);
+                UiRoleProvider.AddUserToRoles(result.Username, new string[] { AdminRoleName });
+
+                if (ProfileManager.Enabled)
                 {
-                    UIRoleProvider.CreateRole(AdminRoleName);
-                    UIRoleProvider.AddUserToRoles(result.Username, new string[] { AdminRoleName });
-
-                    if (ProfileManager.Enabled)
-                    {
-                        var profile = EPiServerProfile.Wrap(ProfileBase.Create(result.Username));
-                        profile.Email = model.Email;
-                        profile.Save();
-                    }
-
-                    AdministratorRegistrationPage.IsEnabled = false;
-                    SetFullAccessToWebAdmin();
-                    var resFromSignIn = UISignInManager.SignIn(UIUserProvider.Name, model.Username, model.Password);
-                    if (resFromSignIn)
-                    {
-                        return Redirect(UrlResolver.Current.GetUrl(ContentReference.StartPage));
-                    }
+                    var profile = EPiServerProfile.Wrap(ProfileBase.Create(result.Username));
+                    profile.Email = model.Email;
+                    profile.Save();
                 }
-                AddErrors(errors);
+
+                AdministratorRegistrationPage.IsEnabled = false;
+                SetFullAccessToWebAdmin();
+                var resFromSignIn = UiSignInManager.SignIn(UiUserProvider.Name, model.Username, model.Password);
+                if (resFromSignIn)
+                {
+                    return Redirect("/episerver/cms");
+                }
             }
+            AddErrors(errors);
             // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        private void SetFullAccessToWebAdmin()
+        private static void SetFullAccessToWebAdmin()
         {
-            var securityrep = ServiceLocator.Current.GetInstance<IContentSecurityRepository>();
-            var permissions = securityrep.Get(ContentReference.RootPage).CreateWritableClone() as IContentSecurityDescriptor;
+            var securityRep = ServiceLocator.Current.GetInstance<IContentSecurityRepository>();
+
+            if (!(securityRep.Get(ContentReference.RootPage).CreateWritableClone() is IContentSecurityDescriptor permissions)) return;
+
             permissions.AddEntry(new AccessControlEntry(AdminRoleName, AccessLevel.FullAccess));
-            securityrep.Save(ContentReference.RootPage, permissions, SecuritySaveType.Replace);
+            securityRep.Save(ContentReference.RootPage, permissions, SecuritySaveType.Replace);
         }
 
         private void AddErrors(IEnumerable<string> errors)
@@ -88,10 +91,6 @@ namespace PrettyWebsite.Controllers
             base.OnAuthorization(filterContext);
         }
 
-        UIUserProvider UIUserProvider => ServiceLocator.Current.GetInstance<UIUserProvider>();
-
-        UIRoleProvider UIRoleProvider => ServiceLocator.Current.GetInstance<UIRoleProvider>();
-
-        UISignInManager UISignInManager => ServiceLocator.Current.GetInstance<UISignInManager>();
+        
     }
 }
