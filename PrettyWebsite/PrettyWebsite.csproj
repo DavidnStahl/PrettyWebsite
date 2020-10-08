@@ -439,6 +439,7 @@
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="License.config" />
     <Content Include="license.txt" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
@@ -490,9 +491,11 @@
     <Content Include="Views\ImageCarouselBlock\Index.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Shared\_MovieReview.cshtml" />
+    <None Include="Properties\PublishProfiles\epiprettywebsite - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\epiprettywebsite - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\epiprettywebsite - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\NewPrettyWebsite - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\prettywebsite - Web Deploy.pubxml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
