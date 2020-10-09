@@ -1,6 +1,6 @@
 ﻿using PrettyWebsite.Models;
-using System.Threading.Tasks;
 using PrettyWebsite.Views;
+using System.Threading.Tasks;
 
 namespace PrettyWebsite.Repositories.Interfaces
 {

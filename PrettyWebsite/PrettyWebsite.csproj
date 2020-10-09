@@ -166,9 +166,6 @@
     <Reference Include="EPiServer.Web.WebControls, Version=11.19.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.19.0\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
     </Reference>
-    <Reference Include="Geta.SEO.Sitemaps, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Geta.SEO.Sitemaps.3.1.3\lib\net461\Geta.SEO.Sitemaps.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -348,10 +345,17 @@
   <ItemGroup>
     <Compile Include="Business\ActionFilters\PageContentActionFilters.cs" />
     <Compile Include="Business\AdministratorRegistrationPage.cs" />
+    <Compile Include="Business\Constants\Indexing.cs" />
     <Compile Include="Business\EditorDescriptors\ContentSelection\ContentSelectionFactory.cs" />
+    <Compile Include="Business\EditorDescriptors\Robots\RobotsDescriptor.cs" />
+    <Compile Include="Business\EditorDescriptors\Robots\RobotsSelectionFactory.cs" />
+    <Compile Include="Business\Extensions\ContentRefrenceExtensions.cs" />
+    <Compile Include="Business\Extensions\IContentExtensions.cs" />
+    <Compile Include="Business\Extensions\UrlExtensions.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
+    <Compile Include="Business\Initializers\EventsInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\Initializers\RestrictRootPagesInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
@@ -369,6 +373,7 @@
     <Compile Include="Controllers\Blocks\ImageCarouselBlockController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
+    <Compile Include="Controllers\Pages\XmlSiteMapPageController.cs" />
     <Compile Include="Controllers\Result\MovieReviewResultController.cs" />
     <Compile Include="Controllers\Blocks\RssFeedBlockController.cs" />
     <Compile Include="Controllers\Result\SearchResultController.cs" />
@@ -391,6 +396,7 @@
     <Compile Include="Models\Containers\CategoryNewsContainer.cs" />
     <Compile Include="Models\Forms\SearchFormModel.cs" />
     <Compile Include="Models\ImageFile.cs" />
+    <Compile Include="Models\Interfaces\IExcludeFromSitemap.cs" />
     <Compile Include="Models\Pages\SitePageSettings.cs" />
     <Compile Include="Models\Forms\ReviewFormModel.cs" />
     <Compile Include="Models\Containers\NewsContainer.cs" />
@@ -398,6 +404,7 @@
     <Compile Include="Models\Pages\NewsPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Pages\XmlSiteMapPage.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RssFeed.cs" />
     <Compile Include="Models\User.cs" />
@@ -407,6 +414,7 @@
     <Compile Include="Models\ViewModels\Blocks\ImageCarouselBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\MovieDetailViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\SearchPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Pages\XmlSiteMapPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Result\FindResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Result\MovieReviewResultViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\RssFeedBlockViewModel.cs" />
@@ -462,7 +470,6 @@
     <Content Include="Web.config" />
     <None Include="EPiServerLog.config" />
     <Content Include="nuget.config" />
-    <Content Include="modules\_protected\Geta.SEO.Sitemaps\Geta.SEO.Sitemaps.zip" />
     <Content Include="modules\_protected\Shell\web.config" />
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
@@ -496,6 +503,7 @@
     <None Include="Properties\PublishProfiles\epiprettywebsite - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\NewPrettyWebsite - Web Deploy.pubxml" />
+    <Content Include="Views\XmlSiteMapPage\Index.cshtml" />
     <None Include="Web.David.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

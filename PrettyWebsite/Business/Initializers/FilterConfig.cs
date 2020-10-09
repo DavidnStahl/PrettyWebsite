@@ -1,8 +1,8 @@
 ﻿using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using System.Web.Mvc;
 using PrettyWebsite.Business.ActionFilters;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Business.Initializers
 {

@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-using EPiServer;
+﻿using EPiServer;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Pages;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -15,7 +15,7 @@ namespace PrettyWebsite.Controllers.Pages
         }
         public ActionResult Index(StartPage currentPage)
         {
-            var model = new StartPageViewModel(currentPage);           
+            var model = new StartPageViewModel(currentPage);
             return View(model);
         }
 

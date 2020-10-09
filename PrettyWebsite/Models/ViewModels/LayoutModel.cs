@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using PrettyWebsite.Models.Pages;
+﻿using PrettyWebsite.Models.Pages;
+using System.Collections.Generic;
 
 namespace PrettyWebsite.Models.ViewModels
 {

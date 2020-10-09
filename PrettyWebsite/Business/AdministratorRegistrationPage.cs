@@ -1,10 +1,10 @@
-﻿using System;
+﻿using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
+using Owin;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.Security;
-using Owin;
 
 namespace PrettyWebsite
 {

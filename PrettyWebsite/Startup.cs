@@ -1,10 +1,10 @@
-﻿using System;
-using EPiServer.Cms.UI.AspNetIdentity;
+﻿using EPiServer.Cms.UI.AspNetIdentity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System;
 
 [assembly: OwinStartup(typeof(PrettyWebsite.Startup))]
 namespace PrettyWebsite

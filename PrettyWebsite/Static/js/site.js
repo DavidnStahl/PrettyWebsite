@@ -7,6 +7,7 @@
         var changeWindow = false;
 
         var inputValue = this.value;
+        
         $('#searchTextOptions').find('.SearchTextOption').each(function(index) {
             if (this.value == inputValue) {
                 changeWindow = true;
@@ -14,10 +15,17 @@
             }
         });
 
-        if (!changeWindow) {
-            var parentForm = document.getElementById("SearchForm");
-            GetSearchOptions(parentForm);
+        if (inputValue.length && inputValue.length >= 3) {
+            if (!changeWindow) {
+                var parentForm = document.getElementById("SearchForm");
+                GetSearchOptions(parentForm);
+            }
         }
+    });
+
+    $("#searchBtn").click(function(event) {
+        var parentForm = document.getElementById("SearchForm");
+        GetSearchOptions(parentForm);
     });
 
     function GetSearchOptions(form) {

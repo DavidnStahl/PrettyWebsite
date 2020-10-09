@@ -1,11 +1,11 @@
 ﻿using EPiServer;
 using EPiServer.Core;
 using EPiServer.Web;
+using PrettyWebsite.Models.Pages;
+using PrettyWebsite.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
-using PrettyWebsite.Models.Pages;
-using PrettyWebsite.Models.ViewModels;
 
 namespace PrettyWebsite.Business
 {
