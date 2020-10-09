@@ -1,12 +1,8 @@
-﻿using PrettyWebsite.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
-using System.Net.Http;
-using PrettyWebsite.Models;
+﻿using PrettyWebsite.Models;
+using PrettyWebsite.Repositories.Interfaces;
 using PrettyWebsite.Views;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PrettyWebsite.Repositories
 {

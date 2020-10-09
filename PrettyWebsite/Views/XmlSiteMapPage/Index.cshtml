@@ -1,0 +1,70 @@
+﻿@using System.Text
+@using System.Threading
+@using EPiServer.Core
+@using EPiServer.Find.Helpers.Text
+@using EPiServer.Web
+@using PrettyWebsite.Business.Extensions
+@model PrettyWebsite.Models.ViewModels.Pages.XmlSiteMapPageViewModel
+
+@{
+    ViewBag.Title = "sitemap.xml";
+    Layout = null;
+
+    Response.Clear();
+    Response.ContentType = "text/xml";
+
+    var stringBuilder = new StringBuilder();
+    var url = new StringBuilder();
+
+    var xmlVersion = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    var urlsetStart = "<urlset xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">";
+    var urlsetEnd = "</urlset>";
+
+    if (Model.StartPagesWithDescendants != null)
+    {
+        foreach (var startPageWithDescendants in Model.StartPagesWithDescendants)
+        {
+            var startPage = startPageWithDescendants.Key;
+            var isCurrentStartPage = SiteDefinition.Current.StartPage == startPage.ContentLink;
+            var iContent = (IContent)startPage;
+            var externalUrl = iContent.GetExternalUrl();
+            var pageUrl = new Uri(externalUrl);
+
+            if (startPage.LinkType == PageShortcutType.External)
+            {
+                pageUrl = new Uri(Url.ContentUrl(startPage.ContentLink));
+
+            }
+            var startPageModDate = !startPage.XmlSitemapDate.IsNullOrWhiteSpace() ? startPage.XmlSitemapDate : ((IChangeTrackable)startPage).Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+            url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + startPageModDate + "</lastmod>");
+
+
+            foreach (var altStartPage in Model.StartPagesWithDescendants.Select(p => p.Key).Where(p => startPage.ContentLink != p.ContentLink))
+            {
+                var link = Url.ContentUrl(altStartPage.ContentLink).Equals("/") ? externalUrl : Url.ContentUrl(altStartPage.ContentLink);
+                var altStartPageUrl = new Uri(link);
+                url.Append("<xhtml:link rel=\"alternate\" hreflang=\"" + altStartPage.Language + "\" href=\""+ altStartPageUrl + "\"/>");
+            }
+
+            url.Append("</url>");
+
+            foreach (var page in startPageWithDescendants.Value)
+            {
+                if (page.LinkType == PageShortcutType.External)
+                {
+                    pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
+                }
+                var modDate = !page.XmlSitemapDate.IsNullOrWhiteSpace() ? page.XmlSitemapDate : ((IChangeTrackable)page).Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+                url.Append("<url><loc>" + (isCurrentStartPage ? (pageUrl + Url.ContentUrl(page.ContentLink)) : Url.ContentUrl(page.ContentLink)) + "</loc><lastmod>" + modDate + "</lastmod></url>");
+            }
+        }
+    }
+
+    stringBuilder.Append(xmlVersion);
+    stringBuilder.Append(urlsetStart);
+    stringBuilder.Append(url);
+    stringBuilder.Append(urlsetEnd);
+
+    Response.Write(stringBuilder.ToString());
+    Response.End();
+}

@@ -1,23 +1,17 @@
-﻿using Castle.MicroKernel;
-using EPiServer.Data;
+﻿using EPiServer;
+using EPiServer.Web;
 using EPiServer.Web.Routing;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
+using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
-using PrettyWebsite.Models.ViewModels.Pages;
 using PrettyWebsite.Repositories.Interfaces;
-using PrettyWebsite.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using EPiServer;
-using EPiServer.Core;
-using EPiServer.Web;
-using PrettyWebsite.Models.Blocks;
-using PrettyWebsite.Models.Forms;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -37,7 +31,7 @@ namespace PrettyWebsite.Controllers.Pages
             _contentLoader = contentLoader;
             _pageRouteHelper = pageRouteHelper;
         }
-       
+
         [HttpGet]
         public async Task<ActionResult> Index(string id)
         {
@@ -49,8 +43,8 @@ namespace PrettyWebsite.Controllers.Pages
 
             var model = new MovieViewModel(startPage)
             {
-                Movie = movie, 
-                ReviewList = reviewList, 
+                Movie = movie,
+                ReviewList = reviewList,
                 Ratings = movie.Ratings.ToList()
             };
 
@@ -59,15 +53,15 @@ namespace PrettyWebsite.Controllers.Pages
                 model.Ratings.Add(new Rating
                 {
                     Source = "Prettywebsite",
-                    Value = Math.Round(reviewList.Select(data => data.Rating).Average(),1) + "/5.0"
+                    Value = Math.Round(reviewList.Select(data => data.Rating).Average(), 1) + "/5.0"
                 });
             }
 
             var x = Session["User"];
 
-            var user = Session["User"] is User sessionUser 
-                ? sessionUser 
-                : new User 
+            var user = Session["User"] is User sessionUser
+                ? sessionUser
+                : new User
                 {
                     MovieList = new List<string>(),
                     ReviewRatedList = new List<string>()

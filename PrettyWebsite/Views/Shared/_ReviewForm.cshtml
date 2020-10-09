@@ -1,6 +1,5 @@
 ﻿@using EPiServer.Framework.Localization
 @using EPiServer.ServiceLocation
-@using EPiServer.Web.Mvc.Html
 @using PrettyWebsite.Models.Forms
 
 
@@ -12,7 +11,7 @@
 
 <div class="text-center mt-3 mb-4">
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#showForm" aria-expanded="false" aria-controls="collapseExample">
-        Create Movie Review
+        @localizationService.GetString("/ReviewForm/CreateReview")
     </button>
 </div>
 

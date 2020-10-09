@@ -6,7 +6,6 @@ using PrettyWebsite.Repositories;
 using PrettyWebsite.Repositories.Interfaces;
 using PrettyWebsite.Services;
 using System.Web.Mvc;
-using System.Web.SessionState;
 
 namespace PrettyWebsite.Business.Initializers
 {

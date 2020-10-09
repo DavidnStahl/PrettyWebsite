@@ -1,11 +1,5 @@
-﻿using System;
+﻿using PrettyWebsite.Models.Pages;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EPiServer.Core;
-using EPiServer.DataAnnotations;
-using PrettyWebsite.Models.Blocks;
-using PrettyWebsite.Models.Pages;
 
 namespace PrettyWebsite.Models.ViewModels
 {

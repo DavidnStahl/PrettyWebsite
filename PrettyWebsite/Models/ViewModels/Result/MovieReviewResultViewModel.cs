@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using PrettyWebsite.DataStore;
+﻿using PrettyWebsite.DataStore;
+using System.Collections.Generic;
 
 namespace PrettyWebsite.Models.ViewModels.Result
 {

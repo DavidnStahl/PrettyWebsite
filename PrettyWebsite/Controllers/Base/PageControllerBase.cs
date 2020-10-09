@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using EPiServer.Shell.Security;
+﻿using EPiServer.Shell.Security;
 using EPiServer.Web.Mvc;
-using PrettyWebsite.Business;
 using PrettyWebsite.Models.Pages;
-using PrettyWebsite.Models.ViewModels;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers
 {
