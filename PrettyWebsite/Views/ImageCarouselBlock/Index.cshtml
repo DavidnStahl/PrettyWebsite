@@ -5,14 +5,14 @@
     <div class="carousel-inner">
 
         <div class="carousel-item active mt-5">
-            <img class="mx-auto d-block w-100" style="max-width: 800px" src="@Url.ContentUrl(Model.CurrentBlock.Images[0])" alt="image" )>
+            <img class="mx-auto d-block w-100 lazyloaded" style="max-width: 800px" data-src="@Url.ContentUrl(Model.CurrentBlock.Images[0])" alt="image" )>
         </div>
         @foreach (var item in Model.CurrentBlock.Images)
         {
             if (item != Model.CurrentBlock.Images[0])
             {
                 <div class="carousel-item mt-5">
-                    <img class="mx-auto d-block w-100" style="max-width: 800px" src="@Url.ContentUrl(item)" alt="image" )>
+                    <img class="mx-auto d-block w-100 lazyloaded" style="max-width: 800px" data-src="@Url.ContentUrl(item)" alt="image" )>
                 </div>
             }
         }

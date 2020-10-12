@@ -76,4 +76,21 @@
                 }
             });
     });
-    })
+
+
+    $(".lazyloaded").each(function(index) {
+        $(this).attr("src", this.dataset.src);
+    });
+
+
+    $(".EPiServerForms").removeClass("EPiServerForms").addClass("m-4").addClass("g-3");
+    $(".Form__Title").addClass("text-warning").addClass("mb-2");
+    $(".Form__MainBody").addClass("input-group").addClass("mt-3").addClass("p-2");
+    $(".FormStep").addClass("row").addClass("align-content-sm-center").addClass("w-100").addClass("w-100");
+    $(".FormTextbox").addClass("col-sm-6").addClass("row");
+    $(".Form__Status").addClass("text-warning");
+    $(".FormTextbox__Input").removeClass("FormTextbox__Input").addClass("form-control").addClass("align-content-sm-center");
+    $(".Form__Element__ValidationError").addClass("text-danger");
+
+    $(".FormSubmitButton").addClass("btn").addClass("btn-primary").addClass("col-sm-3").addClass("ml-5");
+})

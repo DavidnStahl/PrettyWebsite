@@ -12,13 +12,14 @@
 
     Response.Clear();
     Response.ContentType = "text/xml";
+    Response.Charset = null;
 
     var stringBuilder = new StringBuilder();
     var url = new StringBuilder();
 
     var xmlVersion = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-    var urlsetStart = "<urlset xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">";
-    var urlsetEnd = "</urlset>";
+    var urlsetStart = "\n<urlset xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">";
+    var urlsetEnd = "\n</urlset>";
 
     if (Model.StartPagesWithDescendants != null)
     {
@@ -36,17 +37,17 @@
 
             }
             var startPageModDate = !startPage.XmlSitemapDate.IsNullOrWhiteSpace() ? startPage.XmlSitemapDate : ((IChangeTrackable)startPage).Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
-            url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + startPageModDate + "</lastmod>");
+            url.Append("\n\t<url>\n\t\t<loc>" + pageUrl + "</loc>\n\t\t<lastmod>" + startPageModDate + "</lastmod>");
 
 
             foreach (var altStartPage in Model.StartPagesWithDescendants.Select(p => p.Key).Where(p => startPage.ContentLink != p.ContentLink))
             {
                 var link = Url.ContentUrl(altStartPage.ContentLink).Equals("/") ? externalUrl : Url.ContentUrl(altStartPage.ContentLink);
                 var altStartPageUrl = new Uri(link);
-                url.Append("<xhtml:link rel=\"alternate\" hreflang=\"" + altStartPage.Language + "\" href=\""+ altStartPageUrl + "\"/>");
+                url.Append("\n\t\t<xhtml:link rel=\"alternate\" hreflang=\"" + altStartPage.Language + "\" href=\""+ altStartPageUrl + "\"/>");
             }
 
-            url.Append("</url>");
+            url.Append("\n\t</url>");
 
             foreach (var page in startPageWithDescendants.Value)
             {
@@ -55,7 +56,7 @@
                     pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
                 }
                 var modDate = !page.XmlSitemapDate.IsNullOrWhiteSpace() ? page.XmlSitemapDate : ((IChangeTrackable)page).Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
-                url.Append("<url><loc>" + (isCurrentStartPage ? (pageUrl + Url.ContentUrl(page.ContentLink)) : Url.ContentUrl(page.ContentLink)) + "</loc><lastmod>" + modDate + "</lastmod></url>");
+                url.Append("\n\t<url>\n\t\t<loc>" + (isCurrentStartPage ? (pageUrl + Url.ContentUrl(page.ContentLink)) : Url.ContentUrl(page.ContentLink)) + "</loc>\n\t\t<lastmod>" + modDate + "</lastmod>\n\t</url>");
             }
         }
     }
