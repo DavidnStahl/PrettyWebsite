@@ -1,6 +1,7 @@
-﻿
+﻿@model EPiServer.Core.ContentReference
+
 @{
-    ViewBag.Title = "Error 404";
+    Layout = null;
 }
 
 <style type="text/css">
@@ -25,10 +26,11 @@
         border: 0;
         padding: 0;
         margin: 0;
+        height: 80vh;
     }
 </style>
 <div>
-    <a href="https://prettywebsite.local/">
+    <a href="@Url.ContentUrl(Model)">
         <img src="~/Static/Images/lost404.png" alt="404 - page not found" />
         <div>
             <h1>Back to PrettyWebsite </h1>
