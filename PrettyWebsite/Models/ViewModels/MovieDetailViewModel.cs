@@ -2,7 +2,7 @@
 
 namespace PrettyWebsite.Models.ViewModels
 {
-    public class MovieDetailViewModel 
+    public class MovieDetailViewModel
     {
         public Movie Movie { get; set; }
 

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using EPiServer.Data;
+﻿using EPiServer.Data;
 using PrettyWebsite.Models;
 using PrettyWebsite.Models.ViewModels.Result;
 using PrettyWebsite.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Result
 {
@@ -15,7 +15,7 @@ namespace PrettyWebsite.Controllers.Result
         {
             _dataStoreRepository = dataStoreRepository;
         }
-         
+
         public ActionResult Index()
         {
             var user = Session["User"] is User sessionUser ? sessionUser : new User
@@ -25,16 +25,16 @@ namespace PrettyWebsite.Controllers.Result
             };
 
             var model = new MovieReviewResultViewModel
-            { 
+            {
                 ReviewDataList = _dataStoreRepository.Get(Session["movieId"].ToString()),
                 ReviewRatedList = user.ReviewRatedList
             };
-            
-            return PartialView("_MovieReviewResult",model);
+
+            return PartialView("_MovieReviewResult", model);
         }
 
-        [HttpGet]
-        public ActionResult ReviewRating(string id,string rating)
+        [HttpPost]
+        public ActionResult ReviewRating(string id, int rating)
         {
             Identity.TryParse(id, out var identity);
 

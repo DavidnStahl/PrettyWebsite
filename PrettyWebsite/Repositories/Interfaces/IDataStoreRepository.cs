@@ -1,10 +1,6 @@
 ﻿using EPiServer.Data;
 using PrettyWebsite.DataStore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrettyWebsite.Repositories.Interfaces
 {
@@ -16,7 +12,7 @@ namespace PrettyWebsite.Repositories.Interfaces
 
         void Delete(string id);
 
-        void SaveRating(Identity id, string rating);
+        void SaveRating(Identity id, int rating);
 
         void DeleteBadReview();
     }

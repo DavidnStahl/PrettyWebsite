@@ -1,11 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EPiServer;
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace PrettyWebsite.Models.Blocks
 {
@@ -22,6 +20,7 @@ namespace PrettyWebsite.Models.Blocks
 
         [Display(Order = 20, GroupName = SystemTabNames.Content)]
         [Searchable(false)]
+        [StringLength(150)]
         public virtual string AltText { get; set; }     
         
     }

@@ -1,6 +1,6 @@
-﻿using System.Web.Optimization;
-using EPiServer.Framework;
+﻿using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
+using System.Web.Optimization;
 
 
 namespace PrettyWebsite.Business.Initializers
@@ -21,8 +21,8 @@ namespace PrettyWebsite.Business.Initializers
         {
             bundles.Add(new ScriptBundle("~/bundles/js")
                 .Include(
-                    "~/Static/js/bootstrap.js", 
-                    "~/Static/js/bootstrap.esm.js", 
+                    "~/Static/js/bootstrap.js",
+                    "~/Static/js/bootstrap.esm.js",
                     "~/Static/js/bootstrap.bundle.js"
                     ));
 

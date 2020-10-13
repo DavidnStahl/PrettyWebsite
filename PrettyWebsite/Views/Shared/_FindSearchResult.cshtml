@@ -4,28 +4,12 @@
     Layout = null;
 }
 
-
 @if (Model.Result != null)
 {
-    <ul>
-        
-    </ul>
-
-    <div style="display:flex;">
-
-        <div class="d-flex flex-wrap bd-highlight" style="margin:0;padding:0;">
-            @foreach (var item in Model.Result)
-            {
-            <div class="p-2 bd-highlight">
-
-                <h2><a href="@item.Url">@item.Title</a></h2>
-                <p class="text-warning">@Html.Raw(item.Excerpt)</p>
-            </div>
-
-             }
-                   
-        </div>
-
-    </div>
+    foreach (var item in Model.Result)
+    {
+        <option class="SearchTextOption" value="@item.Title" data-href="@item.Url">
+            <p class="text-warning">@Html.Raw(item.Excerpt)</p>
+        </option>
+    }
 }
-
