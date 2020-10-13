@@ -90,6 +90,7 @@
     $(".FormTextbox").addClass("col-sm-6").addClass("row");
     $(".Form__Status").addClass("text-warning");
     $(".FormTextbox__Input").removeClass("FormTextbox__Input").addClass("form-control").addClass("align-content-sm-center");
+    $(".Form__Element__Caption").css("display","none");
     $(".Form__Element__ValidationError").addClass("text-danger");
 
     $(".FormSubmitButton").addClass("btn").addClass("btn-primary").addClass("col-sm-3").addClass("ml-5");
