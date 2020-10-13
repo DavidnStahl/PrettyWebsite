@@ -1,7 +1,11 @@
-﻿@model PrettyWebsite.Models.ViewModels.Blocks.MovieReviewResultViewModel
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@model PrettyWebsite.Models.ViewModels.Result.MovieReviewResultViewModel
 
 @{
+    Layout = null;
     var stars = 0;
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
 }
 
 @if (Model.ReviewDataList.Count > 0)
@@ -17,7 +21,7 @@
                 <div class="col-md-11 text">
                     <div class="col-md-4"><h4 class="list-group-item-heading text-center">@review.Name</h4></div>
                     <div class="col-md-4"><h4 class="list-group-item-heading text-center"> @review.PublicationDate</h4></div>
-                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> votes </small></h4></div>
+                    <div class="col-md-4"><h4 class="list-group-item-heading text-xs-center"> @review.ReviewRating.ToString() <small> @localizationService.GetString("/MovieReviewResult/Votes") </small></h4></div>
                     <div class="list-group-item-text mt-4 mb-4">
                         <p>@review.Text</p>
                     </div>
@@ -26,27 +30,27 @@
                 <div class="col-md-1 mt-4 mb-4">
                     @if (Model.ReviewRatedList.FirstOrDefault(x => x.Contains(@review.Id.ToString())) == null)
                     {
-                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()')"><i class="fa fa-thumbs-up"></i></button>
-                        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="rating(1,'@review.Id.ToString()')"><i class="fa fa-thumbs-up"></i></button>
+                        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="rating(-1,'@review.Id.ToString()')"><i class="fa fa-thumbs-down"></i></button>
                     }
                     else
                     {
-                        <button type="button" class="disabled btn btn-success btn-lg btn-block" onclick="rating('up','@review.Id.ToString()')"><i class="fa fa-thumbs-up"></i></button>
-                        <button type="button" class="disabled btn btn-danger btn-lg btn-block" onclick="rating('down','@review.Id.ToString()')"><i class="fa fa-thumbs-down"></i></button>
+                        <button type="button" class="disabled btn btn-success btn-lg btn-block" onclick="rating(1,'@review.Id.ToString()')"><i class="fa fa-thumbs-up"></i></button>
+                        <button type="button" class="disabled btn btn-danger btn-lg btn-block" onclick="rating(-1,'@review.Id.ToString()')"><i class="fa fa-thumbs-down"></i></button>
                     }
 
                 </div>
                 <div class="col-md-3 text-left">
 
-                    @for (int i = 0; i < Convert.ToInt32(@review.Rating); i++)
+                    @for (var i = 0; i < Convert.ToInt32(@review.Rating); i++)
                     {
-                        <span class="float-left fa fa-star checked"></span>
+                        <span class="float-left fas fa-star"></span>
                         stars++;
                     }
 
-                    @for (int i = stars; i < 5; i++)
+                    @for (var i = stars; i < 5; i++)
                     {
-                        <i class="float-left fa fa-star-o unChecked" aria-hidden="true"></i>
+                        <i class="float-left far fa-star" aria-hidden="true"></i>
                     }
                 </div>
             </div>
@@ -62,11 +66,10 @@
 <script>
 
     function rating(value, id) {
-        var url = '/MovieReviewResult/ReviewRating?id=' + id + '&rating=' + value;
-        $.get(url,
+        var url = "@Url.Action("ReviewRating", "MovieReviewResult")/?id=" + id + '&rating=' + value;
+        $.post(url,
             function (data, status) {
                 $("#partialViewReviewResult").empty().append(data);
-                //alert("Data: " + data + "\nStatus: " + status);
             });
     }
 </script>

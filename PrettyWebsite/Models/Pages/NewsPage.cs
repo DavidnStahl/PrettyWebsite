@@ -1,13 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Web.UI.WebControls;
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using EPiServer.Web;
-using EPiServer.SpecializedProperties;
-using PrettyWebsite.Models.Blocks;
 using EPiServer.Framework.DataAnnotations;
+using PrettyWebsite.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 
 namespace PrettyWebsite.Models.Pages
 {
@@ -21,14 +17,7 @@ namespace PrettyWebsite.Models.Pages
       )]
         public virtual ImageBlock Image { get; set; }
 
-        //[CultureSpecific]
-        //[Display(
-        //    GroupName = SystemTabNames.Content,
-        //    Order = 10)]
-        //[UIHint(UIHint.Image)]
-        //public virtual ContentReference PageImage { get; set; }
 
-     
         [CultureSpecific]
         [Display(
             GroupName = SystemTabNames.Content,

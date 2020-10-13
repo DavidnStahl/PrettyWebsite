@@ -1,13 +1,8 @@
 ﻿using EPiServer.Core;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using EPiServer.Licensing.Services;
 using EPiServer.Shell.ObjectEditing;
 using PrettyWebsite.Business.MetaDataExtenders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PrettyWebsite.Business.Initializers
 {

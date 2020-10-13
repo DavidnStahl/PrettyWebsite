@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using EPiServer;
-using EPiServer.Core;
+﻿using EPiServer;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using PrettyWebsite.Models.Blocks;
@@ -12,6 +6,9 @@ using PrettyWebsite.Models.Containers;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Models.ViewModels.Blocks;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
@@ -42,21 +39,19 @@ namespace PrettyWebsite.Controllers.Blocks
                 foreach (var categoryContainer in categoryNewsContainers)
                 {
                     menu.Add(
-                        categoryContainer, 
+                        categoryContainer,
                         _contentLoader.GetChildren<SitePageData>(categoryContainer.ContentLink).Where(x => x.VisibleInMenu)
                         );
                 }
             }
-
-            //var menu = _contentLoader.GetChildren<CategoryNewsContainer>(newsContainer.ContentLink).Where(x => x.VisibleInMenu).ToList();
 
             var model = new HeaderBlockViewModel(currentBlock)
             {
                 Navigation = new NavigationViewModel
                 {
                     StartPage = startPage,
-                    Menu = menu                   
-                }                  
+                    Menu = menu
+                }
             };
 
             return PartialView(model);

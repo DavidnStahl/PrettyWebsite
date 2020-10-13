@@ -1,14 +1,11 @@
 ﻿using EPiServer.Data;
 using PrettyWebsite.Models;
-using PrettyWebsite.Models.ViewModels.Blocks;
+using PrettyWebsite.Models.ViewModels.Result;
 using PrettyWebsite.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace PrettyWebsite.Controllers.Blocks
+namespace PrettyWebsite.Controllers.Result
 {
     public class MovieReviewResultController : Controller
     {
@@ -18,38 +15,35 @@ namespace PrettyWebsite.Controllers.Blocks
         {
             _dataStoreRepository = dataStoreRepository;
         }
-         
+
         public ActionResult Index()
         {
-            if (Session["User"] == null)
+            var user = Session["User"] is User sessionUser ? sessionUser : new User
             {
-                Session["User"] = new User
-                {
-                    MovieList = new List<string>(),
-                    ReviewRatedList = new List<string>()
-                };
-            }
-            var user = Session["User"] as User;
+                MovieList = new List<string>(),
+                ReviewRatedList = new List<string>()
+            };
 
             var model = new MovieReviewResultViewModel
-            { 
+            {
                 ReviewDataList = _dataStoreRepository.Get(Session["movieId"].ToString()),
                 ReviewRatedList = user.ReviewRatedList
             };
-            
-            return PartialView("_MovieReviewResult",model);
+
+            return PartialView("_MovieReviewResult", model);
         }
-        [HttpGet]
-        public ActionResult ReviewRating(string id,string rating)
+
+        [HttpPost]
+        public ActionResult ReviewRating(string id, int rating)
         {
-            Identity.TryParse(id, out Identity identity);
+            Identity.TryParse(id, out var identity);
 
             _dataStoreRepository.SaveRating(identity, rating);
 
             var user = Session["User"] as User;
-            user.ReviewRatedList.Add(id);
+            user?.ReviewRatedList.Add(id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }

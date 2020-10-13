@@ -1,0 +1,24 @@
+﻿@using EPiServer.Framework.Localization
+@using EPiServer.ServiceLocation
+@{
+    Layout = null;
+    var localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
+}
+
+<div class="container text-dark bg-warning p-5">
+    <div class="row">
+        <div>
+            <h1 class="text-center mt-3 mb-3">@localizationService.GetString("/MovieReview/Title")</h1>
+
+            <div id="partialViewReviewResult"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    fetch("@Url.Action("Index", "MovieReviewResult",new{},Request.Url.Scheme)")
+        .then(response => response.text())
+        .then(function (result) {
+        $("#partialViewReviewResult").empty().append(result);
+    });
+</script>

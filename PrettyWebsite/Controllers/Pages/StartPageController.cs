@@ -1,21 +1,24 @@
 ﻿using System;
-using System.Globalization;
-using System.Web.Mvc;
-using PrettyWebsite.DataStore;
-using PrettyWebsite.Models.Forms;
+using EPiServer;
 using PrettyWebsite.Models.Pages;
-using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Models.ViewModels.Pages;
-using PrettyWebsite.Repositories.Interfaces;
-using PrettyWebsite.Services;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Pages
 {
     public class StartPageController : PageControllerBase<StartPage>
     {
+        private readonly IContentRepository _contentRepository;
+
+        public StartPageController(IContentRepository contentRepository)
+        {
+            _contentRepository = contentRepository;
+        }
+
+        [OutputCache(Duration = 7200)]
         public ActionResult Index(StartPage currentPage)
-        {            
-            var model = new StartPageViewModel(currentPage);           
+        {
+            var model = new StartPageViewModel(currentPage);
             return View(model);
         }
 
