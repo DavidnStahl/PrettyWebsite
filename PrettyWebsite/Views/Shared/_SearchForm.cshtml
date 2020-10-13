@@ -6,7 +6,7 @@
 }
 <div class="container g-3">
     <div class="row">
-        @using (Html.BeginForm("Submit", "SearchResult", FormMethod.Post, new {id = "SearchForm"}))
+        @using (Html.BeginForm("Submit", "SearchResult", FormMethod.Post, new {id = "SearchForm", autocomplete="off"}))
         {
             <div class="row g-2">
                 <div class="input-group border-black border-2">
@@ -17,10 +17,9 @@
                     <label class="form-label" for="searchText">
                         <span class="sr-only">Search text here</span>
                     </label>
-                    <input autofocus type="text" class="form-control" id="searchText" list="searchTextOptions"
+                    <input autofocus type="text" class="form-control" id="searchText" list="searchTextOptions" autocomplete="off"
                            placeholder="@localizationService.GetString("/SearchForm/Placeholder")">
                     <datalist id="searchTextOptions"></datalist>
-                    <button id="searchBtn" class="btn btn-primary" type="submit" aria-label="Search"><i class="fa fa-search text-white"></i></button>
                 </div>
             </div>
         }

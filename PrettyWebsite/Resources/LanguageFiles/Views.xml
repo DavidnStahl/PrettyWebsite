@@ -48,19 +48,19 @@
     </SearchForm>
     <ReviewForm>
       <CreateReview>
-        Skapa filmrecensension
+        Skapa filmrecension
       </CreateReview>
-      <Title>Recensension</Title>
+      <Title>Recension</Title>
       <Name>Recensent</Name>
       <Text>Text</Text>
       <Rating>Betyg</Rating>
       <Star>Hovra och klicka på en stjärna</Star>
       <RatingResponse>Du gav betyget</RatingResponse>
       <StarLabel>stjärnor</StarLabel>
-      <SubmitButtonText>Skicka recensension</SubmitButtonText>
+      <SubmitButtonText>Skicka recensioner</SubmitButtonText>
     </ReviewForm>
     <MovieReview>
-      <Title>Recensensioner</Title>
+      <Title>Recensioner</Title>
     </MovieReview>
     <MovieReviewResult>
       <Votes>Röster</Votes>

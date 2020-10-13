@@ -76,4 +76,29 @@
                 }
             });
     });
-    })
+
+
+    $(".lazyloaded").each(function(index) {
+        $(this).attr("src", this.dataset.src);
+    });
+
+
+
+    $(".EPiServerForms").addClass("container").addClass("m-4").addClass("g-3");
+    $(".Form__Title").addClass("text-warning").addClass("mb-2").addClass("row");
+    $(".Form__MainBody").addClass("input-group").addClass("mt-3").addClass("p-2").addClass("row");
+    $(".FormStep").addClass("row").addClass("align-content-sm-center").addClass("w-100").addClass("w-100");
+    $(".FormTextbox").addClass("col-sm-6").addClass("row");
+    $(".Form__Status").addClass("text-warning").addClass("row").addClass("ml-4");
+    $(".FormTextbox__Input").addClass("form-control").addClass("align-content-sm-center");
+    $(".Form__Element__Caption").css("display","none");
+    $(".Form__Element__ValidationError").addClass("text-danger");
+
+    $(".FormSubmitButton").addClass("btn").addClass("btn-primary").addClass("col-sm-3").addClass("ml-5");
+
+    $('input',".EPiServerForms")
+        .not(':button, :submit, :reset, :hidden')
+        .val('')
+        .prop('checked', false)
+        .prop('selected', false);
+})
