@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EPiServer.Shell;
+﻿using EPiServer.Shell;
 using PrettyWebsite.EpiServerDefaultIcon;
 
 namespace PrettyWebsite.Business.UIDescriptors.VideoIcon
@@ -12,7 +8,7 @@ namespace PrettyWebsite.Business.UIDescriptors.VideoIcon
     {
         public VideoIconDescriptor()
         {
-            
+
             IconClass = EpiserverDefaultContentIcons.ObjectIcons.Video;
         }
     }

@@ -10,6 +10,9 @@
       <Placeholder>Search here...</Placeholder>
     </SearchForm>
     <ReviewForm>
+      <CreateReview>
+        Create Movie Review
+      </CreateReview>
       <Title>Movie Review</Title>
       <Name>Author</Name>
       <Text>Text</Text>
@@ -44,29 +47,32 @@
       <Placeholder>Sök här....</Placeholder>
     </SearchForm>
     <ReviewForm>
-      <Title>Movie Review</Title>
-      <Name>Author</Name>
+      <CreateReview>
+        Skapa filmrecension
+      </CreateReview>
+      <Title>Recension</Title>
+      <Name>Recensent</Name>
       <Text>Text</Text>
-      <Rating>Rating</Rating>
-      <Star>Hover and click on a star</Star>
-      <RatingResponse>You gave a rating of</RatingResponse>
-      <StarLabel>star(s)</StarLabel>
-      <SubmitButtonText>Submit Review</SubmitButtonText>
+      <Rating>Betyg</Rating>
+      <Star>Hovra och klicka på en stjärna</Star>
+      <RatingResponse>Du gav betyget</RatingResponse>
+      <StarLabel>stjärnor</StarLabel>
+      <SubmitButtonText>Skicka recensioner</SubmitButtonText>
     </ReviewForm>
     <MovieReview>
-      <Title>Reviews</Title>
+      <Title>Recensioner</Title>
     </MovieReview>
     <MovieReviewResult>
-      <Votes>votes</Votes>
+      <Votes>Röster</Votes>
     </MovieReviewResult>
     <MovieDetail>
-      <Title>Title</Title>
+      <Title>Titel</Title>
       <Genre>Genre</Genre>
-      <Director>Director</Director>
-      <Actors>Actors</Actors>
-      <Plot>Plot</Plot>
-      <Ratings>Ratings</Ratings>
-      <Duration>Duration</Duration>
+      <Director>Regissör</Director>
+      <Actors>Skådespelare</Actors>
+      <Plot>Handling</Plot>
+      <Ratings>Betyg</Ratings>
+      <Duration>Längd</Duration>
     </MovieDetail>
   </language>
 </languages>

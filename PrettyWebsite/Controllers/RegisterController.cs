@@ -1,15 +1,13 @@
-﻿using PrettyWebsite.Models.ViewModels;
-using EPiServer.Core;
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.Security;
-using EPiServer.Web.Routing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using System.Web.Profile;
-using EPiServer.Security;
+﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.Personalization;
+using EPiServer.Security;
+using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
+using PrettyWebsite.Models.ViewModels;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.Profile;
 
 namespace PrettyWebsite.Controllers
 {
@@ -57,7 +55,7 @@ namespace PrettyWebsite.Controllers
                 var resFromSignIn = UiSignInManager.SignIn(UiUserProvider.Name, model.Username, model.Password);
                 if (resFromSignIn)
                 {
-                    return Redirect(UrlResolver.Current.GetUrl(ContentReference.StartPage));
+                    return Redirect("/episerver/cms");
                 }
             }
             AddErrors(errors);
@@ -93,6 +91,6 @@ namespace PrettyWebsite.Controllers
             base.OnAuthorization(filterContext);
         }
 
-        
+
     }
 }

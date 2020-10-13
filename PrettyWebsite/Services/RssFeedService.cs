@@ -1,9 +1,7 @@
 ﻿using PrettyWebsite.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
-using System.Web;
 using System.Xml;
 
 namespace PrettyWebsite.Services
@@ -29,7 +27,7 @@ namespace PrettyWebsite.Services
                     Category = item.Categories[0].Name
                 };
 
-                rssFeedList.Add(rssFeed);                
+                rssFeedList.Add(rssFeed);
             }
 
             return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();

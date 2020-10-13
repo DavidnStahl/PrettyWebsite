@@ -6,7 +6,7 @@
 }
 
 <div class="container mb-4 mt-5 text-center">
-    <img class="mb-4" src="@Model.Movie.Poster" alt="">
+    <img class="mb-4 lazyloaded" data-src="@Model.Movie.Poster" alt="">
     <h4><b>@Model.Movie.Title (@Model.Movie.Year)</b></h4>
     <p><strong>@localizationService.GetString("/MovieDetail/Genre"):</strong> @Model.Movie.Genre</p>
     <p><strong>@localizationService.GetString("/MovieDetail/Director"):</strong> @Model.Movie.Director</p>

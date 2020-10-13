@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using System.Web.Mvc;
-using EPiServer.Find;
+﻿using EPiServer.Find;
 using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.ViewModels.Result;
 using PrettyWebsite.Repositories.Interfaces;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Form
 {
@@ -19,9 +19,9 @@ namespace PrettyWebsite.Controllers.Form
         }
 
         [HttpPost]
-        public async Task<ActionResult> Submit(string type ,string query)
+        public async Task<ActionResult> Submit(string type, string query)
         {
-            
+
             if (!string.IsNullOrWhiteSpace(query) && type == "1")
             {
                 var model = new SearchFormModel
@@ -29,7 +29,7 @@ namespace PrettyWebsite.Controllers.Form
                     SearchResult = await _movieRepository.SearchByTitle(query).ConfigureAwait(false)
                 };
 
-                return PartialView("_MovieSearchResult",model);
+                return PartialView("_MovieSearchResult", model);
             }
             var hitSpec = new HitSpecification
             {
@@ -38,7 +38,7 @@ namespace PrettyWebsite.Controllers.Form
 
             var findModel = new FindResultViewModel
             {
-                Result = SearchClient.Instance.UnifiedSearchFor(query, Language.English)
+                Result = SearchClient.Instance.UnifiedSearchFor(query)
                     .UsingSynonyms()
                     .ApplyBestBets()
                     .Take(100)
@@ -47,6 +47,6 @@ namespace PrettyWebsite.Controllers.Form
 
             return PartialView("_FindSearchResult", findModel);
         }
-       
+
     }
 }
