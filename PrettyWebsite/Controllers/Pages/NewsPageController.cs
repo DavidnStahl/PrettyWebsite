@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Pages
 {
-    public class NewsPageController : PageController<NewsPage>
+    public class NewsPageController : PageControllerBase<NewsPage>
     {
         public ActionResult Index(NewsPage currentPage)
         {

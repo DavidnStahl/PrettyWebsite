@@ -20,7 +20,8 @@ namespace PrettyWebsite.Models.Blocks
 
         [Display(Order = 20, GroupName = SystemTabNames.Content)]
         [Searchable(false)]
-        public virtual string AltText { get; set; }
-
+        [StringLength(150)]
+        public virtual string AltText { get; set; }     
+        
     }
 }
