@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
-    
+
     public class RssFeedBlockController : BlockController<RssFeedBlock>
     {
         private readonly IRssFeedService _rssFeedService;

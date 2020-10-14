@@ -8,7 +8,7 @@ namespace PrettyWebsite.Business.UIDescriptors.VideoIcon
     {
         public VideoIconDescriptor()
         {
-            
+
             IconClass = EpiserverDefaultContentIcons.ObjectIcons.Video;
         }
     }

@@ -15,23 +15,18 @@ namespace PrettyWebsite.Repositories
             _store.Save(data);
         }
 
-        public void SaveRating(Identity id,string rating)
+        public void SaveRating(Identity id, int rating)
         {
             var reviewData = _store.Items<Review>().FirstOrDefault(data => data.Id == id);
 
-            if(rating == "up")
-            {
-                reviewData.ReviewRating++;
-            }
-            else
-            {
-                reviewData.ReviewRating--;
-            }
+            if (reviewData == null) return;
+
+            reviewData.ReviewRating += rating;
 
             _store.Save(reviewData);
         }
 
-        public  List<Review> Get(string id)
+        public List<Review> Get(string id)
         {
             var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)
                                                   .OrderByDescending(data => data.ReviewRating)
@@ -48,7 +43,7 @@ namespace PrettyWebsite.Repositories
             {
                 _store.Delete(item.Id);
             }
-            
+
         }
 
         public void DeleteBadReview()

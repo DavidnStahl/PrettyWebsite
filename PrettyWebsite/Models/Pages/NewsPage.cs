@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using PrettyWebsite.Models.Blocks;
 using EPiServer.Framework.DataAnnotations;
+using PrettyWebsite.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 
 namespace PrettyWebsite.Models.Pages
 {
@@ -17,7 +17,7 @@ namespace PrettyWebsite.Models.Pages
       )]
         public virtual ImageBlock Image { get; set; }
 
-     
+
         [CultureSpecific]
         [Display(
             GroupName = SystemTabNames.Content,

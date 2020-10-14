@@ -1,13 +1,13 @@
-﻿using PrettyWebsite.Models.ViewModels;
-using EPiServer.Core;
+﻿using EPiServer.Core;
+using EPiServer.DataAbstraction;
+using EPiServer.Personalization;
+using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.Security;
+using PrettyWebsite.Models.ViewModels;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Profile;
-using EPiServer.Security;
-using EPiServer.DataAbstraction;
-using EPiServer.Personalization;
 
 namespace PrettyWebsite.Controllers
 {
@@ -91,6 +91,6 @@ namespace PrettyWebsite.Controllers
             base.OnAuthorization(filterContext);
         }
 
-        
+
     }
 }

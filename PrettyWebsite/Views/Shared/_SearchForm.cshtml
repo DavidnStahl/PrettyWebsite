@@ -6,7 +6,7 @@
 }
 <div class="container g-3">
     <div class="row">
-        @using (Html.BeginForm("Submit", "SearchResult", FormMethod.Post, new {id = "SearchForm"}))
+        @using (Html.BeginForm("Submit", "SearchResult", FormMethod.Post, new {id = "SearchForm", autocomplete="off"}))
         {
             <div class="row g-2">
                 <div class="input-group border-black border-2">
@@ -14,10 +14,12 @@
                         <option class="bg-white text-dark" value="1">@localizationService.GetString("/SearchForm/Text1")</option>
                         <option class="bg-white text-dark" value="2">@localizationService.GetString("/SearchForm/Text2")</option>
                     </select>
-                    <input autofocus type="text" class="form-control" id="searchText" list="searchTextOptions"
+                    <label class="form-label" for="searchText">
+                        <span class="sr-only">Search text here</span>
+                    </label>
+                    <input autofocus type="text" class="form-control" id="searchText" list="searchTextOptions" autocomplete="off"
                            placeholder="@localizationService.GetString("/SearchForm/Placeholder")">
                     <datalist id="searchTextOptions"></datalist>
-                    <button id="btn" class="btn btn-primary" type="submit"><i class="fa fa-search text-white"></i></button>
                 </div>
             </div>
         }

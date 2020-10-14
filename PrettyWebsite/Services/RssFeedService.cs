@@ -27,7 +27,7 @@ namespace PrettyWebsite.Services
                     Category = item.Categories[0].Name
                 };
 
-                rssFeedList.Add(rssFeed);                
+                rssFeedList.Add(rssFeed);
             }
 
             return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();

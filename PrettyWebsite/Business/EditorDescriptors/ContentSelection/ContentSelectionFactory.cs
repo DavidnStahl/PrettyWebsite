@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using EPiServer;
+﻿using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Web;
 using PrettyWebsite.Models.Pages;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
 {
@@ -36,10 +36,10 @@ namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
                     .Select(x => _contentLoader.Get<T>(x, startPage.Language))
                     .OfType<IContent>()
                     .Select(x => new SelectItem
-                        {
-                            Text = x.Name,
-                            Value = x.ContentLink
-                        })
+                    {
+                        Text = x.Name,
+                        Value = x.ContentLink
+                    })
                     .OrderBy(x => x.Text)
                     .ToList();
 

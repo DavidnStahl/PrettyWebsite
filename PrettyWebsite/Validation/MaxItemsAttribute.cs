@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EPiServer.Core;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using EPiServer.Core;
 
 namespace PrettyWebsite.Validation
 {

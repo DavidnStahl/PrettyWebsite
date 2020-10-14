@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-using EPiServer.Web.Mvc;
+﻿using EPiServer.Web.Mvc;
 using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.ViewModels.Blocks;
+using System.Web.Mvc;
 
 namespace PrettyWebsite.Controllers.Blocks
 {

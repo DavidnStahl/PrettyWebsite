@@ -1,7 +1,7 @@
-﻿using System;
-using EPiServer.PlugIn;
+﻿using EPiServer.PlugIn;
 using EPiServer.Scheduler;
 using PrettyWebsite.Repositories.Interfaces;
+using System;
 
 namespace PrettyWebsite.ScheduledJobs
 {

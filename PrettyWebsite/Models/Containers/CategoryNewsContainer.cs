@@ -11,7 +11,7 @@ namespace PrettyWebsite.Models.Containers
         {
             typeof(NewsPage),
         },
-        ExcludeOn = new []
+        ExcludeOn = new[]
         {
             typeof(StartPage)
         }
