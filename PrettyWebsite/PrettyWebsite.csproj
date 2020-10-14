@@ -376,7 +376,6 @@
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
     <Compile Include="Controllers\Blocks\ImageCarouselBlockController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
-   
     <Compile Include="Controllers\Pages\ErrorController.cs" />
     <Compile Include="Controllers\Pages\NewsPageController.cs" />
     <Compile Include="Controllers\Pages\XmlSiteMapPageController.cs" />
@@ -453,7 +452,6 @@
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License.config" />
     <Content Include="license.txt" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
