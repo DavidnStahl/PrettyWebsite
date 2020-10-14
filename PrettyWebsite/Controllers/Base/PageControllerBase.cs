@@ -1,9 +1,9 @@
-﻿using EPiServer.Shell.Security;
+﻿using System.Web.Mvc;
+using EPiServer.Shell.Security;
 using EPiServer.Web.Mvc;
 using PrettyWebsite.Models.Pages;
-using System.Web.Mvc;
 
-namespace PrettyWebsite.Controllers
+namespace PrettyWebsite.Controllers.Base
 {
     public abstract class PageControllerBase<T> : PageController<T>
         where T : SitePageData

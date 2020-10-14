@@ -3,6 +3,7 @@ using EPiServer;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Pages;
 using System.Web.Mvc;
+using PrettyWebsite.Controllers.Base;
 
 namespace PrettyWebsite.Controllers.Pages
 {

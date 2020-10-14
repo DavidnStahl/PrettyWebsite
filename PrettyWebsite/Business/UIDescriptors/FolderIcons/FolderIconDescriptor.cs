@@ -1,7 +1,7 @@
 ﻿using EPiServer.Shell;
 using PrettyWebsite.EpiServerDefaultIcon;
 
-namespace PrettyWebsite.Business.UIDescriptors.SettingIcons
+namespace PrettyWebsite.Business.UIDescriptors.FolderIcons
 {
 
     [UIDescriptorRegistration]
