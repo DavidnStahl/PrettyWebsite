@@ -368,9 +368,11 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\PageIcons\PageIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\SettingIcons\SettingsIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\VideoIcon\VideoIconDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\WebsiteIcons\WebsiteIconDescriptor.cs" />
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
@@ -452,6 +454,7 @@
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="license.txt" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
@@ -481,7 +484,6 @@
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
     <Content Include="nuget.config" />
-    <Content Include="modules\_protected\Geta.SEO.Sitemaps\Geta.SEO.Sitemaps.zip" />
     <Content Include="modules\_protected\BVNetwork.404Handler\web.config" />
     <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
     <None Include="packages.config" />

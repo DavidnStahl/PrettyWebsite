@@ -40,7 +40,7 @@ namespace PrettyWebsite.Controllers.Blocks
                 {
                     menu.Add(
                         categoryContainer,
-                        _contentLoader.GetChildren<SitePageData>(categoryContainer.ContentLink).Where(x => x.VisibleInMenu)
+                        _contentLoader.GetChildren<NewsPage>(categoryContainer.ContentLink).Where(x => x.VisibleInMenu)
                         );
                 }
             }
