@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using EPiServer.Core;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -39,7 +40,7 @@ namespace PrettyWebsite.Controllers.Pages
             var reviewList = _dataStoreRepository.Get(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
-            var startPage = SiteDefinition.Current.StartPage.ProviderName is null ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
+            var startPage = SiteDefinition.Current.StartPage == ContentReference.EmptyReference ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
 
             var model = new MovieViewModel(startPage)
             {

@@ -6,6 +6,7 @@ using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Base;
 using PrettyWebsite.Models.ViewModels.Interfaces;
 using System.Web.Mvc;
+using EPiServer.Core;
 
 namespace PrettyWebsite.Business.ActionFilters
 {
@@ -38,7 +39,8 @@ namespace PrettyWebsite.Business.ActionFilters
             }
             else
             {
-                if (SiteDefinition.Current.StartPage.ProviderName == null) return;
+                var x = SiteDefinition.Current;
+                if (SiteDefinition.Current.StartPage == ContentReference.EmptyReference) return;
 
                 var startPage = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
 
