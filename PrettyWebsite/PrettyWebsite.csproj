@@ -368,9 +368,11 @@
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\PageIcons\PageIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\SettingIcons\SettingsIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\TreeIcons\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\VideoIcon\VideoIconDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\WebsiteIcons\WebsiteIconDescriptor.cs" />
     <Compile Include="Controllers\Base\PageControllerBase.cs" />
     <Compile Include="Controllers\Blocks\FooterBlockController.cs" />
     <Compile Include="Controllers\Blocks\HeaderBlockController.cs" />
