@@ -93,7 +93,6 @@
     $(".FormTextbox__Input").addClass("form-control").addClass("align-content-sm-center");
     $(".Form__Element__Caption").css("display","none");
     $(".Form__Element__ValidationError").addClass("text-danger");
-
     $(".FormSubmitButton").addClass("btn").addClass("btn-primary").addClass("col-sm-3").addClass("ml-5");
 
     $('input',".EPiServerForms")

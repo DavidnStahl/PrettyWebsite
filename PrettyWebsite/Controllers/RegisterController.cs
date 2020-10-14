@@ -8,6 +8,7 @@ using PrettyWebsite.Models.ViewModels;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Profile;
+using PrettyWebsite.Business;
 
 namespace PrettyWebsite.Controllers
 {

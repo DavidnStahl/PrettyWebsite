@@ -3,6 +3,7 @@ using PrettyWebsite.Models.Blocks;
 using PrettyWebsite.Models.ViewModels.Blocks;
 using PrettyWebsite.Services;
 using System.Web.Mvc;
+using PrettyWebsite.Services.Interface;
 
 namespace PrettyWebsite.Controllers.Blocks
 {

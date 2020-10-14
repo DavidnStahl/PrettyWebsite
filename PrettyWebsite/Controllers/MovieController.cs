@@ -1,4 +1,10 @@
-﻿using EPiServer;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using EPiServer;
+using EPiServer.Core;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
 using PrettyWebsite.DataStore;
@@ -7,14 +13,8 @@ using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using EPiServer.Core;
 
-namespace PrettyWebsite.Controllers.Pages
+namespace PrettyWebsite.Controllers
 {
 
     public class MovieController : Controller

@@ -6,6 +6,7 @@ using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using PrettyWebsite.Controllers.Base;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 

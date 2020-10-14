@@ -1,6 +1,4 @@
-﻿using PrettyWebsite.Views;
-
-namespace PrettyWebsite.Models.Forms
+﻿namespace PrettyWebsite.Models.Forms
 {
     public class SearchFormModel
     {

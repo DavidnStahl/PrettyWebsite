@@ -1,7 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using PrettyWebsite.Models;
 using PrettyWebsite.Repositories.Interfaces;
-using PrettyWebsite.Views;
 using System.Net.Http;
 using System.Threading.Tasks;
 
