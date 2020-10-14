@@ -39,7 +39,6 @@ namespace PrettyWebsite.Business.ActionFilters
             }
             else
             {
-                var x = SiteDefinition.Current;
                 if (SiteDefinition.Current.StartPage == ContentReference.EmptyReference) return;
 
                 var startPage = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);

@@ -16,7 +16,7 @@ namespace PrettyWebsite.Controllers.Pages
             _contentRepository = contentRepository;
         }
 
-        [OutputCache(Duration = (60*5))]
+        [OutputCache(Duration = 10)]
         public ActionResult Index(StartPage currentPage)
         {
             var model = new StartPageViewModel(currentPage);
