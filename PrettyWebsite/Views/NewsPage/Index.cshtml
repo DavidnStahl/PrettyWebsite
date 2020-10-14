@@ -6,7 +6,7 @@
         @if (Model.CurrentPage.Image.PageImage != null)
         {
             <div @Html.EditAttributes(x => x.CurrentPage.Image)>
-                <img class="mx-auto d-block w-100 lazyloaded" style="max-width: 800px"  data-src="@Url.ContentUrl(Model.CurrentPage.Image.PageImage)" alt="@Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />
+                <img class="mx-auto d-block w-100" style="max-width: 800px"  src="@Url.ContentUrl(Model.CurrentPage.Image.PageImage)" alt="@Html.PropertyFor(x => x.CurrentPage.Image.AltText)" />
             </div>
         }
 
