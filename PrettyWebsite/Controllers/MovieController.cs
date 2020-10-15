@@ -58,8 +58,6 @@ namespace PrettyWebsite.Controllers
                 });
             }
 
-            var x = Session["User"];
-
             var user = Session["User"] is User sessionUser
                 ? sessionUser
                 : new User

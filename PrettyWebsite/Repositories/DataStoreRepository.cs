@@ -46,7 +46,7 @@ namespace PrettyWebsite.Repositories
 
         }
 
-        public void DeleteBadReview()
+        public int DeleteBadReview()
         {
             var reviewData = _store.Items<Review>().Where(data => data.ReviewRating < -5)
                                                   .ToList();
@@ -56,6 +56,7 @@ namespace PrettyWebsite.Repositories
                 _store.Delete(item.Id);
             }
 
+            return reviewData.Count;
         }
     }
 }

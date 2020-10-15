@@ -14,6 +14,6 @@ namespace PrettyWebsite.Repositories.Interfaces
 
         void SaveRating(Identity id, int rating);
 
-        void DeleteBadReview();
+        int DeleteBadReview();
     }
 }
