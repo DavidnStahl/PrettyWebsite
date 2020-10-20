@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Web;
+using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
@@ -34,6 +35,7 @@ namespace PrettyWebsite.Controllers
         }
 
         [HttpGet]
+        [ContentOutputCache(Duration = 3600, VaryByParam = "id")]
         public async Task<ActionResult> Index(string id)
         {
             Session["movieId"] = id;

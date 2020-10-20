@@ -34,6 +34,12 @@ namespace PrettyWebsite.Repositories
             return reviewData;
         }
 
+        public List<Review> GetAll()
+        {
+            var reviewData = _store.Items<Review>().ToList();
+            return reviewData;
+        }
+
         public void Delete(string id)
         {
             var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)

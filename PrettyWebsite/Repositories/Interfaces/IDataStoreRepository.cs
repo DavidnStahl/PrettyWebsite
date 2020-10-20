@@ -10,6 +10,8 @@ namespace PrettyWebsite.Repositories.Interfaces
 
         List<Review> Get(string id);
 
+        List<Review> GetAll();
+
         void Delete(string id);
 
         void SaveRating(Identity id, int rating);

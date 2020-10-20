@@ -17,6 +17,7 @@ namespace PrettyWebsite.Controllers.Blocks
             _rssFeedService = rssFeedService;
         }
 
+        [OutputCache(Duration = 3600)]
         public override ActionResult Index(RssFeedBlock currentBlock)
         {
             var model = new RssFeedBlockViewModel(currentBlock)

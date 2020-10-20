@@ -1,0 +1,37 @@
+﻿@inherits System.Web.Mvc.WebViewPage<PrettyWebsite.Business.Plugins.HandleReview.Models.ViewModel.HandleReviewViewModel>
+
+@{
+    Layout = "~/Business/Plugins/Shared/Layouts/_Admin.cshtml";
+}
+
+<ul class="list-group">
+    @foreach (var movie in Model.Movies)
+    {
+        <li class="list-group-item list-group-item-action">
+            <h4>@movie.Key.Title <span class="badge bg-primary rounded-pill">@Math.Round(movie.Value.Average(review => review.Rating), 1)</span></h4>
+            <ul class="list-group">
+                @foreach (var review in movie.Value)
+                {
+                    @review.Text
+                    <li class="list-group-item list-group-item">
+                        <input class="form-check-input mr-1" type="checkbox" value="" aria-label="...">
+                        <span class="badge rounded-pill bg-white">
+                            @for (var i = 0; i < 5; i++)
+                            {
+                                <i class="@(i <= review.Rating ? "fas" : "far") fa-star text-warning"></i>
+                            }
+                        </span>
+                        <span class="badge bg-primary rounded-pill">@review.ReviewRating</span>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+
+
+
+@section Scripts{
+    <script src="~/Business/Plugins/HandleReview/Static/js/HandleReview.js"></script>
+}>
