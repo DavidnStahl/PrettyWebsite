@@ -38,7 +38,9 @@ namespace PrettyWebsite
         protected void RegisterPluginControllers(RouteCollection routes)
         {
             var pluginControllers = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(type => typeof(Controller).IsAssignableFrom(type) && type.GetCustomAttributes(typeof(GuiPlugInAttribute),true).Any());
+                .Where(
+                    type => typeof(Controller).IsAssignableFrom(type) && 
+                            type.GetCustomAttributes(typeof(GuiPlugInAttribute),true).Any());
 
             foreach (var pluginController in pluginControllers)
             {

@@ -39,7 +39,7 @@ namespace PrettyWebsite.Controllers
         public async Task<ActionResult> Index(string id)
         {
             Session["movieId"] = id;
-            var reviewList = _dataStoreRepository.Get(id);
+            var reviewList = _dataStoreRepository.GetFromMovieId(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
             var startPage = SiteDefinition.Current.StartPage == ContentReference.EmptyReference ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);

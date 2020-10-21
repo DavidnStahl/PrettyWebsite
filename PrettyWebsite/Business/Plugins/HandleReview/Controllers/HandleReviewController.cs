@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using EPiServer.Data;
 using EPiServer.PlugIn;
 using PrettyWebsite.Business.Plugins.HandleReview.Models.ViewModel;
 using PrettyWebsite.Repositories.Interfaces;
@@ -39,8 +42,19 @@ namespace PrettyWebsite.Business.Plugins.HandleReview.Controllers
             {
                 Movies = reviews.GroupBy( r => r.MovieId).ToDictionary(r => movies.FirstOrDefault(m => m.Result.imdbID == r.Key).Result,r=>r.ToList())
             };
-            //return View();
             return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteReviews(Guid[] externalIds)
+        {
+            foreach (var id in externalIds)
+            {
+                _repository.Delete(id);
+            }
+
+            return Json(new { redirect = Url.Action(nameof(Index)) });
         }
     }
 }
