@@ -365,6 +365,7 @@
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\Initializers\RestrictRootPagesInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
+    <Compile Include="Business\Initializers\TinyMceConfigurationModule.cs" />
     <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\RazorEngines\PluginRazorViewEngine.cs" />
@@ -418,6 +419,7 @@
     <Compile Include="Models\Pages\XmlSiteMapPage.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RssFeed.cs" />
+    <Compile Include="Models\TinyMcePluginNames.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\Base\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\FooterBlockViewModel.cs" />
@@ -472,6 +474,7 @@
     <Content Include="Static\css\Bootstrap\bootstrap-reboot.css" />
     <Content Include="Static\css\Bootstrap\bootstrap-utilities.css" />
     <Content Include="Static\css\Bootstrap\bootstrap.css" />
+    <Content Include="Static\css\editor.css" />
     <Content Include="Static\css\style.css" />
     <Content Include="Static\Images\lost404.png" />
     <Content Include="Static\js\bootstrap.bundle.js" />
@@ -479,6 +482,7 @@
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\global.js" />
     <Content Include="Static\js\site.js" />
+    <Content Include="Static\tinymce\plugins\dropcontentplugin\editor_plugin.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

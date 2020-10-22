@@ -1,0 +1,295 @@
+﻿/* Styles used by the TinyMCE editor */
+h2 {
+    /*EditMenuTitle: "Texter";*/
+    EditMenuName: H2;
+}
+
+h3 {
+    EditMenuName: H3;
+}
+
+h4 {
+    EditMenuName: H4;
+}
+
+.liten-text {
+    EditMenuName: Liten text;
+}
+
+.text-nowrap {
+    EditMenuName: Ingen radbrytning;
+}
+
+h2 {
+    EditMenuTitle: "Citat";
+}
+
+.citat-float-top-right {
+    EditMenuName: Citat Float Right;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 12px;
+}
+
+.citat-float-top-left {
+    EditMenuName: Citat Float Left;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 12px;
+}
+
+blockquote .citat-float-top-right,
+span .citat-float-top-right {
+    float: right;
+    width: 50%;
+    margin: 6px 0 15px 20px;
+    padding: 23px 25px 25px;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: center;
+    border-top: #d7d9d9 solid 1px;
+    border-bottom: #d7d9d9 solid 1px;
+    border-left: 0;
+}
+
+blockquote .citat-float-top-left,
+span .citat-float-top-left {
+    float: left;
+    width: 50%;
+    margin: 6px 20px 15px 0;
+    padding: 23px 25px 25px;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: center;
+    border-top: #d7d9d9 solid 1px;
+    border-bottom: #d7d9d9 solid 1px;
+    border-left: 0;
+}
+
+.citat-float-top-right img,
+.citat-float-top-left img {
+    display: block;
+    width: initial;
+    max-width: none;
+    height: auto !important;
+    margin: -3px auto 11px;
+}
+
+/*img.img-circle {
+    EditMenuName: Circle;
+}
+img.img-thumbnail {
+    EditMenuName: Thumbnail;
+}
+img.img-responsive {
+    EditMenuName: Responsive;
+}*/
+
+h2 {
+    EditMenuTitle: "Bilder";
+}
+
+.img-float-top-right {
+    EditMenuName: Image Float Right;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 12px;
+}
+
+.img-float-top-left {
+    EditMenuName: Image Float Left;
+    font-family: "freight-text-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 12px;
+}
+
+img.img-float-top-left {
+    float: left;
+    max-width: 100% !important;
+    margin: 6px 20px 15px 0;
+}
+
+img.img-float-top-right {
+    float: left;
+    max-width: 100% !important;
+    margin: 6px 0 15px 20px;
+}
+
+
+/*img.img-grayscale {
+    EditMenuName: "Grayscale";
+    -webkit-filter: grayscale(100%);
+}
+img.img-sepia-100 {
+    EditMenuName: "Sepia 100%";
+    -webkit-filter: sepia(100%);
+}
+img.img-sepia-50 {
+    EditMenuName: "Sepia 50%";
+    -webkit-filter: sepia(50%);
+}*/
+
+/*Block Preview*/
+.alert-info {
+    background-color: #FFF8AA;
+    border-color: #858585;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.header.dim {
+    margin: 2% 0;
+    opacity: 0.3;
+}
+
+/*Fonter i WYSIWYG-läge*/
+h2,
+h3,
+h4,
+h5,
+p {
+    font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+h2 {
+    margin-bottom: 6px;
+    font-size: 22px;
+    line-height: 23px;
+}
+
+h3 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    line-height: 21px;
+}
+
+h4 {
+    margin-bottom: 2px;
+    font-size: 13px;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: "freight-text-pro", serif, "Helvetica Neue", Helvetica, Arial;
+    font-style: normal;
+    font-weight: 300;
+    max-width: 515px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.liten-text {
+    font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-style: normal;
+    font-weight: 500;
+    max-width: 515px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 0;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+[title="Citat Float Right"],
+[title="Citat Float Left"],
+[title="Image Float Right"],
+[title="Image Float Left"] {
+    font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px !important;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Tabeller i WYSIWYG-läge :: Table --------------------------------------------------- */
+table {
+    border-top: #e4e4e4 solid 1px;
+    border-right: #e4e4e4 solid 1px;
+    border-bottom: #e4e4e4 solid 1px;
+    border-left: #e4e4e4 solid 1px;
+    border: 0;
+    display: table;
+    width: initial;
+    max-width: unset;
+    min-width: initial;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+    /* Tabeller i WYSIWYG-läge :: thead --------------------------------------------------- */
+    table > thead > tr > td,
+    table > thead > tr > th {
+        border: #e4e4e4 solid 1px !important;
+        border-right: #e4e4e4 solid 1px !important;
+        min-width: 100px;
+        padding: 20px !important;
+        font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+        font-style: normal;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 16px;
+        vertical-align: middle;
+        background-color: #d2d2d2;
+    }
+
+    table > thead:first-child > tr:first-child > td {
+        border-top: 0;
+    }
+    /* Tabeller i WYSIWYG-läge :: tbody --------------------------------------------------- */
+    table > tbody > tr > td {
+        border: #e4e4e4 solid 1px !important;
+        padding: 11px 20px !important;
+        font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+        font-style: normal;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 16px;
+        vertical-align: middle;
+        background-color: #fff;
+    }
+        /* Tabell helrad ---------------------------------------------------------------------- */
+        table > tbody > tr > td[colspan='2'],
+        table > tbody > tr > td[colspan='3'],
+        table > tbody > tr > td[colspan='4'],
+        table > tbody > tr > td[colspan='5'],
+        table > tbody > tr > td[colspan='6'],
+        table > tbody > tr > td[colspan='7'],
+        table > tbody > tr > td[colspan='8'],
+        table > tbody > tr > td[colspan='9'],
+        table > tbody > tr > td[colspan='10'] {
+            padding: 20px 30px;
+            text-align: left;
+            text-transform: uppercase;
+            vertical-align: middle;
+            background-color: #efefef;
+        }
+    /* Tabeller i WYSIWYG-läge :: tbody --------------------------------------------------- */
+    table > tfoot > tr > td {
+        padding: 11px 0 !important;
+        font-family: "freight-sans-pro", sans-serif, "Helvetica Neue", Helvetica, Arial;
+        font-style: normal;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 16px;
+        vertical-align: middle;
+    }
+
+
