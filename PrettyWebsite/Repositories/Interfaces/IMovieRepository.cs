@@ -1,5 +1,4 @@
 ﻿using PrettyWebsite.Models;
-using PrettyWebsite.Views;
 using System.Threading.Tasks;
 
 namespace PrettyWebsite.Repositories.Interfaces

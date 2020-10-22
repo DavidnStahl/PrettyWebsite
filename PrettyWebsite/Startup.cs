@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
+using PrettyWebsite.Business;
 
 [assembly: OwinStartup(typeof(PrettyWebsite.Startup))]
 namespace PrettyWebsite

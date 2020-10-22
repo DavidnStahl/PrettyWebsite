@@ -1,7 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using PrettyWebsite.Models;
 using PrettyWebsite.Repositories.Interfaces;
-using PrettyWebsite.Views;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,7 +10,7 @@ namespace PrettyWebsite.Repositories
     {
         private readonly string apiKey = "67ad42ac";
 
-       
+
         public async Task<MovieSearch> SearchByTitle(string query)
         {
             var url = $"http://www.omdbapi.com/?s={query}&apikey={apiKey}";

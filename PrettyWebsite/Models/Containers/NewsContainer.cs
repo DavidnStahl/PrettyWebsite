@@ -1,5 +1,6 @@
 ﻿using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using PrettyWebsite.Business.UIDescriptors.FolderIcons;
 using PrettyWebsite.Business.UIDescriptors.SettingIcons;
 using PrettyWebsite.Models.Interfaces;
 using PrettyWebsite.Models.Pages;

@@ -1,7 +1,7 @@
-﻿using PrettyWebsite.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PrettyWebsite.Models;
 
-namespace PrettyWebsite.Services
+namespace PrettyWebsite.Services.Interface
 {
     public interface IRssFeedService
     {

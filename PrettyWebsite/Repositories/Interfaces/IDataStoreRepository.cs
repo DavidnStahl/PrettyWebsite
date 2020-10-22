@@ -1,4 +1,5 @@
-﻿using EPiServer.Data;
+﻿using System;
+using EPiServer.Data;
 using PrettyWebsite.DataStore;
 using System.Collections.Generic;
 
@@ -8,12 +9,15 @@ namespace PrettyWebsite.Repositories.Interfaces
     {
         void Save(Review data);
 
-        List<Review> Get(string id);
+        List<Review> GetFromMovieId(string id);
+
+        List<Review> GetAll();
 
         void Delete(string id);
+        void Delete(Guid externalId);
 
         void SaveRating(Identity id, int rating);
 
-        void DeleteBadReview();
+        int DeleteBadReview();
     }
 }

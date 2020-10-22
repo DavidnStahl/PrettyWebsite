@@ -1,5 +1,12 @@
-﻿using EPiServer;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using EPiServer;
+using EPiServer.Core;
 using EPiServer.Web;
+using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
@@ -7,13 +14,8 @@ using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using PrettyWebsite.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
-namespace PrettyWebsite.Controllers.Pages
+namespace PrettyWebsite.Controllers
 {
 
     public class MovieController : Controller
@@ -33,13 +35,14 @@ namespace PrettyWebsite.Controllers.Pages
         }
 
         [HttpGet]
+        [ContentOutputCache(Duration = 3600, VaryByParam = "id")]
         public async Task<ActionResult> Index(string id)
         {
             Session["movieId"] = id;
-            var reviewList = _dataStoreRepository.Get(id);
+            var reviewList = _dataStoreRepository.GetFromMovieId(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
-            var startPage = SiteDefinition.Current.StartPage.ProviderName is null ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
+            var startPage = SiteDefinition.Current.StartPage == ContentReference.EmptyReference ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
 
             var model = new MovieViewModel(startPage)
             {
@@ -57,8 +60,6 @@ namespace PrettyWebsite.Controllers.Pages
                 });
             }
 
-            var x = Session["User"];
-
             var user = Session["User"] is User sessionUser
                 ? sessionUser
                 : new User
@@ -66,6 +67,7 @@ namespace PrettyWebsite.Controllers.Pages
                     MovieList = new List<string>(),
                     ReviewRatedList = new List<string>()
                 };
+
             Session["User"] = user;
 
             model.MovieList = user.MovieList;
@@ -78,6 +80,7 @@ namespace PrettyWebsite.Controllers.Pages
         public virtual ActionResult Submit(ReviewFormModel formModel)
         {
             Session["movieId"] = formModel.Id;
+
             if (ModelState.IsValid)
             {
                 var reviewData = new Review
@@ -99,7 +102,6 @@ namespace PrettyWebsite.Controllers.Pages
 
         public void AddToSession(string id)
         {
-
             var user = Session["User"] as User;
             user?.MovieList.Add(id);
         }

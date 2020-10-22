@@ -1,7 +1,6 @@
-﻿using PrettyWebsite.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace PrettyWebsite.Views
+namespace PrettyWebsite.Models
 {
     public class MovieSearch
     {

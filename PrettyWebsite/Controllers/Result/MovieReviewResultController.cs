@@ -26,7 +26,7 @@ namespace PrettyWebsite.Controllers.Result
 
             var model = new MovieReviewResultViewModel
             {
-                ReviewDataList = _dataStoreRepository.Get(Session["movieId"].ToString()),
+                ReviewDataList = _dataStoreRepository.GetFromMovieId(Session["movieId"].ToString()),
                 ReviewRatedList = user.ReviewRatedList
             };
 
@@ -41,6 +41,7 @@ namespace PrettyWebsite.Controllers.Result
             _dataStoreRepository.SaveRating(identity, rating);
 
             var user = Session["User"] as User;
+
             user?.ReviewRatedList.Add(id);
 
             return RedirectToAction(nameof(Index));

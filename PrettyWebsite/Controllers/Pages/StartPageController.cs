@@ -3,6 +3,7 @@ using EPiServer;
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels.Pages;
 using System.Web.Mvc;
+using PrettyWebsite.Controllers.Base;
 
 namespace PrettyWebsite.Controllers.Pages
 {
@@ -15,7 +16,7 @@ namespace PrettyWebsite.Controllers.Pages
             _contentRepository = contentRepository;
         }
 
-        [OutputCache(Duration = 7200)]
+        [OutputCache(Duration = 10)]
         public ActionResult Index(StartPage currentPage)
         {
             var model = new StartPageViewModel(currentPage);

@@ -1,13 +1,13 @@
-﻿using EPiServer.Find;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using EPiServer.Find;
 using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using PrettyWebsite.Models.Forms;
 using PrettyWebsite.Models.ViewModels.Result;
 using PrettyWebsite.Repositories.Interfaces;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
-namespace PrettyWebsite.Controllers.Form
+namespace PrettyWebsite.Controllers.Result
 {
     public class SearchResultController : Controller
     {
@@ -31,6 +31,7 @@ namespace PrettyWebsite.Controllers.Form
 
                 return PartialView("_MovieSearchResult", model);
             }
+
             var hitSpec = new HitSpecification
             {
                 ExcerptLength = 255

@@ -8,8 +8,8 @@
 {
     foreach (var item in Model.Result)
     {
-        <option class="SearchTextOption" value="@item.Title" data-href="@item.Url">
-            <p class="text-warning">@Html.Raw(item.Excerpt)</p>
-        </option>
+<option class="SearchTextOption text-warning" value="@item.Title" data-href="@item.Url">
+    @Html.Raw(item.Title)
+</option>
     }
 }

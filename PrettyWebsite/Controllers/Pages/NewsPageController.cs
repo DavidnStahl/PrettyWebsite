@@ -2,6 +2,7 @@
 using PrettyWebsite.Models.Pages;
 using PrettyWebsite.Models.ViewModels;
 using System.Web.Mvc;
+using PrettyWebsite.Controllers.Base;
 
 namespace PrettyWebsite.Controllers.Pages
 {
