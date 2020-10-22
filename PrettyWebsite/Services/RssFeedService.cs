@@ -4,34 +4,41 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using PrettyWebsite.Services.Interface;
+using EPiServer.Logging.Compatibility;
+using System;
 
 namespace PrettyWebsite.Services
 {
     public class RssFeedService : IRssFeedService
     {
+        private readonly ILog _log = LogManager.GetLogger(typeof(RssFeedService));
+
         public List<RssFeed> Get()
         {
-            var rssFeedUrl = "https://www.metacritic.com/rss/movies";
-            var reader = XmlReader.Create(rssFeedUrl);
-            var feed = SyndicationFeed.Load(reader);
-
-            List<RssFeed> rssFeedList = new List<RssFeed>();
-
-            foreach (var item in feed.Items)
+            try
             {
-                RssFeed rssFeed = new RssFeed
+                var rssFeedUrl = "https://www.metacritic.com/rss/movies";
+                var reader = XmlReader.Create(rssFeedUrl);
+                var feed = SyndicationFeed.Load(reader);
+
+                var rssFeedList = feed.Items.Select(item => new RssFeed
                 {
                     Title = item.Title.Text,
                     Body = item.Summary.Text,
                     Url = item.Links[0].Uri.OriginalString,
                     PublicationDate = item.PublishDate,
                     Category = item.Categories[0].Name
-                };
+                })
+                .ToList();
 
-                rssFeedList.Add(rssFeed);
+                return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();
             }
+            catch (Exception e)
+            {
+                _log.Error(e.Message, e);
 
-            return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();
+                return Enumerable.Empty<RssFeed>().ToList();
+            }
         }
     }
 }

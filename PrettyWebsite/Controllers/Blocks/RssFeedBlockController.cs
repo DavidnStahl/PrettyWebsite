@@ -7,7 +7,6 @@ using PrettyWebsite.Services.Interface;
 
 namespace PrettyWebsite.Controllers.Blocks
 {
-
     public class RssFeedBlockController : BlockController<RssFeedBlock>
     {
         private readonly IRssFeedService _rssFeedService;
@@ -17,6 +16,7 @@ namespace PrettyWebsite.Controllers.Blocks
             _rssFeedService = rssFeedService;
         }
 
+        [OutputCache(Duration = 3600)]
         public override ActionResult Index(RssFeedBlock currentBlock)
         {
             var model = new RssFeedBlockViewModel(currentBlock)

@@ -37,6 +37,7 @@ namespace PrettyWebsite.Controllers
         public async Task<ActionResult> Index(string id)
         {
             Session["movieId"] = id;
+
             var reviewList = _dataStoreRepository.Get(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
@@ -58,8 +59,6 @@ namespace PrettyWebsite.Controllers
                 });
             }
 
-            var x = Session["User"];
-
             var user = Session["User"] is User sessionUser
                 ? sessionUser
                 : new User
@@ -67,6 +66,7 @@ namespace PrettyWebsite.Controllers
                     MovieList = new List<string>(),
                     ReviewRatedList = new List<string>()
                 };
+
             Session["User"] = user;
 
             model.MovieList = user.MovieList;
@@ -79,6 +79,7 @@ namespace PrettyWebsite.Controllers
         public virtual ActionResult Submit(ReviewFormModel formModel)
         {
             Session["movieId"] = formModel.Id;
+
             if (ModelState.IsValid)
             {
                 var reviewData = new Review
@@ -100,7 +101,6 @@ namespace PrettyWebsite.Controllers
 
         public void AddToSession(string id)
         {
-
             var user = Session["User"] as User;
             user?.MovieList.Add(id);
         }

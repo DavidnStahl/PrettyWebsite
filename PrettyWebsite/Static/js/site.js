@@ -11,6 +11,7 @@
         $('#searchTextOptions').find('.SearchTextOption').each(function(index) {
             if (this.value == inputValue) {
                 changeWindow = true;
+                console.log(this.dataset.href)
                 window.location.href = this.dataset.href;
             }
         });

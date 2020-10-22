@@ -36,7 +36,7 @@ namespace PrettyWebsite.ScheduledJobs
             OnStatusChanged(String.Format("Starting execution of {0}", this.GetType()));
 
             //Add implementation
-            _dataStoreRepository.DeleteBadReview();
+            var count = _dataStoreRepository.DeleteBadReview();
 
             //For long running jobs periodically check if stop is signaled and if so stop execution
             if (_stopSignaled)
@@ -44,7 +44,7 @@ namespace PrettyWebsite.ScheduledJobs
                 return "Stop of job was called";
             }
 
-            return "Change to message that describes outcome of execution";
+            return $"{count} review(s) was deleted";
         }
     }
 }

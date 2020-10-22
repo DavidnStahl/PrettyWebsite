@@ -10,6 +10,7 @@ namespace PrettyWebsite.Repositories
     public class DataStoreRepository : IDataStoreRepository
     {
         private readonly DynamicDataStore _store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Review));
+
         public void Save(Review data)
         {
             _store.Save(data);
@@ -31,6 +32,7 @@ namespace PrettyWebsite.Repositories
             var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)
                                                   .OrderByDescending(data => data.ReviewRating)
                                                   .ToList();
+
             return reviewData;
         }
 
@@ -43,10 +45,9 @@ namespace PrettyWebsite.Repositories
             {
                 _store.Delete(item.Id);
             }
-
         }
 
-        public void DeleteBadReview()
+        public int DeleteBadReview()
         {
             var reviewData = _store.Items<Review>().Where(data => data.ReviewRating < -5)
                                                   .ToList();
@@ -56,6 +57,7 @@ namespace PrettyWebsite.Repositories
                 _store.Delete(item.Id);
             }
 
+            return reviewData.Count;
         }
     }
 }
