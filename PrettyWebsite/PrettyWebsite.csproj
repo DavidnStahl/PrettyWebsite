@@ -358,6 +358,7 @@
     <Compile Include="Business\Extensions\UrlExtensions.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
+    <Compile Include="Business\Initializers\CategoryInitialization.cs" />
     <Compile Include="Business\Initializers\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\EventsInitialization.cs" />

@@ -1,7 +1,14 @@
-﻿@model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
+﻿@using EPiServer.ServiceLocation
+@using EPiServer.DataAbstraction
 
-@Html.PropertyFor(m => m.CurrentPage.CarouselArea,  new { CssClass = "row" })
 
+@model PrettyWebsite.Models.ViewModels.Pages.StartPageViewModel
+
+@Html.PropertyFor(m => m.CurrentPage.CarouselArea, new { CssClass = "row" })
+@foreach (int category in Model.CurrentPage.Category)
+{
+    var name = ServiceLocator.Current.GetInstance<CategoryRepository>().Get(category).Name;
+}
 @Html.PropertyFor(m => m.CurrentPage.RssFeedArea, new { CssClass = "row" })
 
 
