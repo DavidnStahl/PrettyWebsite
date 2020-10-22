@@ -26,7 +26,7 @@ namespace PrettyWebsite.Controllers.Result
 
             var model = new MovieReviewResultViewModel
             {
-                ReviewDataList = _dataStoreRepository.Get(Session["movieId"].ToString()),
+                ReviewDataList = _dataStoreRepository.GetFromMovieId(Session["movieId"].ToString()),
                 ReviewRatedList = user.ReviewRatedList
             };
 

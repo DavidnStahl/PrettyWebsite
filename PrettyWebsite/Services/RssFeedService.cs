@@ -1,11 +1,12 @@
-﻿using PrettyWebsite.Models;
+﻿using System;
+using PrettyWebsite.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Xml;
-using PrettyWebsite.Services.Interface;
 using EPiServer.Logging.Compatibility;
-using System;
+using PrettyWebsite.Services.Interface;
+using StructureMap.Building;
 
 namespace PrettyWebsite.Services
 {
@@ -22,21 +23,20 @@ namespace PrettyWebsite.Services
                 var feed = SyndicationFeed.Load(reader);
 
                 var rssFeedList = feed.Items.Select(item => new RssFeed
-                {
-                    Title = item.Title.Text,
-                    Body = item.Summary.Text,
-                    Url = item.Links[0].Uri.OriginalString,
-                    PublicationDate = item.PublishDate,
-                    Category = item.Categories[0].Name
-                })
-                .ToList();
+                    {
+                        Title = item.Title.Text,
+                        Body = item.Summary.Text,
+                        Url = item.Links[0].Uri.OriginalString,
+                        PublicationDate = item.PublishDate,
+                        Category = item.Categories[0].Name
+                    })
+                    .ToList();
 
                 return rssFeedList.OrderByDescending(x => x.PublicationDate).Take(5).ToList();
             }
             catch (Exception e)
             {
-                _log.Error(e.Message, e);
-
+                _log.Error(e.Message,e);
                 return Enumerable.Empty<RssFeed>().ToList();
             }
         }

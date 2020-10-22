@@ -44,7 +44,7 @@ namespace PrettyWebsite.ScheduledJobs
                 return "Stop of job was called";
             }
 
-            return $"{count} review(s) was deleted";
+            return $"{count} reviews was deleted";
         }
     }
 }
