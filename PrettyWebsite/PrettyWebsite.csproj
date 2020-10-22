@@ -358,6 +358,7 @@
     <Compile Include="Business\Extensions\UrlExtensions.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\BundleConfig.cs" />
+    <Compile Include="Business\Initializers\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\EventsInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
@@ -365,6 +366,7 @@
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
+    <Compile Include="Business\RazorEngines\PluginRazorViewEngine.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
@@ -394,6 +396,7 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Helpers\RenderContentHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Models\Blocks\FooterBlock.cs" />
     <Compile Include="Models\Blocks\HeaderBlock.cs" />
     <Compile Include="Models\Blocks\ImageBlock.cs" />
@@ -437,6 +440,8 @@
     <Compile Include="Models\ViewModels\Pages\MovieResultPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Pages\StartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Business\Plugins\HandleReview\Controllers\HandleReviewController.cs" />
+    <Compile Include="Business\Plugins\HandleReview\Models\ViewModel\HandleReviewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DataStoreRepository.cs" />
     <Compile Include="Repositories\Interfaces\IDataStoreRepository.cs" />
@@ -460,6 +465,7 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
+    <Content Include="Business\Plugins\HandleReview\Static\js\HandleReview.js" />
     <Content Include="Resources\LanguageFiles\Views.xml" />
     <Content Include="Static\css\Bootstrap\bootstrap-grid.css" />
     <Content Include="Static\css\Bootstrap\bootstrap-reboot.css" />
@@ -475,6 +481,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+    <Content Include="Business\Plugins\HandleReview\Views\Index.cshtml" />
     <None Include="EPiServerLog.config" />
     <Content Include="nuget.config" />
     <Content Include="modules\_protected\Shell\web.config" />
@@ -507,6 +514,7 @@
     <Content Include="Views\ImageCarouselBlock\Index.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Shared\_MovieReview.cshtml" />
+    <Content Include="Business\Plugins\Shared\Layouts\_Admin.cshtml" />
     <None Include="Properties\PublishProfiles\epiprettywebsite - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\epiprettywebsite - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\epiprettywebsite - Web Deploy.pubxml" />

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Web;
+using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Models;
@@ -34,10 +35,11 @@ namespace PrettyWebsite.Controllers
         }
 
         [HttpGet]
+        [ContentOutputCache(Duration = 3600, VaryByParam = "id")]
         public async Task<ActionResult> Index(string id)
         {
             Session["movieId"] = id;
-            var reviewList = _dataStoreRepository.Get(id);
+            var reviewList = _dataStoreRepository.GetFromMovieId(id);
             var movie = await _movieRepository.GetMovie(id).ConfigureAwait(false);
 
             var startPage = SiteDefinition.Current.StartPage == ContentReference.EmptyReference ? null : _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
@@ -57,8 +59,6 @@ namespace PrettyWebsite.Controllers
                     Value = Math.Round(reviewList.Select(data => data.Rating).Average(), 1) + "/5.0"
                 });
             }
-
-            var x = Session["User"];
 
             var user = Session["User"] is User sessionUser
                 ? sessionUser

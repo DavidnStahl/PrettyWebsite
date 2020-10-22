@@ -26,8 +26,7 @@ namespace PrettyWebsite.Business.EditorDescriptors.ContentSelection
                 return Enumerable.Empty<SelectItem>();
             }
 
-            var startPage = _contentLoader
-                .Get<StartPage>(SiteDefinition.Current.StartPage);
+            var startPage = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage);
 
             var selectItems = _contentModelUsage
                     .ListContentOfContentType(contentType)

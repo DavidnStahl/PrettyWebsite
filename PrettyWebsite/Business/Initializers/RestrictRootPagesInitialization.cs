@@ -18,7 +18,6 @@ namespace PrettyWebsite.Business.Initializers
 
             var setting = new AvailableSetting { Availability = Availability.Specific };
             setting.AllowedContentTypeNames.Add(contentTypeRepository.Load<StartPage>().Name);
-            //setting.AllowedContentTypeNames.Add(contentTypeRepository.Load<ContainerPage>().Name);
 
             var availableSettingsRepository = context.Locate.Advanced.GetInstance<IAvailableSettingsRepository>();
             availableSettingsRepository.RegisterSetting(sysRoot, setting);

@@ -1,4 +1,5 @@
-﻿using EPiServer.Data;
+﻿using System;
+using EPiServer.Data;
 using EPiServer.Data.Dynamic;
 using PrettyWebsite.DataStore;
 using PrettyWebsite.Repositories.Interfaces;
@@ -26,11 +27,17 @@ namespace PrettyWebsite.Repositories
             _store.Save(reviewData);
         }
 
-        public List<Review> Get(string id)
+        public List<Review> GetFromMovieId(string id)
         {
             var reviewData = _store.Items<Review>().Where(data => data.MovieId == id)
                                                   .OrderByDescending(data => data.ReviewRating)
                                                   .ToList();
+            return reviewData;
+        }
+
+        public List<Review> GetAll()
+        {
+            var reviewData = _store.Items<Review>().ToList();
             return reviewData;
         }
 
@@ -46,7 +53,13 @@ namespace PrettyWebsite.Repositories
 
         }
 
-        public void DeleteBadReview()
+        public void Delete(Guid externalId)
+        {
+            var identity = _store.Items<Review>().FirstOrDefault(r => r.Id.ExternalId == externalId);
+            _store.Delete(identity);
+        }
+
+        public int DeleteBadReview()
         {
             var reviewData = _store.Items<Review>().Where(data => data.ReviewRating < -5)
                                                   .ToList();
@@ -56,6 +69,7 @@ namespace PrettyWebsite.Repositories
                 _store.Delete(item.Id);
             }
 
+            return reviewData.Count;
         }
     }
 }
