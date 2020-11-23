@@ -368,6 +368,8 @@
     <Compile Include="Business\Initializers\TinyMceConfigurationModule.cs" />
     <Compile Include="Business\MetaDataExtenders\SiteMetadataExtender.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterion.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterionSettings.cs" />
     <Compile Include="Business\RazorEngines\PluginRazorViewEngine.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\FolderIcons\FolderIconDescriptor.cs" />

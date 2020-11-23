@@ -8,6 +8,7 @@
 @foreach (int category in Model.CurrentPage.Category)
 {
     var name = ServiceLocator.Current.GetInstance<CategoryRepository>().Get(category).Name;
+<h2>@name</h2>
 }
 @Html.PropertyFor(m => m.CurrentPage.RssFeedArea, new { CssClass = "row" })
 
